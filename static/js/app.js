@@ -359,6 +359,25 @@ class CourseScheduler {
             alert('Hint: This is the most prestigious award given by the department');
         });
 
+        // AI Analysis
+        document.getElementById('aiRecommend').addEventListener('click', () => {
+            this.openAiModal();
+        });
+
+        document.getElementById('closeAiModal').addEventListener('click', () => {
+            this.closeAiModal();
+        });
+
+        document.getElementById('aiModal').addEventListener('click', (e) => {
+            if (e.target.id === 'aiModal') {
+                this.closeAiModal();
+            }
+        });
+
+        document.getElementById('runAiAnalysis').addEventListener('click', () => {
+            this.runAiAnalysis();
+        });
+
         // Undo and History
         document.getElementById('undoBtn').addEventListener('click', () => {
             this.undo();
@@ -584,7 +603,8 @@ class CourseScheduler {
         );
         const isScheduled = scheduledSections.length > 0;
         const scheduledCount = scheduledSections.filter(s => s.slotId).length;
-        const unscheduledCount = scheduledSections.filter(s => !s.slotId).length;
+        const unscheduledSections = scheduledSections.filter(s => !s.slotId);
+        const unscheduledCount = unscheduledSections.length;
 
         let badges = '';
         let isMissing = false;
@@ -628,8 +648,33 @@ class CourseScheduler {
             <span class="course-badges">${badges}</span>
         `;
 
+        // Make draggable if there are unscheduled sections
+        if (unscheduledCount > 0) {
+            item.draggable = true;
+            item.classList.add('draggable');
+            item.title = `Drag to schedule ${course.code} ${course.number}`;
+
+            // Store the first unscheduled section ID for dragging
+            const firstUnscheduled = unscheduledSections[0];
+            item.dataset.unscheduledId = firstUnscheduled.id;
+
+            item.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', firstUnscheduled.id);
+                item.classList.add('dragging');
+            });
+
+            item.addEventListener('dragend', () => {
+                item.classList.remove('dragging');
+            });
+        }
+
         // Click to show course history
-        item.addEventListener('click', () => this.openCourseHistoryModal(course));
+        item.addEventListener('click', (e) => {
+            // Don't open modal if we just finished dragging
+            if (!item.classList.contains('dragging')) {
+                this.openCourseHistoryModal(course);
+            }
+        });
 
         return item;
     }
@@ -645,6 +690,30 @@ class CourseScheduler {
             return true;
         }
 
+        // IMPORTANT: Check alternate years BEFORE checking fall/spring only
+        // This handles "Fall Semester (Odd Years)" and similar correctly
+        if (offered.includes('odd years') || offered.includes('even years')) {
+            const isEvenYear = true; // 2026 is even
+            if (offered.includes('even years')) {
+                // Even year course - check if it's the right semester too
+                if (offered.includes('fall')) {
+                    return isEvenYear && isFallTerm;
+                } else if (offered.includes('spring')) {
+                    return isEvenYear && !isFallTerm;
+                }
+                return isEvenYear;
+            }
+            if (offered.includes('odd years')) {
+                // Odd year course - should NOT be offered in 2026 (even year)
+                if (offered.includes('fall')) {
+                    return !isEvenYear && isFallTerm;
+                } else if (offered.includes('spring')) {
+                    return !isEvenYear && !isFallTerm;
+                }
+                return !isEvenYear;
+            }
+        }
+
         // Fall only - should be offered in fall
         if (offered.includes('fall') && !offered.includes('spring')) {
             return isFallTerm;
@@ -653,18 +722,6 @@ class CourseScheduler {
         // Spring only - should be offered in spring
         if (offered.includes('spring') && !offered.includes('fall')) {
             return !isFallTerm;
-        }
-
-        // Alternate years - check if this is the right year
-        // For now, assume Fall 2026 is an "even" year offering
-        if (offered.includes('odd') || offered.includes('even')) {
-            const isEvenYear = true; // 2026 is even
-            if (offered.includes('even years')) {
-                return isEvenYear;
-            }
-            if (offered.includes('odd years')) {
-                return !isEvenYear;
-            }
         }
 
         return false;
@@ -1485,6 +1542,62 @@ class CourseScheduler {
 
     closeRestoreModal() {
         document.getElementById('restoreModal').classList.remove('show');
+    }
+
+    // AI Analysis modal functions
+    openAiModal() {
+        document.getElementById('aiModal').classList.add('show');
+        document.getElementById('aiLoading').style.display = 'none';
+        document.getElementById('aiContent').style.display = 'block';
+        document.getElementById('aiResults').style.display = 'none';
+    }
+
+    closeAiModal() {
+        document.getElementById('aiModal').classList.remove('show');
+    }
+
+    async runAiAnalysis() {
+        const loadingEl = document.getElementById('aiLoading');
+        const contentEl = document.getElementById('aiContent');
+        const resultsEl = document.getElementById('aiResults');
+
+        loadingEl.style.display = 'block';
+        contentEl.style.display = 'none';
+        resultsEl.style.display = 'none';
+
+        try {
+            const response = await fetch('/api/ai-recommendations', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ term: this.currentTerm })
+            });
+
+            const data = await response.json();
+
+            loadingEl.style.display = 'none';
+
+            if (data.success) {
+                // Convert markdown-style formatting to HTML
+                let html = data.recommendations
+                    .replace(/### (.*)/g, '<h3>$1</h3>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/`(.*?)`/g, '<code>$1</code>')
+                    .replace(/^\- (.*)/gm, '<li>$1</li>')
+                    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/\n/g, '<br>');
+
+                resultsEl.innerHTML = html;
+                resultsEl.style.display = 'block';
+            } else {
+                resultsEl.innerHTML = `<p style="color: #dc3545;">Error: ${data.error}</p>`;
+                resultsEl.style.display = 'block';
+            }
+        } catch (error) {
+            loadingEl.style.display = 'none';
+            resultsEl.innerHTML = `<p style="color: #dc3545;">Error: ${error.message}</p>`;
+            resultsEl.style.display = 'block';
+        }
     }
 
     async submitRestore() {

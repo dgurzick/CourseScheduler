@@ -36,6 +36,7 @@
                     <button id="exportJson" class="btn btn-export">Export JSON</button>
                     <button id="exportExcel" class="btn btn-export">Export Excel</button>
                     <button id="backupAll" class="btn btn-export">Backup All</button>
+                    <button id="aiRecommend" class="btn btn-export btn-ai">AI Analyze</button>
                     <button id="restoreData" class="btn btn-export btn-warning">Reset</button>
                 </div>
                 <div class="connection-status" id="connectionStatus">
@@ -262,6 +263,25 @@
         </div>
         <div class="history-panel-content" id="historyContent">
             <p class="no-history">No actions recorded yet</p>
+        </div>
+    </div>
+
+    <!-- AI Recommendations Modal -->
+    <div class="modal" id="aiModal">
+        <div class="modal-content modal-large">
+            <span class="close-modal" id="closeAiModal">&times;</span>
+            <h3>AI Schedule Analysis</h3>
+            <div class="modal-body">
+                <div id="aiLoading" class="ai-loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Analyzing schedule with AI... This may take a moment.</p>
+                </div>
+                <div id="aiContent" class="ai-content">
+                    <p class="ai-intro">Click "Analyze Schedule" to get AI-powered recommendations for improving your course schedule.</p>
+                    <button id="runAiAnalysis" class="btn btn-primary btn-ai-run">Analyze Schedule</button>
+                </div>
+                <div id="aiResults" class="ai-results" style="display: none;"></div>
+            </div>
         </div>
     </div>
 

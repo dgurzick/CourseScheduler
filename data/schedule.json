@@ -306,11 +306,11 @@
       "section": "2",
       "name": "Principles of Financial Accounting",
       "days": "MW",
-      "startTime": "1:05 PM",
-      "endTime": "2:30 PM",
-      "instructor": "Faculty",
+      "startTime": "11:30 AM",
+      "endTime": "12:55 PM",
+      "instructor": "Dodd",
       "room": "",
-      "slotId": "MW-D"
+      "slotId": "MW-C"
     },
     {
       "id": "MGMT-306-1",
@@ -358,11 +358,11 @@
       "section": "2",
       "name": "Prin of Mgmt & Intro to Organizations",
       "days": "TR",
-      "startTime": "11:25 AM",
-      "endTime": "12:50 PM",
-      "instructor": "Faculty",
+      "startTime": "3:35 PM",
+      "endTime": "5:00 PM",
+      "instructor": "Witmer",
       "room": "",
-      "slotId": "TR-I"
+      "slotId": "TR-K"
     },
     {
       "id": "MGMT-301-1",
@@ -422,12 +422,12 @@
       "number": "411",
       "section": "1",
       "name": "Seminar in Strategic Management",
-      "days": "M-EVE",
-      "startTime": "6:15 PM",
-      "endTime": "9:00 PM",
+      "days": "TR",
+      "startTime": "9:50 AM",
+      "endTime": "11:15 AM",
       "instructor": "Jose",
       "room": "",
-      "slotId": "M-EVE"
+      "slotId": "TR-H"
     },
     {
       "id": "MGMT-570-1",
@@ -487,12 +487,12 @@
       "number": "454",
       "section": "1",
       "name": "Legal Environment of Business",
-      "days": "T-EVE",
+      "days": "W",
       "startTime": "6:15 PM",
       "endTime": "9:00 PM",
       "instructor": "Hartlaub",
       "room": "",
-      "slotId": "T-EVE"
+      "slotId": "W-EVE"
     },
     {
       "id": "MGMT-406-1",
@@ -500,12 +500,12 @@
       "number": "406",
       "section": "1",
       "name": "Consumer Behavior and Analysis",
-      "days": "T-EVE",
-      "startTime": "6:15 PM",
-      "endTime": "9:00 PM",
-      "instructor": "",
+      "days": "MW",
+      "startTime": "11:30 AM",
+      "endTime": "12:55 PM",
+      "instructor": "Dupont",
       "room": "",
-      "slotId": "T-EVE"
+      "slotId": "MW-C"
     },
     {
       "id": "MGMT-552-1",
@@ -578,12 +578,12 @@
       "number": "423",
       "section": "1",
       "name": "Marketing Research Methods",
-      "days": "W-EVE",
-      "startTime": "6:15 PM",
-      "endTime": "9:00 PM",
-      "instructor": "",
+      "days": "TR",
+      "startTime": "2:00 PM",
+      "endTime": "3:25 PM",
+      "instructor": "Dupont",
       "room": "",
-      "slotId": "W-EVE"
+      "slotId": "TR-J"
     },
     {
       "id": "LEAD-628-1",

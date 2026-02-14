@@ -4,6 +4,7 @@ from datetime import datetime
 from io import BytesIO
 import zipfile
 import tempfile
+import requests
 
 from flask import Flask, render_template, jsonify, request, send_file
 from werkzeug.utils import secure_filename
@@ -527,6 +528,186 @@ def restore_data():
         return jsonify({'success': False, 'error': 'Invalid JSON in zip file'}), 400
     except zipfile.BadZipFile:
         return jsonify({'success': False, 'error': 'Invalid zip file'}), 400
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/api/ai-recommendations', methods=['POST'])
+def get_ai_recommendations():
+    """Get AI-powered schedule recommendations using OpenAI."""
+    openai_key = os.environ.get('OPENAI_API_KEY')
+    if not openai_key:
+        return jsonify({'success': False, 'error': 'OpenAI API key not configured'}), 500
+
+    data = request.json or {}
+    term = data.get('term', DEFAULT_TERM)
+    schedule = load_schedule(term)
+    course_history = load_course_history()
+
+    # Build faculty schedule summary
+    faculty_schedules = {}
+    for course in schedule['courses']:
+        instructor = course.get('instructor', '')
+        if instructor and instructor not in ['', 'Faculty', 'TBA']:
+            if instructor not in faculty_schedules:
+                faculty_schedules[instructor] = []
+            faculty_schedules[instructor].append({
+                'course': f"{course['code']} {course['number']}-{course['section']}",
+                'name': course.get('name', ''),
+                'slot': course.get('slotId', 'Unscheduled'),
+                'days': course.get('days', ''),
+                'time': f"{course.get('startTime', '')} - {course.get('endTime', '')}"
+            })
+
+    # Build slot occupancy summary
+    slot_occupancy = {}
+    for course in schedule['courses']:
+        slot = course.get('slotId')
+        if slot:
+            if slot not in slot_occupancy:
+                slot_occupancy[slot] = []
+            slot_occupancy[slot].append(f"{course['code']} {course['number']} ({course.get('instructor', 'TBA')})")
+
+    # Get prerequisite information from course history
+    prereq_info = {}
+    for course_key, course_data in course_history.items():
+        desc = course_data.get('description', '')
+        if 'prerequisite' in desc.lower() or 'prereq' in desc.lower():
+            prereq_info[course_key] = desc[:500]  # Limit length
+
+    term_label = "Fall 2026" if term == 'fall-2026' else "Spring 2027"
+
+    prompt = f"""You are an expert academic schedule advisor for the Delaplaine School of Business at Hood College. Analyze the following {term_label} course schedule and provide specific, actionable recommendations.
+
+## SCHEDULE DATA
+
+### All Scheduled Courses:
+{json.dumps([{
+    'id': c['id'],
+    'course': f"{c['code']} {c['number']}-{c['section']}",
+    'name': c.get('name', ''),
+    'instructor': c.get('instructor', 'TBA'),
+    'slot': c.get('slotId', 'Unscheduled'),
+    'room': c.get('room', '')
+} for c in schedule['courses']], indent=2)}
+
+### Faculty Teaching Loads:
+{json.dumps(faculty_schedules, indent=2)}
+
+### Time Slot Occupancy:
+{json.dumps(slot_occupancy, indent=2)}
+
+### Course Prerequisite Information (from catalog):
+{json.dumps(prereq_info, indent=2) if prereq_info else "No prerequisite data available"}
+
+## TIME SLOT REFERENCE:
+- MW-A: Mon/Wed 8:15-9:40 AM
+- MW-B: Mon/Wed 9:50-11:15 AM
+- MW-C: Mon/Wed 11:30 AM-12:55 PM
+- MW-D: Mon/Wed 1:05-2:30 PM
+- MW-E: Mon/Wed 2:40-4:05 PM
+- TR-G: Tue/Thu 8:15-9:40 AM
+- TR-H: Tue/Thu 9:50-11:15 AM
+- TR-I: Tue/Thu 11:25 AM-12:50 PM
+- TR-J: Tue/Thu 2:00-3:25 PM
+- TR-K: Tue/Thu 3:35-5:00 PM
+- M-EVE: Monday 6:15-9:00 PM
+- T-EVE: Tuesday 6:15-9:00 PM
+- W-EVE: Wednesday 6:15-9:00 PM
+- TR-EVE: Thursday 6:15-9:00 PM
+- SAT: Saturday
+- ASYNCH: Online Asynchronous
+
+## ANALYSIS CRITERIA:
+
+1. **Faculty Workload & Scheduling**:
+   - Look for faculty teaching back-to-back classes (no break between)
+   - Identify faculty with classes on both MW and TR in the same time period
+   - Flag any faculty with 4+ courses
+   - Note if faculty are teaching at inconvenient times (e.g., morning + evening same day)
+
+2. **Prerequisite Chains**:
+   - MGMT 205 (Principles of Management) is a prereq for many 300+ level MGMT courses
+   - MGMT 281 (Financial Accounting) is a prereq for MGMT 284 (Managerial Accounting)
+   - MGMT 284 is a prereq for MGMT 402 (Business Finance)
+   - ECON 205/206 are prereqs for upper-level ECON courses
+   - Courses in a prereq chain should NOT be scheduled at the same time
+
+3. **Student Schedule Patterns**:
+   - Core courses (MGMT 205, 281, 284, ECON 205, 206) should have multiple sections at different times
+   - Upper-level courses in the same major should not conflict
+   - Consider that students often take related courses together (e.g., MGMT 301 + MGMT 306)
+
+4. **Room & Slot Conflicts**:
+   - Identify any slots with too many courses (potential room shortage)
+   - Note empty or underutilized time slots
+
+5. **Evening/Weekend Courses**:
+   - Graduate courses (5xx, 6xx) typically meet evenings
+   - Ensure graduate courses don't conflict with each other
+
+## OUTPUT FORMAT:
+
+Provide your response in this exact structure:
+
+### CRITICAL ISSUES (Must Address)
+[List any serious conflicts or problems that need immediate attention]
+
+### FACULTY WORKLOAD CONCERNS
+[Analyze each faculty member's schedule for issues]
+
+### PREREQUISITE CONFLICTS
+[Identify courses scheduled at the same time where one is a prerequisite for the other]
+
+### STUDENT SCHEDULE RECOMMENDATIONS
+[Suggestions to improve student access to courses]
+
+### SLOT OPTIMIZATION
+[Recommendations for moving specific courses to better time slots]
+
+### SUMMARY
+[3-5 bullet points with the most important changes to make]
+
+Be specific - mention exact course IDs, faculty names, and time slots in your recommendations."""
+
+    try:
+        response = requests.post(
+            'https://api.openai.com/v1/chat/completions',
+            headers={
+                'Authorization': f'Bearer {openai_key}',
+                'Content-Type': 'application/json'
+            },
+            json={
+                'model': 'gpt-4o',
+                'messages': [
+                    {'role': 'system', 'content': 'You are an expert academic schedule advisor. Provide clear, actionable recommendations.'},
+                    {'role': 'user', 'content': prompt}
+                ],
+                'temperature': 0.7,
+                'max_tokens': 4000
+            },
+            timeout=60
+        )
+
+        if response.status_code != 200:
+            error_data = response.json() if response.text else {}
+            return jsonify({
+                'success': False,
+                'error': f"OpenAI API error: {error_data.get('error', {}).get('message', response.text)}"
+            }), 500
+
+        result = response.json()
+        recommendations = result['choices'][0]['message']['content']
+
+        return jsonify({
+            'success': True,
+            'recommendations': recommendations,
+            'term': term,
+            'model': 'gpt-4o'
+        })
+
+    except requests.exceptions.Timeout:
+        return jsonify({'success': False, 'error': 'Request timed out'}), 504
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)}), 500
 
