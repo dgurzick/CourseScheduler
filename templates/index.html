@@ -70,6 +70,7 @@
                 <div class="guides-panel-content">
                     <p class="conflict-intro">Check if students can take all required courses together each year.</p>
                     <div class="conflict-results" id="conflictResults"></div>
+                    <a href="#" id="viewSequences" class="view-sequences-link">View Course Sequences</a>
                 </div>
             </aside>
             </div><!-- end left-panels -->
@@ -283,6 +284,30 @@
         </div>
         <div class="history-panel-content" id="historyContent">
             <p class="no-history">No actions recorded yet</p>
+        </div>
+    </div>
+
+    <!-- Course Sequences Modal -->
+    <div class="modal" id="sequencesModal">
+        <div class="modal-content modal-large">
+            <span class="close-modal" id="closeSequencesModal">&times;</span>
+            <h3>Course Sequences by Major</h3>
+            <div class="modal-body">
+                <div class="sequences-tabs" id="sequencesTabs">
+                    <button class="seq-tab active" data-program="business">Business Admin</button>
+                    <button class="seq-tab" data-program="accounting">Accounting</button>
+                    <button class="seq-tab" data-program="economics">Economics</button>
+                    <button class="seq-tab" data-program="finance">Finance</button>
+                </div>
+                <div class="sequences-content" id="sequencesContent">
+                    <!-- Content populated by JavaScript -->
+                </div>
+                <div class="sequences-legend">
+                    <span class="legend-item"><span class="legend-dot scheduled"></span> Scheduled</span>
+                    <span class="legend-item"><span class="legend-dot not-scheduled"></span> Not Scheduled</span>
+                    <span class="legend-item"><span class="legend-dot conflict"></span> Conflict</span>
+                </div>
+            </div>
         </div>
     </div>
 

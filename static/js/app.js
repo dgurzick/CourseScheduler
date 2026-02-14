@@ -12,6 +12,8 @@ class CourseScheduler {
         this.pendingSlotId = null; // For double-click to add course
         this.actionHistory = []; // Track all actions for undo
         this.historyPanelOpen = false;
+        this.courseGuides = {}; // Course sequence data
+        this.conflictData = null; // Cached conflict data
 
         // Slot ID to human-readable schedule mapping
         this.slotLabels = {
@@ -403,6 +405,187 @@ class CourseScheduler {
         document.getElementById('checkConflicts').addEventListener('click', () => {
             this.checkAllConflicts();
         });
+
+        // View Sequences link
+        document.getElementById('viewSequences').addEventListener('click', (e) => {
+            e.preventDefault();
+            this.openSequencesModal();
+        });
+
+        // Sequences modal tabs
+        document.querySelectorAll('.seq-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.seq-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                this.renderSequenceContent(tab.dataset.program);
+            });
+        });
+
+        // Close sequences modal
+        document.getElementById('closeSequencesModal').addEventListener('click', () => {
+            document.getElementById('sequencesModal').classList.remove('show');
+        });
+
+        document.getElementById('sequencesModal').addEventListener('click', (e) => {
+            if (e.target.id === 'sequencesModal') {
+                document.getElementById('sequencesModal').classList.remove('show');
+            }
+        });
+    }
+
+    // Open sequences modal
+    async openSequencesModal() {
+        // Load course guides if not already loaded
+        if (!this.courseGuides || Object.keys(this.courseGuides).length === 0) {
+            try {
+                const response = await fetch('/api/course-guides');
+                this.courseGuides = await response.json();
+            } catch (error) {
+                console.error('Failed to load course guides:', error);
+                this.showToast('Failed to load course sequences', 'error');
+                return;
+            }
+        }
+
+        // Get conflict data
+        await this.loadConflictData();
+
+        document.getElementById('sequencesModal').classList.add('show');
+        this.renderSequenceContent('business'); // Default to business
+    }
+
+    // Load conflict data for highlighting
+    async loadConflictData() {
+        try {
+            const response = await fetch('/api/check-conflicts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ term: this.currentTerm })
+            });
+            const data = await response.json();
+            if (data.success) {
+                this.conflictData = data;
+            }
+        } catch (error) {
+            console.error('Failed to load conflict data:', error);
+            this.conflictData = null;
+        }
+    }
+
+    // Render sequence content for a program
+    renderSequenceContent(program) {
+        const container = document.getElementById('sequencesContent');
+        const programData = this.courseGuides[program];
+
+        if (!programData) {
+            container.innerHTML = '<p>No data available for this program.</p>';
+            return;
+        }
+
+        const isFall = this.currentTerm === 'fall-2026';
+        const termLabel = isFall ? 'Fall 2026' : 'Spring 2027';
+
+        // Get all conflicting course pairs for quick lookup
+        const conflictPairs = new Set();
+        if (this.conflictData && this.conflictData.resultsByYear) {
+            Object.values(this.conflictData.resultsByYear).forEach(yearData => {
+                if (yearData.conflicts) {
+                    yearData.conflicts.forEach(c => {
+                        conflictPairs.add(`${c.courses[0]}|${c.courses[1]}`);
+                        conflictPairs.add(`${c.courses[1]}|${c.courses[0]}`);
+                    });
+                }
+            });
+        }
+
+        // Build HTML for each year
+        let html = `<div class="sequence-term-note">Showing status for <strong>${termLabel}</strong></div>`;
+
+        const years = ['Y1', 'Y2', 'Y3', 'Y4'];
+        years.forEach(year => {
+            const yearNum = year[1];
+            const fallKey = `${year}-Fall`;
+            const springKey = `${year}-Spring`;
+            const fallCourses = programData.semesters[fallKey] || [];
+            const springCourses = programData.semesters[springKey] || [];
+
+            if (fallCourses.length === 0 && springCourses.length === 0) return;
+
+            html += `
+                <div class="sequence-year-group">
+                    <div class="sequence-year-header">Year ${yearNum}</div>
+                    <div class="sequence-semester">
+                        <div class="semester-column">
+                            <div class="semester-header fall">Fall Semester</div>
+                            ${this.renderCoursesForSemester(fallCourses, isFall, conflictPairs)}
+                        </div>
+                        <div class="semester-column">
+                            <div class="semester-header spring">Spring Semester</div>
+                            ${this.renderCoursesForSemester(springCourses, !isFall, conflictPairs)}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+    }
+
+    // Render courses for a semester with status
+    renderCoursesForSemester(courses, isCurrentTerm, conflictPairs) {
+        if (courses.length === 0) {
+            return '<p class="no-courses">No DSB courses this semester</p>';
+        }
+
+        return courses.map(courseCode => {
+            const parts = courseCode.split(' ');
+            const code = parts[0];
+            const number = parts[1];
+
+            // Check schedule status
+            const sections = this.scheduleData.courses.filter(c =>
+                c.code === code && c.number === number
+            );
+            const scheduledSections = sections.filter(s => s.slotId);
+            const isScheduled = scheduledSections.length > 0;
+
+            // Check for conflicts with other courses in same semester
+            let hasConflict = false;
+            let conflictWith = [];
+            courses.forEach(otherCourse => {
+                if (otherCourse !== courseCode) {
+                    const key = `${courseCode}|${otherCourse}`;
+                    if (conflictPairs.has(key)) {
+                        hasConflict = true;
+                        conflictWith.push(otherCourse);
+                    }
+                }
+            });
+
+            let statusClass = 'not-scheduled';
+            let statusText = 'Not Scheduled';
+
+            if (isCurrentTerm) {
+                if (hasConflict) {
+                    statusClass = 'conflict';
+                    statusText = 'Conflict';
+                } else if (isScheduled) {
+                    statusClass = 'scheduled';
+                    statusText = `${scheduledSections.length} section${scheduledSections.length > 1 ? 's' : ''}`;
+                }
+            } else {
+                statusText = '—';
+                statusClass = '';
+            }
+
+            return `
+                <div class="sequence-course ${statusClass}">
+                    <span class="course-code">${courseCode}</span>
+                    <span class="course-status">${statusText}</span>
+                </div>
+                ${hasConflict && isCurrentTerm ? `<div class="conflict-note">Conflicts with ${conflictWith.join(', ')}</div>` : ''}
+            `;
+        }).join('');
     }
 
     // Check for scheduling conflicts across all programs by year level
@@ -750,6 +933,7 @@ class CourseScheduler {
             const dragData = unscheduledCount > 0
                 ? unscheduledSections[0].id
                 : `NEW:${course.code}:${course.number}:${course.name || ''}`;
+            console.log('Drag start:', dragData, 'course:', course);
             e.dataTransfer.setData('text/plain', dragData);
             item.classList.add('dragging');
         });
@@ -1115,6 +1299,14 @@ class CourseScheduler {
 
     // Add a new course section directly to a slot
     async addCourseToSlot(code, number, name, slotId) {
+        console.log('Adding course to slot:', { code, number, name, slotId });
+
+        if (!code || !number) {
+            this.showToast('Invalid course data', 'error');
+            console.error('Missing code or number:', { code, number });
+            return;
+        }
+
         try {
             const response = await fetch('/api/course/add', {
                 method: 'POST',
@@ -1140,7 +1332,9 @@ class CourseScheduler {
                 });
                 this.showToast(`${code} ${number} added to ${this.slotLabels[slotId]}`, 'success');
             } else {
-                this.showToast('Failed to add course', 'error');
+                const errorData = await response.text();
+                console.error('Server error:', response.status, errorData);
+                this.showToast(`Failed to add course: ${response.status}`, 'error');
             }
         } catch (error) {
             console.error('Failed to add course:', error);
