@@ -912,3 +912,240 @@ body {
     text-align: center;
     padding: 40px;
 }
+
+/* Term Selector */
+.term-select {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.term-select label {
+    font-size: 0.9rem;
+}
+
+.term-select select {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: #fff;
+    font-weight: 600;
+}
+
+/* Faculty Panel (Right Side) */
+.faculty-panel {
+    width: 280px;
+    min-width: 280px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 150px);
+}
+
+.faculty-panel-header {
+    background: linear-gradient(135deg, #1F4E78 0%, #2E75B6 100%);
+    color: white;
+    padding: 12px 15px;
+    border-radius: 8px 8px 0 0;
+}
+
+.faculty-panel-header h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.faculty-panel-content {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.no-faculty-selected {
+    color: #888;
+    font-style: italic;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.faculty-schedule-item {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-left: 4px solid #2E75B6;
+}
+
+.faculty-schedule-item.highlight-current {
+    border-left-color: #ffc107;
+    background: #fffef5;
+}
+
+.faculty-course-code {
+    font-weight: 600;
+    color: #1F4E78;
+    font-size: 0.9rem;
+}
+
+.faculty-course-name {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 2px;
+}
+
+.faculty-course-time {
+    font-size: 0.75rem;
+    color: #2E75B6;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.faculty-course-room {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.faculty-panel-footer {
+    padding: 12px 15px;
+    border-top: 1px solid #eee;
+    background: #f9f9f9;
+    border-radius: 0 0 8px 8px;
+}
+
+.share-link-section label {
+    font-size: 0.75rem;
+    color: #666;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.share-link-row {
+    display: flex;
+    gap: 8px;
+}
+
+.share-link-row input {
+    flex: 1;
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    background: white;
+}
+
+/* Red flag for missing courses */
+.course-badge.missing {
+    background: #dc3545;
+    color: white;
+}
+
+.course-list-item.missing-course {
+    background: #fff5f5;
+    border-left: 3px solid #dc3545;
+}
+
+.course-list-item.missing-course:hover {
+    background: #ffe0e0;
+}
+
+/* Highlight scheduled course when faculty selected */
+.scheduled-course.faculty-highlight {
+    border: 2px solid #2E75B6;
+    background: #e8f4fc;
+    box-shadow: 0 2px 8px rgba(46, 117, 182, 0.3);
+}
+
+/* Flash animation for faculty panel item click */
+.scheduled-course.flash-highlight {
+    animation: flashHighlight 1.5s ease-out;
+}
+
+@keyframes flashHighlight {
+    0%, 50% {
+        background: #ffc107;
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(255, 193, 7, 0.5);
+    }
+    100% {
+        background: #e8f4fc;
+        transform: scale(1);
+    }
+}
+
+/* Faculty schedule header */
+.faculty-schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.faculty-schedule-header strong {
+    color: #1F4E78;
+    font-size: 0.85rem;
+}
+
+.course-count {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.faculty-schedule-item {
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.faculty-schedule-item:hover {
+    transform: translateX(3px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive - hide faculty panel on smaller screens */
+@media (max-width: 1400px) {
+    .faculty-panel {
+        width: 220px;
+        min-width: 220px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .faculty-panel {
+        display: none;
+    }
+}
+
+/* Backup/Restore Buttons */
+.btn-warning {
+    background: #ffc107;
+    color: #212529;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-warning:hover {
+    background: #e0a800;
+}
+
+/* Restore Modal */
+.restore-warning {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 15px;
+    color: #856404;
+    font-size: 0.9rem;
+}
+
+#restoreFile {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 0.9rem;
+}

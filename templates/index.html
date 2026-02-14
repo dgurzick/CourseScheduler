@@ -14,6 +14,13 @@
                 <h2>Fall 2026 Course Schedule</h2>
             </div>
             <div class="controls">
+                <div class="term-select">
+                    <label for="termDropdown">Term:</label>
+                    <select id="termDropdown">
+                        <option value="fall-2026">Fall 2026</option>
+                        <option value="spring-2027">Spring 2027</option>
+                    </select>
+                </div>
                 <div class="faculty-select">
                     <label for="facultyDropdown">View as:</label>
                     <select id="facultyDropdown">
@@ -28,6 +35,8 @@
                     <button id="manageFaculty" class="btn btn-export">Manage Faculty</button>
                     <button id="exportJson" class="btn btn-export">Export JSON</button>
                     <button id="exportExcel" class="btn btn-export">Export Excel</button>
+                    <button id="backupAll" class="btn btn-export">Backup All</button>
+                    <button id="restoreData" class="btn btn-export btn-warning">Reset</button>
                 </div>
                 <div class="connection-status" id="connectionStatus">
                     <span class="status-dot disconnected"></span>
@@ -114,6 +123,25 @@
                     <div class="grid-cell drop-zone asynch-slot" data-slot="ASYNCH"></div>
                 </div>
             </main>
+
+            <!-- Faculty Panel (right side) -->
+            <aside class="faculty-panel" id="facultyPanel">
+                <div class="faculty-panel-header">
+                    <h3 id="facultyPanelTitle">Select a Faculty Member</h3>
+                </div>
+                <div class="faculty-panel-content" id="facultyPanelContent">
+                    <p class="no-faculty-selected">Select a faculty member from the "View as" dropdown to see their schedule.</p>
+                </div>
+                <div class="faculty-panel-footer" id="facultyPanelFooter" style="display: none;">
+                    <div class="share-link-section">
+                        <label>Share this view:</label>
+                        <div class="share-link-row">
+                            <input type="text" id="facultyShareLink" readonly>
+                            <button id="copyShareLink" class="btn btn-sm btn-primary">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </aside>
         </div>
     </div>
 
@@ -202,6 +230,26 @@
                     <label>Current Faculty:</label>
                     <div id="facultyList" class="faculty-list"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Restore Data Modal -->
+    <div class="modal" id="restoreModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeRestoreModal">&times;</span>
+            <h3>Restore Data</h3>
+            <div class="modal-body">
+                <p class="restore-warning">This will replace all current schedule data with data from a backup file. This action cannot be undone.</p>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" id="restorePassword" placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                    <label>Backup File (.zip):</label>
+                    <input type="file" id="restoreFile" accept=".zip">
+                </div>
+                <button id="submitRestore" class="btn btn-danger">Restore Data</button>
             </div>
         </div>
     </div>

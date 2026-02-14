@@ -7,6 +7,7 @@ class CourseScheduler {
         this.scheduleData = { courses: [], instructors: [], timeSlots: {} };
         this.courseHistory = {}; // Historical course offerings
         this.selectedFaculty = '';
+        this.currentTerm = 'fall-2026';
         this.currentCourseId = null;
         this.pendingSlotId = null; // For double-click to add course
         this.actionHistory = []; // Track all actions for undo
@@ -45,6 +46,9 @@ class CourseScheduler {
     }
 
     async init() {
+        // Check URL parameters for term and faculty
+        this.parseUrlParameters();
+
         await this.loadSchedule();
         await this.loadCourseHistory();
         this.initSocket();
@@ -52,17 +56,63 @@ class CourseScheduler {
         this.renderCourseList();
         this.renderScheduleGrid();
         this.populateFacultyDropdown();
+        this.updateFacultyPanel();
+        this.updateTermDisplay();
+    }
+
+    // Parse URL parameters for shareable links
+    parseUrlParameters() {
+        const params = new URLSearchParams(window.location.search);
+        const term = params.get('term');
+        const faculty = params.get('faculty');
+
+        if (term && ['fall-2026', 'spring-2027'].includes(term)) {
+            this.currentTerm = term;
+        }
+        if (faculty) {
+            this.selectedFaculty = decodeURIComponent(faculty);
+        }
+    }
+
+    // Update the term dropdown display
+    updateTermDisplay() {
+        const termDropdown = document.getElementById('termDropdown');
+        if (termDropdown) {
+            termDropdown.value = this.currentTerm;
+        }
+        // Update header title
+        const termLabel = this.currentTerm === 'fall-2026' ? 'Fall 2026' : 'Spring 2027';
+        const titleSection = document.querySelector('.title-section h2');
+        if (titleSection) {
+            titleSection.textContent = `${termLabel} Course Schedule`;
+        }
     }
 
     // Load schedule data from server
     async loadSchedule() {
         try {
-            const response = await fetch('/api/schedule');
+            const response = await fetch(`/api/schedule?term=${this.currentTerm}`);
             this.scheduleData = await response.json();
         } catch (error) {
             console.error('Failed to load schedule:', error);
             this.showToast('Failed to load schedule', 'error');
         }
+    }
+
+    // Switch to a different term
+    async switchTerm(newTerm) {
+        this.currentTerm = newTerm;
+        this.actionHistory = []; // Clear undo history when switching terms
+        await this.loadSchedule();
+        this.renderCourseList();
+        this.renderScheduleGrid();
+        this.highlightFacultyCourses();
+        this.updateFacultyPanel();
+        this.updateTermDisplay();
+        this.updateUndoButton();
+        this.renderHistoryPanel();
+        this.updateShareableUrl();
+        this.showToast(`Switched to ${newTerm === 'fall-2026' ? 'Fall 2026' : 'Spring 2027'}`, 'info');
     }
 
     // Load course history data
@@ -95,56 +145,80 @@ class CourseScheduler {
 
         this.socket.on('schedule_update', (data) => {
             console.log('Schedule update received:', data);
-            this.handleScheduleUpdate(data);
+            // Only apply if for current term
+            if (!data.term || data.term === this.currentTerm) {
+                this.handleScheduleUpdate(data);
+            }
         });
 
         this.socket.on('course_update', (data) => {
             console.log('Course update received:', data);
-            this.handleCourseUpdate(data);
+            if (!data.term || data.term === this.currentTerm) {
+                this.handleCourseUpdate(data);
+            }
         });
 
         this.socket.on('full_sync', (data) => {
             console.log('Full sync received');
-            this.scheduleData = data;
-            this.renderCourseList();
-            this.renderScheduleGrid();
+            if (!data.term || data.term === this.currentTerm) {
+                this.scheduleData = data;
+                this.renderCourseList();
+                this.renderScheduleGrid();
+                this.updateFacultyPanel();
+            }
         });
 
         this.socket.on('course_added', (data) => {
             console.log('Course added:', data);
-            this.scheduleData.courses.push(data.course);
-            this.renderCourseList();
-            this.renderScheduleGrid();
-            this.populateFacultyDropdown();
+            if (!data.term || data.term === this.currentTerm) {
+                this.scheduleData.courses.push(data.course);
+                this.renderCourseList();
+                this.renderScheduleGrid();
+                this.populateFacultyDropdown();
+                this.updateFacultyPanel();
+            }
         });
 
         this.socket.on('faculty_added', (data) => {
             console.log('Faculty added:', data);
-            if (!this.scheduleData.faculty) {
-                this.scheduleData.faculty = [];
+            if (!data.term || data.term === this.currentTerm) {
+                if (!this.scheduleData.faculty) {
+                    this.scheduleData.faculty = [];
+                }
+                if (!this.scheduleData.faculty.includes(data.name)) {
+                    this.scheduleData.faculty.push(data.name);
+                    this.scheduleData.faculty.sort();
+                }
+                this.populateFacultyDropdown();
+                this.renderFacultyList();
             }
-            if (!this.scheduleData.faculty.includes(data.name)) {
-                this.scheduleData.faculty.push(data.name);
-                this.scheduleData.faculty.sort();
-            }
-            this.populateFacultyDropdown();
-            this.renderFacultyList();
         });
 
         this.socket.on('faculty_deleted', (data) => {
             console.log('Faculty deleted:', data);
-            if (this.scheduleData.faculty) {
-                this.scheduleData.faculty = this.scheduleData.faculty.filter(f => f !== data.name);
+            if (!data.term || data.term === this.currentTerm) {
+                if (this.scheduleData.faculty) {
+                    this.scheduleData.faculty = this.scheduleData.faculty.filter(f => f !== data.name);
+                }
+                this.populateFacultyDropdown();
+                this.renderFacultyList();
             }
-            this.populateFacultyDropdown();
-            this.renderFacultyList();
         });
 
         this.socket.on('course_deleted', (data) => {
             console.log('Course deleted:', data);
-            this.scheduleData.courses = this.scheduleData.courses.filter(c => c.id !== data.courseId);
-            this.renderCourseList();
-            this.renderScheduleGrid();
+            if (!data.term || data.term === this.currentTerm) {
+                this.scheduleData.courses = this.scheduleData.courses.filter(c => c.id !== data.courseId);
+                this.renderCourseList();
+                this.renderScheduleGrid();
+                this.updateFacultyPanel();
+            }
+        });
+
+        this.socket.on('data_restored', (data) => {
+            console.log('Data restored:', data);
+            this.showToast('Data has been restored. Reloading...', 'success');
+            setTimeout(() => window.location.reload(), 1500);
         });
     }
 
@@ -159,10 +233,25 @@ class CourseScheduler {
 
     // Setup event listeners
     setupEventListeners() {
+        // Term dropdown
+        document.getElementById('termDropdown').addEventListener('change', (e) => {
+            this.switchTerm(e.target.value);
+        });
+
         // Faculty dropdown
         document.getElementById('facultyDropdown').addEventListener('change', (e) => {
             this.selectedFaculty = e.target.value;
             this.highlightFacultyCourses();
+            this.updateFacultyPanel();
+            this.updateShareableUrl();
+        });
+
+        // Copy share link button
+        document.getElementById('copyShareLink').addEventListener('click', () => {
+            const linkInput = document.getElementById('facultyShareLink');
+            linkInput.select();
+            document.execCommand('copy');
+            this.showToast('Link copied to clipboard', 'success');
         });
 
         // Course filter
@@ -243,6 +332,29 @@ class CourseScheduler {
             }
         });
 
+        // Backup and Restore
+        document.getElementById('backupAll').addEventListener('click', () => {
+            window.location.href = '/api/backup';
+        });
+
+        document.getElementById('restoreData').addEventListener('click', () => {
+            this.openRestoreModal();
+        });
+
+        document.getElementById('closeRestoreModal').addEventListener('click', () => {
+            this.closeRestoreModal();
+        });
+
+        document.getElementById('submitRestore').addEventListener('click', () => {
+            this.submitRestore();
+        });
+
+        document.getElementById('restoreModal').addEventListener('click', (e) => {
+            if (e.target.id === 'restoreModal') {
+                this.closeRestoreModal();
+            }
+        });
+
         // Undo and History
         document.getElementById('undoBtn').addEventListener('click', () => {
             this.undo();
@@ -293,6 +405,93 @@ class CourseScheduler {
 
         // Store sorted faculty back
         this.scheduleData.faculty = sortedFaculty;
+
+        // Restore selected faculty
+        if (this.selectedFaculty) {
+            dropdown.value = this.selectedFaculty;
+        }
+    }
+
+    // Update the faculty panel on the right
+    updateFacultyPanel() {
+        const panel = document.getElementById('facultyPanel');
+        const title = document.getElementById('facultyPanelTitle');
+        const content = document.getElementById('facultyPanelContent');
+        const footer = document.getElementById('facultyPanelFooter');
+
+        if (!this.selectedFaculty) {
+            title.textContent = 'Select a Faculty Member';
+            content.innerHTML = '<p class="no-faculty-selected">Select a faculty member from the "View as" dropdown to see their schedule.</p>';
+            footer.style.display = 'none';
+            return;
+        }
+
+        title.textContent = this.selectedFaculty;
+
+        // Get courses for this faculty in current term
+        const facultyCourses = this.scheduleData.courses.filter(c =>
+            c.instructor === this.selectedFaculty
+        );
+
+        const termLabel = this.currentTerm === 'fall-2026' ? 'Fall 2026' : 'Spring 2027';
+
+        if (facultyCourses.length === 0) {
+            content.innerHTML = `<p class="no-faculty-selected">${this.selectedFaculty} has no courses scheduled for ${termLabel}.</p>`;
+        } else {
+            // Sort by slot
+            const slotOrder = ['MW-A', 'MW-B', 'MW-C', 'MW-D', 'MW-E', 'TR-G', 'TR-H', 'TR-I', 'TR-J', 'TR-K', 'M-EVE', 'T-EVE', 'W-EVE', 'TR-EVE', 'SAT', 'ASYNCH'];
+            facultyCourses.sort((a, b) => {
+                const aIdx = slotOrder.indexOf(a.slotId) || 99;
+                const bIdx = slotOrder.indexOf(b.slotId) || 99;
+                return aIdx - bIdx;
+            });
+
+            content.innerHTML = `
+                <div class="faculty-schedule-header">
+                    <strong>${termLabel} Schedule</strong>
+                    <span class="course-count">${facultyCourses.length} course${facultyCourses.length !== 1 ? 's' : ''}</span>
+                </div>
+                ${facultyCourses.map(course => `
+                    <div class="faculty-schedule-item" data-course-id="${course.id}">
+                        <div class="faculty-course-code">${course.code} ${course.number}-${course.section}</div>
+                        <div class="faculty-course-name">${course.name || ''}</div>
+                        <div class="faculty-course-time">${course.slotId ? this.slotLabels[course.slotId] : 'Unscheduled'}</div>
+                        <div class="faculty-course-room">${course.room || ''}</div>
+                    </div>
+                `).join('')}
+            `;
+
+            // Make items clickable to highlight in grid
+            content.querySelectorAll('.faculty-schedule-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const courseId = item.dataset.courseId;
+                    const scheduled = document.querySelector(`.scheduled-course[data-course-id="${courseId}"]`);
+                    if (scheduled) {
+                        scheduled.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        scheduled.classList.add('flash-highlight');
+                        setTimeout(() => scheduled.classList.remove('flash-highlight'), 1500);
+                    }
+                });
+            });
+        }
+
+        // Show footer with shareable link
+        footer.style.display = 'block';
+        this.updateShareableUrl();
+    }
+
+    // Update the shareable URL
+    updateShareableUrl() {
+        const linkInput = document.getElementById('facultyShareLink');
+        if (!linkInput) return;
+
+        const baseUrl = window.location.origin + window.location.pathname;
+        const params = new URLSearchParams();
+        params.set('term', this.currentTerm);
+        if (this.selectedFaculty) {
+            params.set('faculty', this.selectedFaculty);
+        }
+        linkInput.value = `${baseUrl}?${params.toString()}`;
     }
 
     // Populate instructor dropdown in modals
@@ -375,7 +574,7 @@ class CourseScheduler {
         item.className = 'course-list-item';
         item.dataset.courseId = course.id;
 
-        // Check if this course is scheduled for Fall 2026
+        // Check if this course is scheduled for current term
         const scheduledSections = this.scheduleData.courses.filter(c =>
             c.code === course.code && c.number === course.number
         );
@@ -384,6 +583,19 @@ class CourseScheduler {
         const unscheduledCount = scheduledSections.filter(s => !s.slotId).length;
 
         let badges = '';
+        let isMissing = false;
+        let missingReason = '';
+
+        // Check if course should be offered this term but isn't
+        const isFallTerm = this.currentTerm === 'fall-2026';
+        const shouldBeOffered = this.shouldCourseBeOffered(course, isFallTerm);
+
+        if (shouldBeOffered && !isScheduled) {
+            isMissing = true;
+            missingReason = this.getMissingReason(course, isFallTerm);
+            item.classList.add('missing-course');
+            badges += `<span class="course-badge missing" title="${missingReason}">!</span>`;
+        }
 
         // Offering indicator for special schedules
         if (course.offered) {
@@ -416,6 +628,65 @@ class CourseScheduler {
         item.addEventListener('click', () => this.openCourseHistoryModal(course));
 
         return item;
+    }
+
+    // Determine if a course should be offered in current term
+    shouldCourseBeOffered(course, isFallTerm) {
+        if (!course.offered) return false;
+
+        const offered = course.offered.toLowerCase();
+
+        // Both semesters - always should be offered
+        if (offered.includes('both') || offered.includes('either')) {
+            return true;
+        }
+
+        // Fall only - should be offered in fall
+        if (offered.includes('fall') && !offered.includes('spring')) {
+            return isFallTerm;
+        }
+
+        // Spring only - should be offered in spring
+        if (offered.includes('spring') && !offered.includes('fall')) {
+            return !isFallTerm;
+        }
+
+        // Alternate years - check if this is the right year
+        // For now, assume Fall 2026 is an "even" year offering
+        if (offered.includes('odd') || offered.includes('even')) {
+            const isEvenYear = true; // 2026 is even
+            if (offered.includes('even years')) {
+                return isEvenYear;
+            }
+            if (offered.includes('odd years')) {
+                return !isEvenYear;
+            }
+        }
+
+        return false;
+    }
+
+    // Get reason why course is flagged as missing
+    getMissingReason(course, isFallTerm) {
+        const termName = isFallTerm ? 'Fall' : 'Spring';
+        if (!course.offered) return `Should be scheduled for ${termName}`;
+
+        const offered = course.offered.toLowerCase();
+
+        if (offered.includes('both') || offered.includes('either')) {
+            return `Offered both semesters - not scheduled for ${termName} 2026`;
+        }
+        if (offered.includes('fall') && isFallTerm) {
+            return `Fall Only course - not scheduled for Fall 2026`;
+        }
+        if (offered.includes('spring') && !isFallTerm) {
+            return `Spring Only course - not scheduled for Spring 2027`;
+        }
+        if (offered.includes('even')) {
+            return `Even year course (2026) - not scheduled`;
+        }
+
+        return `${course.offered} - not currently scheduled`;
     }
 
     // Open course history modal
@@ -499,15 +770,16 @@ class CourseScheduler {
             descSection.innerHTML = '';
         }
 
-        // Current Fall 2026 sections
-        const f26Sections = this.scheduleData.courses.filter(c =>
+        // Current term sections
+        const termLabel = this.currentTerm === 'fall-2026' ? 'Fall 2026' : 'Spring 2027';
+        const termSections = this.scheduleData.courses.filter(c =>
             c.code === course.code && c.number === course.number
         );
 
-        if (f26Sections.length > 0) {
+        if (termSections.length > 0) {
             currentSections.innerHTML = `
-                <h4>Fall 2026 Sections</h4>
-                ${f26Sections.map(s => `
+                <h4>${termLabel} Sections</h4>
+                ${termSections.map(s => `
                     <div class="current-section ${s.slotId ? 'scheduled' : 'unscheduled'}">
                         <strong>Section ${s.section}</strong>
                         <span>${s.instructor || 'TBA'}</span>
@@ -517,7 +789,7 @@ class CourseScheduler {
                 `).join('')}
             `;
         } else {
-            currentSections.innerHTML = '<p class="no-sections">Not scheduled for Fall 2026</p>';
+            currentSections.innerHTML = `<p class="no-sections">Not scheduled for ${termLabel}</p>`;
         }
 
         // Historical offerings (from 2023 onwards)
@@ -712,16 +984,17 @@ class CourseScheduler {
 
         // Send to server via WebSocket with room update if cleared
         if (roomCleared) {
-            this.socket.emit('move_course', { courseId, slotId, clearRoom: true });
+            this.socket.emit('move_course', { courseId, slotId, term: this.currentTerm, clearRoom: true });
             this.showToast(`Room cleared due to conflict - please reassign`, 'info');
         } else {
-            this.socket.emit('move_course', { courseId, slotId });
+            this.socket.emit('move_course', { courseId, slotId, term: this.currentTerm });
         }
 
         // Re-render
         this.renderCourseList();
         this.renderScheduleGrid();
         this.highlightFacultyCourses();
+        this.updateFacultyPanel();
     }
 
     // Handle schedule update from server
@@ -734,6 +1007,7 @@ class CourseScheduler {
         this.renderCourseList();
         this.renderScheduleGrid();
         this.highlightFacultyCourses();
+        this.updateFacultyPanel();
     }
 
     // Handle course update from server
@@ -746,6 +1020,7 @@ class CourseScheduler {
         this.renderCourseList();
         this.renderScheduleGrid();
         this.highlightFacultyCourses();
+        this.updateFacultyPanel();
     }
 
     // Highlight courses for selected faculty
@@ -753,6 +1028,7 @@ class CourseScheduler {
         // Remove all highlights
         document.querySelectorAll('.course-card, .scheduled-course').forEach(el => {
             el.classList.remove('highlight');
+            el.classList.remove('faculty-highlight');
         });
 
         if (!this.selectedFaculty) return;
@@ -764,7 +1040,10 @@ class CourseScheduler {
                 const scheduled = document.querySelector(`.scheduled-course[data-course-id="${course.id}"]`);
 
                 if (card) card.classList.add('highlight');
-                if (scheduled) scheduled.classList.add('highlight');
+                if (scheduled) {
+                    scheduled.classList.add('highlight');
+                    scheduled.classList.add('faculty-highlight');
+                }
             }
         });
     }
@@ -843,7 +1122,8 @@ class CourseScheduler {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     courseId: this.currentCourseId,
-                    updates
+                    updates,
+                    term: this.currentTerm
                 })
             });
 
@@ -938,7 +1218,7 @@ class CourseScheduler {
             const response = await fetch('/api/course/add', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ code, number, name, instructor, room, slotId })
+                body: JSON.stringify({ code, number, name, instructor, room, slotId, term: this.currentTerm })
             });
 
             if (response.ok) {
@@ -1011,7 +1291,7 @@ class CourseScheduler {
             const response = await fetch('/api/faculty/add', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name })
+                body: JSON.stringify({ name, term: this.currentTerm })
             });
 
             if (response.ok) {
@@ -1033,7 +1313,7 @@ class CourseScheduler {
             const response = await fetch('/api/faculty/delete', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name })
+                body: JSON.stringify({ name, term: this.currentTerm })
             });
 
             if (response.ok) {
@@ -1115,7 +1395,8 @@ class CourseScheduler {
                                 type: 'move',
                                 courseId: action.courseId,
                                 slotId: action.previousSlotId,
-                                room: action.previousRoom
+                                room: action.previousRoom,
+                                term: this.currentTerm
                             })
                         });
                     }
@@ -1132,7 +1413,8 @@ class CourseScheduler {
                             body: JSON.stringify({
                                 type: 'update',
                                 courseId: action.courseId,
-                                updates: action.previousValues
+                                updates: action.previousValues,
+                                term: this.currentTerm
                             })
                         });
                     }
@@ -1146,7 +1428,8 @@ class CourseScheduler {
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             type: 'delete',
-                            courseId: action.courseId
+                            courseId: action.courseId,
+                            term: this.currentTerm
                         })
                     });
                     break;
@@ -1155,6 +1438,7 @@ class CourseScheduler {
             this.renderCourseList();
             this.renderScheduleGrid();
             this.highlightFacultyCourses();
+            this.updateFacultyPanel();
             this.updateUndoButton();
             this.renderHistoryPanel();
             this.showToast('Undo successful', 'success');
@@ -1186,6 +1470,62 @@ class CourseScheduler {
                 <span class="history-text">${this.formatActionDescription(action)}</span>
             </div>
         `).join('');
+    }
+
+    // Restore modal functions
+    openRestoreModal() {
+        document.getElementById('restorePassword').value = '';
+        document.getElementById('restoreFile').value = '';
+        document.getElementById('restoreModal').classList.add('show');
+    }
+
+    closeRestoreModal() {
+        document.getElementById('restoreModal').classList.remove('show');
+    }
+
+    async submitRestore() {
+        const password = document.getElementById('restorePassword').value;
+        const fileInput = document.getElementById('restoreFile');
+
+        if (!password) {
+            this.showToast('Please enter the password', 'error');
+            return;
+        }
+
+        if (!fileInput.files || fileInput.files.length === 0) {
+            this.showToast('Please select a backup file', 'error');
+            return;
+        }
+
+        const file = fileInput.files[0];
+        if (!file.name.endsWith('.zip')) {
+            this.showToast('File must be a .zip archive', 'error');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('password', password);
+        formData.append('file', file);
+
+        try {
+            const response = await fetch('/api/restore', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                this.closeRestoreModal();
+                this.showToast(`Restored: ${data.restored.join(', ')}`, 'success');
+                setTimeout(() => window.location.reload(), 1500);
+            } else {
+                this.showToast(data.error || 'Restore failed', 'error');
+            }
+        } catch (error) {
+            console.error('Restore failed:', error);
+            this.showToast('Restore failed', 'error');
+        }
     }
 
     // Toast notifications

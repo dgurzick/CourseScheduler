@@ -1,0 +1,529 @@
+ECON - Economics
+ECON 205 Principles of Macroeconomics
+Credit by exam. The theoretical principles of the economy as a whole; includes national income determination, inflation, unemployment, fiscal policy, monetary policy, and open-economy macroeconomics.
+Credits
+3.0
+Core
+Social and Behavioral Sciences
+Offered
+Both Semesters
+ECON 206 Principles of Microeconomics
+Prerequisite: ECON 205. Credit by exam. This course examines the theoretical principles that underlie the behavior of individuals, households, business enterprises and governments in the day-to-day functioning of domestic and international markets. It focuses on competitive and noncompetitive market outcomes and market failures. Issues relating to international trade, environment, and global economy are also addressed.
+Credits
+3.0
+Offered
+Both Semesters
+ECMG 212 Statistics for Economics & Management
+Prerequisites: MATH 099 or MATH 100 or Level II placement on Basic Math skills inventory; or permission of the instructor. Not open to students who have received credit for MATH 112, MATH 213, PSY 211 or SOC 261. This course will introduce descriptive statistics, probability, discrete and continuous distributions, correlations, and linear regressions. Completing this course will give students the solid grounding in statistics necessary to successfully complete upper-level economics and management courses.
+Credits
+3.0
+Core
+Quantitative Reasoning
+Offered
+Spring Semester
+ECON 299 Special Topics
+This course is a general topics course in economics, allowing faculty and students to study particular topics of interest.
+Credits
+3.0
+Offered
+As Needed
+ECMG 300 Financial Economics
+Sophomore standing and ECON 206 or permission of the instructor. ECON 306 is strongly recommended. Survey of major theories on asset pricing theories and portfolio allocation choice that form the foundations of finance. While institutional aspects of financial markets will not be covered, all of the basic theories of risk management, portfolio theory, consumption based asset pricing, and general equilibrium theories of asset theories will be covered in detail.
+Credits
+3.0
+Offered
+Spring Semester (Even Years)
+ECMG 303 Principles of Finance & Investment
+Prerequisites: MGMT 281, ECMG 212 or MATH 112, and ECON 205 or ECON 206. Introduction to the fundamental analytical tools and use of information sources in finance and investments. Study of time value of money, valuation of securities, risk, rates of return and cash flow analysis.
+Credits
+3.0
+Offered
+Both Semesters
+ECON 304 International Political Economy
+Prerequisites: GLBS 200 or ECON 205 or PSCI 215. Examines the role of governments and international institutions in the flow of goods, services, and factors of production across international borders.
+Credits
+3.0
+Offered
+Either Semester (Odd Years)
+ECON 305 Macroeconomic Analysis
+Prerequisite: ECON 205 or permission of the instructor. The theory of Keynesian and classical income determination, interest rates, employment, consumption, investment, government expenditures and economic growth.
+Credits
+3.0
+Offered
+Fall Semester
+ECON 306 Microeconomic Analysis
+Prerequisite: ECON 206. The theory of the firm under various competitive conditions; determination of wages, interest, rent and profits. An introduction to welfare economics and general equilibrium theory.
+Credits
+3.0
+Offered
+Both Semesters
+ECON 307 Economics and Finance of Sports
+Prerequisite: ECON 206 or permission of the instructor. This course is an applied microeconomics course that explores how economic analysis can be applied to the world of sports. Topics covered include how professional sports teams and leagues act like profit-maximizing firms and the market structure, public finance of sports, the role of labor markets in sports, and non-for-profit sports (amateur sports).
+Credits
+3.0
+Offered
+As Needed
+ECON 309 Monetary Policy & Financial Markets
+Prerequisites: ECON 205 and ECON 206. ECON 305 strongly recommended. This course will offer students a good understanding of financial markets with an emphasis on the banking sector and fixed income securities. This course will cover the various theories of monetary economics and how monetary policies of the Federal Reserve will influence the financial markets and the broader macroeconomy.
+Credits
+3.0
+Offered
+Fall Semester (Even Years)
+ECON 310 Environmental Economics
+Prerequisite: ECON 206 or permission of the instructor. This course examines the relationship between economic growth and the environment. The tools of economic analysis are used to examine the relationship between economic efficiency and sustainability. The course also evaluates public policies in developed and developing countries designed to promote more sustainable development.
+Credits
+3.0
+Offered
+Fall Semester (Even Years)
+ECON 315 Economics of the Law
+Prerequisites: ECON 206. ECON 306 is recommended. This course applies economic models to analyze the economic logic of the common law in the U.S. It will focus primarily on how legal rules and court decisions affect incentives and efficiency in the areas of torts, contracts, property, and criminal law.
+Credits
+3.0
+Offered
+Spring Semester (Odd Years)
+ECON 316 Game Theory
+Prerequisites: ECON 206 or permission of the instructor. This course introduces game theory fundamentals with special emphasis on strategic behavior of individuals, firms, and governments. Topics include strategic games and Nash equilibrium, games in coalitional form and the core, bargaining theory, measuring power in voting systems, problems of fair division, and optimal and stable matching.
+Credits
+3.0
+Offered
+Fall Semester (Odd Years)
+ECON 317 Economics of Development
+Prerequisite: ECON 205 or ECON 206 or permission of the instructor. Theories of economic development and growth. Case studies of developed and less developed countries in Asia, Africa and Latin America.
+Credits
+3.0
+Core
+Global Perspectives
+Offered
+Fall Semester (Even Years)
+ECON 320 The Economics of Gender
+Prerequisites: ECON 205 or ECON 206 or by permission of the instructor. This course analyzes the activities of women and men in the economy. While women are the core economic producers, their work remains outside the neoclassical definition of economic activity. This class examines women’s and men’s economic contributions as employed workers, care providers, subsistence producers, volunteer workers, and homemakers, emphasizing feminist economics.
+Credits
+3.0
+Core
+Global Perspectives
+Offered
+Spring Semester (Odd Years)
+ECON 324 International Trade
+Prerequisites: ECON 205, ECON 206 and ECON 306. Open to sophomores, juniors and seniors, or permission of the instructor. This course examines the microeconomic aspects of international economics. Economic theories are used to rigorously analyze issues in international trade, distribution of gains from trade, and trade policy tools and their uses. Topics of current interest, such as free trade and welfare, trade blocks, and various development policies will also be studied.
+Credits
+3.0
+Core
+Global Perspectives
+Offered
+Fall Semester (Even Years)
+ECON 326 Industrial Organization
+Prerequisites: ECON 206; ECON 306 is recommended. The study of market structure, monopoly power, pricing, competition, game theory and regulation.
+Credits
+3.0
+Offered
+Spring Semester (Odd Years)
+ECON 328 Labor Economics
+Prerequisites: ECON 205 and ECON 206 or permission of instructor. Theories of wage determination, unemployment and inflation, employment trends and labor in the global economy.
+Credits
+3.0
+Offered
+Spring Semester (Even Years)
+ECON 335 Teaching Assistantship in Economics
+Prerequisite: Permission of the economics faculty. Assist in the introductory and principles of economics courses. The teaching assistant holds tutorials for student questions, assists in computer assignments and quantitative projects. Grading is on a satisfactory/unsatisfactory basis.
+Credits
+1.0 - 2.0
+Offered
+Either Semester
+ECON 375 Independent Study
+Prerequisite: Permission of the chair of the department. Reading and/or research in a selected field of economics.
+Credits
+1.0 - 3.0
+Offered
+Both Semesters and Summer
+ECON 397 Special Topics
+An upper-level special topics course offered at the discretion of the department. The content and methods vary with the interest of students and faculty members
+Credits
+3.0
+Offered
+As Needed
+ECON 399 Internship in Economics
+Prerequisites: 15 credits in economics at the 200-level or above. A learning experience in a business or public environment where specific demands are made in terms of applying economic principles and analysis. Grading is on a satisfactory/unsatisfactory basis.
+Credits
+3.0 - 15.0
+Core
+High Impact Practice
+Offered
+Both Semesters and Summer
+ECON 410 Public Economics
+Prerequisite: ECON 306 and junior standing or permission of the instructor. This course applies the economic theory to public policy. Careful examination of government taxation, expenditure, and regulation at the local, state, and federal levels will be carried out with a view to how such policies may impact the public welfare.
+Credits
+3.0
+Offered
+Spring Semester (Even Years)
+ECPS 414 Environmental Policy
+Prerequisites: PSCI 203, PSCI 210 or PSCI 215 and ECON 310 or permission of the instructor. This is a comparative course on the making and implementing of environmental policies in developed and developing countries. The focus is on the evolution of environmental policymaking and on the problems associated with implementing environmental policies in different political and institutional contexts.
+Credits
+3.0
+Cross Listed Courses
+Double-numbered course; offered with graduate-level ECPS 514
+Offered
+Spring Semester (Even Years)
+ECON 452 History of Economic Thought
+Prerequisite: ECON 305 and ECON 306 or permission of the instructor. The doctrines of the great economists: Mercantilist, physiocrat, classical and Keynesian schools of thought; the relation of economic thought to contemporary institutions.
+Credits
+3.0
+Offered
+Fall Semester
+ECON 460 International Finance & Open Economy Macroeconomics
+Prerequisites: ECON 205, ECON 206 and ECON 305. Open to sophomores, juniors and seniors, or permission of instructor. This course examines the macroeconomic aspects of international economics. Economic theories are developed to rigorously analyze the issues in balance of payments, exchange rate determination and global capital markets. Topics of current interest such as developing country debt, stabilization and economic reform will be studied.
+Credits
+3.0
+Offered
+Either Semester (Even Years)
+ECON 470 Seminar
+Prerequisites: ECON 305 and ECON 306 or permission of the instructor. Study of specific problems in economics through individual research, reports and group discussion.
+Credits
+3.0
+Offered
+Spring Semester
+ECMG 478 International Financial Management
+Prerequisites: ECON 206, ECMG 303, ECON 306 and MGMT 314. Open to juniors and seniors, or by permission of the instructor. This course introduces students to international finance and institutions. Topics covered are exchange rate determination theories, international corporate finance, international portfolio diversification models, foreign exchange risk, hedging strategies, foreign exchange options, and derivatives market.
+Credits
+3.0
+Cross Listed Courses
+Double-numbered course; offered with graduate-level ECMG 578
+Offered
+Spring Semester
+ECON 480 Econometrics
+Prerequisites: ECON 205 and ECON 206, and ECMG 212 or MATH 112, and either ECON 305 or ECON 306. Open to sophomores, juniors and seniors, or permission of the instructor. An introduction to quantitative analysis of economic phenomena. The course emphasizes techniques of estimating economic relationships, testing economic theories and forecasting economic variables. Attention is given to real-world applications.
+Credits
+3.0
+Offered
+Fall Semester
+ECON 499A Departmental Honors
+Prerequisite: By invitation of the department. The departmental honors paper is a two-semester senior-year program designed for students who wish to pursue intensive research or special projects in close coordination with faculty advisers. Departmental honors students are known as the Christine P. Tischer Scholars and receive 6 credits for this work.
+Credits
+3.0
+Offered
+Both Semesters and/or Summer
+ECON 499B Departmental Honors
+Prerequisite: By invitation of the department. The departmental honors paper is a two-semester senior-year program designed for students who wish to pursue intensive research or special projects in close coordination with faculty advisers. Departmental honors students are known as the Christine P. Tischer Scholars and receive 6 credits for this work.
+Credits
+3.0
+Core
+High Impact Practice
+Offered
+Both Semesters and/or Summer
+
+Print this Page
+
+
+MGMT - Business Administration
+MGMT 205 Principles of Management: Introduction to Organizations
+Credit by exam. The study of the characteristics of different types of organizations distinguished by purpose or structure. The implications of organizational differences for management and administration will be examined. Students will focus their study on the theoretical and empirical aspects of organizations.
+Credits
+3.0
+Core
+Social and Behavioral Sciences
+Offered
+Both Semesters
+ECMG 212 Statistics for Economics & Management
+Prerequisites: MATH 099 or Level II placement on Basic Math skills inventory or permission of the instructor. Not open to students who have received credit for MATH 112, ECMG 212, PSY 211 or SOC 261. This course will introduce descriptive statistics, probability, discrete and continuous distributions, correlations, and linear regressions. Completing this course will give students the solid grounding in statistics necessary to successfully complete upper-level economics and management courses.
+Credits
+3.0
+Core
+Quantitative Reasoning
+Offered
+Spring Semester
+MGMT 281 Principles of Financial Accounting
+Credit by exam. Basic understanding of accounting information, accounting concepts, procedures, analysis and reports. The study of accounting as a tool of economic and financial analysis.
+Credits
+3.0
+Offered
+Both Semesters
+MGMT 284 Principles of Managerial Accounting
+Prerequisite: MGMT 281. Credit by exam. The use of accounting concepts and ideas developed in MGMT 281 underlying the presentation and analysis of financial data for decision making. The uses and limitations of such data for the analysis and control of managerial operations.
+Credits
+3.0
+Offered
+Both Semesters
+ECMG 300 Financial Economics
+Sophomore standing and ECON 206 or permission of the instructor. ECON 306 is strongly recommended. Survey of major theories on asset pricing theories and portfolio allocation choice that form the foundations of finance. While institutional aspects of financial markets will not be covered, all of the basic theories of risk management, portfolio theory, consumption-based asset pricing, and general equilibrium theories of asset theories will be covered in detail.
+Credits
+3.0
+Offered
+Spring Semester (Even Years)
+ECMG 303 Principles of Finance & Investment
+Prerequisites: MGMT 281, ECMG 212 or MATH 112, and ECON 205 or ECON 206. Introduction to the fundamental analytical tools and use of information sources in finance and investments. Study of time value of money, valuation of securities, risk, rates of return and cash flow analysis.
+Credits
+3.0
+Offered
+Both Semesters
+MGMT 301 Organizational Theory and Behavior
+Prerequisite: MGMT 205 or permission of the instructor. This course introduces students to major theoretical perspectives in organizational studies. Its multidisciplinary framework includes contributions from the social sciences to the study of individuals, groups, systems and leadership. It enables students to apply theory to application and develop analytical skills to diagnose complex phenomena and recommend strategies for managerial action.
+Credits
+3.0
+Offered
+Both Semesters
+MGMT 306 Principles of Marketing
+Prerequisite: MGMT 205. Factors involved in the marketing function relative to product development, promotion, pricing, physical distribution and the determination of marketing objectives within the framework of the marketing system and available markets.
+Credits
+3.0
+Offered
+Both Semesters
+MGMT 307 Personnel Management
+Prerequisite: MGMT 301. Analysis of problems and techniques faced by human resource management professionals. Topics include human resource planning, training and development, recruitment, selection, performance evaluation, compensation unions, comparable worth, affirmative action and career planning.
+Credits
+3.0
+Offered
+Spring Semester
+MGMT 312 Analytical Methods of Management
+Prerequisites: MGMT 205, ECMG 212 or MATH 112, and either ECON 205 or ECON 206. Open to sophomores, juniors or seniors, or permission of the instructor. This course introduces students to the fundamental concepts of the analytical methodology useful in the managerial decision-making process. It begins with a basic review of math, linear algebra and calculus as they are used in business. After which, it covers decision theory, business forecasting, and linear programming.
+Credits
+3.0
+Offered
+Both Semesters
+MGMT 313 Employment and Labor Law
+Prerequisites: MGMT 205, MGMT 307 (or concurrent enrollment) or the permission of the instructor. This course provides insights into all aspects of employment and labor law, including employment planning, compensation, labor relations, and employee exit. Students gain an understanding of the rights and obligations of employers and employees and develop responsive management strategies involving employment and labor law issues.
+Credits
+3.0
+Offered
+Fall Semester
+MGMT 314 International Business
+Prerequisites: ECON 206 and MGMT 205 Introduction to the international, foreign and domestic environments affecting international businesses. Aspects of globalization as it pertains to multinational enterprises will also be covered from the perspectives of business organization, marketing, finance, and strategy.
+Credits
+3.0
+Core
+Global Perspectives
+Offered
+Both Semesters
+MGMT 315 Managing Nonprofit Organizations
+Prerequisite: MGMT 205 or permission of the instructor. Open to sophomores, juniors and seniors. An introduction to the management of nonprofit organizations with special emphasis on social entrepreneurship, volunteer management and effective strategies for marketing, fund development and resource management.
+Credits
+3.0
+Offered
+Fall Semester
+MGMT 318 Social Entrepreneurship I
+Prerequisite: MGMT 205 and junior standing or permission of the instructor. Through case studies, key readings, directed projects, and activities, this course explores how business techniques can drive the creation of social value. Students will develop the toolkit of the social entrepreneur, covering topics of leadership, organizational setup, acquisition and management of resources, and managing complex sociocultural systems. Concepts of innovation, social capital, and sustainable enterprise will be emphasized.
+Credits
+3.0
+Offered
+Fall Semester
+MGMT 319 Social Entrepreneurship II
+Prerequisite: MGMT 318 and junior standing or permission of the instructor. Social entrepreneurship refers to the creation of innovative organizations that address social problems using business methods.  In many ways, this course is a continuation of Social Entrepreneurship I as it seeks to implement the principles learned to actual organizational and community situations. The course starts with an environmental scan of the local community to understand the social and environmental needs of the community. Then, the emphasis shifts to the operational aspects of implementing projects. Special attention is given to measuring progress, understanding roadblocks to effective implementation and change management, and overcoming resistance to change. Effective implementation strategies, such as finding community partners and seeking alliances with regional and national organizations, are highlighted in this course. The international aspects of social entrepreneurship are illustrated through examples and case studies.
+Credits
+3.0
+Offered
+Spring Semester
+MGMT 321 Intermediate Accounting I
+Prerequisite: MGMT 284. The first of a two-semester course sequence to cover intermediate accounting. A study of valuation of assets and equities, measurement of income, analysis and preparation of financial statements, and use of generally accepted accounting principles.
+Credits
+3.0
+Offered
+Fall Semester
+MGMT 322 Intermediate Accounting II
+Prerequisite: MGMT 321. A continuation of the intermediate accounting two-semester sequence. A study of stockholders’ equity, special liabilities, accounting changes, price changes and accounting issuances of the APB and FASB.
+Credits
+3.0
+Offered
+Spring Semester
+MGMT 323 Personal Financial Planning
+Sophomore standing and MGMT 284 and ECMG 303 or permission of the instructor. The course will provide a high-level overview of the Personal Financial Planning. The focus will be on both the basic financial planning competencies and the broad subject matter of finance. Students will be exposed to the four key personal financial planning areas of estate, risk management, investments, and financial independence while integrating tax planning strategies.
+Credits
+3.0
+Offered
+Fall Semester (Odd Years)
+MGMT 324 ESG Investing and Sustainable Portfolios
+Prerequisite: MGMT 205 or permission of instructor
+ESG assets (investments with a focus on Environmental, Social and Governance themes) represented over 1/3 of all professionally managed assets in the US as of 2020 and has grown since then. This course will cover (i) what it means to be a socially responsible company, (ii) how investment professionals are evaluating companies with a social lens, (iii) how stakeholders are driving change in companies through proxy votes and engagement, and (iv) what this trend means for institutional and individual investors.
+Credits
+3.0
+Offered
+Spring Odd Years
+MGMT 325 Sports Sales, Sponsorship & Marketing
+Prerequisites: MGMT 205 and MGMT 306; or permission of instructor
+
+This course explores the principles of sales, sponsorship, and marketing strategies within the sports industry. Topics include ticketing strategies, sponsorship development, revenue generation, digital marketing, and brand partnerships. Students will engage with real-world scenarios, case studies, and analytical frameworks to develop practical skills in sports revenue generation and marketing. Emphasis is placed on applying marketing principles to the unique context of sports and developing sales techniques for sports products, events, and sponsorships.
+Credits
+3.0
+Offered
+Offered As Needed
+CAMG 330 Social Media Marketing
+Prerequisites: MGMT 205. Drawing from information systems, social science, and communications, students will explore social media trends and applications. Connections will be made to organizational objectives and strategies, including design, implementation, and assessment. Topics covered include the origins of social media, impact on news dissemination, communication styles, campaigns, crowdsourcing, conflict resolution, and impact on society.
+Credits
+3.0
+Offered
+Spring Semester
+MGMT 331 Auditing
+Prerequisites: MGMT 321 and MGMT 322. This course delivers a basic understanding of auditing function in accounting from both and internal and external perspective but concentrating on external auditing. Included will be an analysis of why auditing is necessary and how to complete an audit in an organization.
+Credits
+3.0
+Offered
+Spring Semester
+MGMT 335 Teaching Assistantship in Management
+Prerequisite: Permission of the Management faculty. (May be repeated for a maximum of 4 credits) Assist with accounting, finance and management courses. The teaching assistant holds tutorials, offers review sessions and assists students with computer and quantitative projects. Grading is on a satisfactory/unsatisfactory basis.
+Credits
+1.0 - 2.0
+Offered
+Either Semester
+MGMT 350 Business and Social Forces
+Prerequisites: MGMT 205, MGMT 301 and ECON 205. The study of business as a social institution in the midst of a complex of communities with varying expectations and political and economic power. This perspective complements economic models of the firm and behavioral models of the organization.
+Credits
+3.0
+Offered
+Fall Semester
+MGMT 370 Investment Practicum
+Prerequisite: Approval of the instructor. May be repeated for a maximum of 4 credits. Investment Practicum is an experiential learning course in investment. The focus of this course is to give the students both a theoretical foundation and practical experience in the management of investment portfolios. Grading is on a Satisfactory/Unsatisfactory basis.
+Credits
+1.0
+Offered
+Both Semesters
+MGMT 375 Independent Study
+Prerequisite: Permission of the chair of the department.  Reading and/or research in a selected field of management.
+Credits
+1.0 - 3.0
+Offered
+Both Semesters and Summer
+ITMG 388 Management Information Systems
+Prerequisite: MGMT 301. Study of the management decision-making framework, needs assessment, types of management information systems, selection, evaluation and implementation of systems. Social and policy issues are also considered.
+Credits
+3.0
+Offered
+Both Semesters
+MGMT 397 Special Topics
+An upper-level special topics course offered at the discretion of the department. The content and methods vary with the interest of students and faculty members
+Credits
+3.0
+Offered
+As needed
+CAMG 399 Internship in Integrated Marketing Comm
+Prerequisites: Open to declared IMC majors; permission of co-directors required. Practical experience in which students apply integrated marketing and communication concepts and skills in an appropriate business setting. Grading is on a satisfactory/unsatisfactory basis. Permission of IMC co-directors required. May be repeated once. Grading is on a satisfactory/unsatisfactory basis.
+Credits
+3.0
+Core
+High Impact Practice
+Offered
+Both Semesters and Summer
+MGMT 399 Internship in Management
+Prerequisites: Completion of at least half of the Common Body of Knowledge courses and junior or senior standing. A learning experience with an appropriate organization to provide familiarity with the management concepts, skills and attitudes required for success in a specific career. The student is responsible for developing appropriate work projects, and each must meet department guidelines and be approved. At least 40 hours of work will be completed for each credit. Grading is on a satisfactory/unsatisfactory basis.
+Credits
+3.0
+Core
+High Impact Practice
+Offered
+Both Semesters and Summer
+MGMT 402 Business Finance
+Prerequisite: ECMG 303. Financial management of business enterprises, with emphasis on financial problems and policies of corporations.
+Credits
+3.0
+Offered
+Fall Semester
+MGMT 406 Consumer Behavior and Analysis
+Prerequisites: MGMT 306 The course uses concepts, principles and theories from psychology, economics, anthropology and sociology to explore the consumer acquisition process. Marketing concepts of product positioning, segmentation, brand loyalty, preference and diffusion of innovations will be considered in context with environmental, ethical, multicultural and social influences.
+Credits
+3.0
+Offered
+Fall Semester
+MGMT 410 Investment Analysis
+Prerequisite: ECMG 303. Analytical techniques for appraising equity securities and short-term, intermediate-term and long-term debt instruments with a view particularly toward portfolio balance. The course will consider both the individual investor and corporate and institutional needs for cash management.
+Credits
+3.0
+Core
+High Impact Practice
+Offered
+Spring Semester
+MGMT 411 Seminar in Strategic Management
+Prerequisite: Completion of the Common Body of Knowledge. Open to seniors only. The analysis of cases in management strategy and decision-making with emphasis on the practical application of concepts in human resource management, marketing and finance. Integrates various aspects of managerial activity in a systematic approach.
+Credits
+3.0
+Core
+High Impact Practice
+Offered
+Both Semesters
+MGMT 423 Marketing Research Methods
+Prerequisites: MGMT 306 and MATH 112 or PSY 211 or SOC 261 or ECMG 212, and permission of the instructor. The role of research in marketing is studied; skill in applying various marketing research methods is developed through field work.
+Credits
+3.0
+Offered
+Fall Semester
+MGMT 424 Marketing Communications Strategy
+Prerequisites: MGMT 306 or permission of instructor This course covers how advertising, sales promotion, public relations, personal selling, interactive marketing and packaging decisions form a coordinated strategy. Students examine the role of integrated communications and the benefits of integrating all brand elements of the marketing mix. The course also addresses programs for new media and the challenges of a changing marketing environment.
+Credits
+3.0
+Offered
+Spring Semester
+MGMT 426 Fixed Income Securities
+Junior standing and ECMG 303 or permission of the instructor. This course covers the valuation and application of a wide variety of fixed income securities. Fixed income securities are financial claims including pure discount bonds, coupon bonds such as Treasury notes and corporate bonds, floating rate notes, callable bonds, among many others, issued by public or private entities. In this course, we focus on yield curve construction, duration and convexity, and formal term structure models. The goal is to introduce you to at least one equilibrium model and one no-arbitrage model, and to analytical tools used in interest rate modeling and risk management. This course combines theory with practical examples demonstrating the complications that arise when applying theory to realistic situations.
+Credits
+3.0
+Offered
+Spring Semester (Odd Years)
+MGMT 427 Financial Derivative Securities
+Junior standing and ECMG 303 or permission of the instructor. This course provides an introduction to the fastest growing areas in derivative securities. It builds on the principles of finance to provide insights to the nature of financial derivatives and applications of such instruments used in an investments and corporate setting. This course is divided into three parts: (1) options; (2) futures and forwards; and (3) swaps. Emphasis is placed on derivatives on equity instruments (stocks and stock indices) although short-and long-term interest bearing instruments (Treasury securities, LIBOR, etc.) are also discussed in detail.
+Credits
+3.0
+Offered
+Fall Semester (Even Years)
+MGMT 432 Advanced Accounting
+Prerequisites: ECMG 303, MGMT 314, MGMT 321 and MGMT 322 This course develops an understanding of the theoretical foundation of GAAP as it relates to business combinations and consolidated financial statements. It includes advanced topics in partnership accounting, foreign currency and hedge accounting, international accounting standards, and accounting for government and non-profit organizations.
+Credits
+3.0
+Offered
+Fall Semester
+MGMT 433 Cost Accounting
+Prerequisite: MGMT 284. An intermediate course in accounting with emphasis on cost control. The course will include definitions and roles of budgets, forecasting, categorization of costs, inventory management, product costing and transfer pricing.
+Credits
+3.0
+Offered
+Spring Semester
+MGMT 434 Federal Tax Accounting
+Prerequisites: MGMT 321 and MGMT 322. The course is a study of personal and corporate tax concepts, structure, and planning. It emphasizes the rules of taxation for individuals, partnerships, and corporations. Students learn estate and gift taxation, income taxation of trusts and estates, deferred compensation, and international tax. State and local taxation are also addressed.
+Credits
+3.0
+Offered
+Fall Semester
+MGMT 454 Legal Environment of Business
+Prerequisite: MGMT 205 or permission of the department. This course provides an overview of the contemporary legal and regulatory business environment. Specifically, it relates various laws and regulations to major business functions such as employment, production, marketing, finance and international operations. The course also provides a brief overview of U.S. political and constitutional systems that are the building blocks of our regulatory environment.
+Credits
+3.0
+Offered
+Both Semesters
+ECMG 478 International Financial Management
+Prerequisites: ECON 206, ECMG 303, ECON 306 and MGMT 314. Open to juniors and seniors, or by permission of the instructor. This course introduces students to international finance and institutions. Topics covered are exchange rate determination theories, international corporate finance, international portfolio diversification models, foreign exchange risk, hedging strategies, foreign exchange options, and derivatives market.
+Credits
+3.0
+Cross Listed Courses
+Double-numbered course; offered with graduate-level ECMG 578
+Offered
+Spring Semester
+MGMT 481 Financial Statement Analysis
+Prerequisites: MGMT 281 and MGMT 284, or permission of the instructor. This course examines the accounting principles and procedures underlying a firm’s financial statements. The objective of the course is to assess the success of a firm’s strategies as measured by profitability, liquidity, solvency and asset management relative to the level of risk incurred by the firm. 
+Credits
+3.0
+Cross Listed Courses
+Double-numbered course; offered with graduate-level MGMT 581
+Offered
+Spring Semester
+CAMG 499A Departmental Honors
+Prerequisite: By invitation of the department. The departmental honors paper is a two-semester senior-year program designed for students who wish to pursue intensive research or special projects in close coordination with faculty advisers. Departmental honors students are known as the Christine P. Tischer Scholars and receive 6 credits for this work.
+Credits
+3.0
+Offered
+Both Semesters and/or Summer
+CAMG 499B Departmental Honors
+Prerequisite: By invitation of the department. The departmental honors paper is a two-semester senior-year program designed for students who wish to pursue intensive research or special projects in close coordination with faculty advisers. Departmental honors students are known as the Christine P. Tischer Scholars and receive 6 credits for this work.
+Credits
+3.0
+Core
+High Impact Practice
+Offered
+Both Semesters and/or Summer
+MGMT 499A Departmental Honors
+Prerequisite: By invitation of the department. The departmental honors paper is a two-semester senior-year program designed for students who wish to pursue intensive research or special projects in close coordination with faculty advisers. Departmental honors students are known as the Christine P. Tischer Scholars and receive 6 credits for this work.
+Credits
+3.0
+Offered
+Both Semesters and/or Summer
+MGMT 499B Departmental Honors
+Prerequisite: By invitation of the department. The departmental honors paper is a two-semester senior-year program designed for students who wish to pursue intensive research or special projects in close coordination with faculty advisers. Departmental honors students are known as the Christine P. Tischer Scholars and receive 6 credits for this work.
+Credits
+3.0
+Core
+High Impact Practice
+Offered
+Both Semesters and/or Summer
