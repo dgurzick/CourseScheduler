@@ -29,6 +29,11 @@ if os.environ.get('RENDER'):
     DATA_DIR = '/var/data'
 else:
     DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+
+# Ensure data directory exists
+os.makedirs(DATA_DIR, exist_ok=True)
+print(f"Data directory: {DATA_DIR}, exists: {os.path.exists(DATA_DIR)}")
+
 DATA_FILE = os.path.join(DATA_DIR, 'schedule.json')
 HISTORY_FILE = os.path.join(DATA_DIR, 'course_history.json')
 
@@ -808,7 +813,11 @@ def restore_data():
         restored_files = []
 
         with zipfile.ZipFile(tmp_path, 'r') as zf:
-            for name in zf.namelist():
+            all_files = zf.namelist()
+            print(f"Restore: zip contains files: {all_files}")
+            print(f"Restore: DATA_DIR = {DATA_DIR}")
+
+            for name in all_files:
                 # Only allow specific JSON files
                 if name in ['schedule.json', 'schedule_spring_2027.json', 'course_history.json']:
                     content = zf.read(name)
@@ -816,10 +825,12 @@ def restore_data():
                     json.loads(content)
 
                     target_path = os.path.join(DATA_DIR, name)
-                    os.makedirs(os.path.dirname(target_path), exist_ok=True)
+                    print(f"Restore: writing {name} to {target_path}")
+                    os.makedirs(DATA_DIR, exist_ok=True)
                     with open(target_path, 'wb') as f:
                         f.write(content)
                     restored_files.append(name)
+                    print(f"Restore: successfully wrote {name}")
 
         # Clean up temp file
         os.unlink(tmp_path)
