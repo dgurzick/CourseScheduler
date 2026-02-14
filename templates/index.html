@@ -64,30 +64,12 @@
                 <!-- Course Guides Panel (below sidebar) -->
                 <aside class="course-guides-panel" id="courseGuidesPanel">
                 <div class="guides-panel-header">
-                    <h3>Course Guides</h3>
-                    <button id="checkConflicts" class="btn btn-sm btn-primary">Check Conflicts</button>
+                    <h3>Student Conflicts</h3>
+                    <button id="checkConflicts" class="btn btn-sm btn-primary">Check All</button>
                 </div>
                 <div class="guides-panel-content">
-                    <div class="guide-select">
-                        <label for="programSelect">Program:</label>
-                        <select id="programSelect">
-                            <option value="">Select a program...</option>
-                            <option value="business">Business Administration</option>
-                            <option value="accounting">Accounting</option>
-                            <option value="economics">Economics</option>
-                            <option value="finance">Finance</option>
-                        </select>
-                    </div>
-                    <div class="semester-select" id="semesterSelectGroup" style="display: none;">
-                        <label for="semesterSelect">Semester:</label>
-                        <select id="semesterSelect">
-                            <option value="">Select semester...</option>
-                        </select>
-                    </div>
-                    <div class="recommended-courses" id="recommendedCourses">
-                        <p class="no-guide-selected">Select a program and semester to see recommended courses.</p>
-                    </div>
-                    <div class="conflict-results" id="conflictResults" style="display: none;"></div>
+                    <p class="conflict-intro">Check if students can take all required courses together each year.</p>
+                    <div class="conflict-results" id="conflictResults"></div>
                 </div>
             </aside>
             </div><!-- end left-panels -->

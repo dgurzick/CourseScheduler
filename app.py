@@ -1,5 +1,11 @@
-import json
 import os
+
+# Monkey-patch eventlet before other imports when running on Render
+if os.environ.get('RENDER'):
+    import eventlet
+    eventlet.monkey_patch()
+
+import json
 from datetime import datetime
 from io import BytesIO
 import zipfile
@@ -275,12 +281,15 @@ def get_course_guides():
 
 @app.route('/api/check-conflicts', methods=['POST'])
 def check_conflicts():
-    """Check for scheduling conflicts between recommended courses."""
+    """Check for scheduling conflicts across all programs by year level."""
     data = request.json
     term = data.get('term', DEFAULT_TERM)
-    courses_to_check = data.get('courses', [])  # List of course codes like ['MGMT 205', 'ECON 205']
 
     schedule = load_schedule(term)
+
+    # Determine if Fall or Spring
+    is_fall = 'fall' in term.lower()
+    term_suffix = 'Fall' if is_fall else 'Spring'
 
     # Build a map of course code to all sections and their slots
     course_sections = {}
@@ -296,80 +305,86 @@ def check_conflicts():
                 'room': course.get('room', '')
             })
 
-    conflicts = []
-    course_status = {}
+    # Collect all courses for each year level across ALL programs
+    year_levels = ['Y1', 'Y2', 'Y3', 'Y4']
+    results_by_year = {}
 
-    # Check status of each requested course
-    for course_code in courses_to_check:
-        sections = course_sections.get(course_code, [])
-        if not sections:
-            course_status[course_code] = {
-                'scheduled': False,
-                'sections': [],
-                'status': 'not-scheduled'
-            }
-        else:
-            course_status[course_code] = {
-                'scheduled': True,
-                'sections': sections,
-                'status': 'scheduled'
-            }
+    for year in year_levels:
+        semester_key = f"{year}-{term_suffix}"
 
-    # Check for conflicts between pairs of courses
-    for i, course1 in enumerate(courses_to_check):
-        for course2 in courses_to_check[i+1:]:
-            sections1 = course_sections.get(course1, [])
-            sections2 = course_sections.get(course2, [])
+        # Gather all unique courses from all programs for this year/semester
+        all_courses_for_year = set()
+        for program_key, program_data in COURSE_GUIDES.items():
+            if semester_key in program_data['semesters']:
+                for course in program_data['semesters'][semester_key]:
+                    all_courses_for_year.add(course)
 
-            if not sections1 or not sections2:
-                continue
+        courses_list = list(all_courses_for_year)
 
-            # Check if ALL combinations conflict
-            all_conflict = True
-            conflict_slots = []
-            available_combo = None
+        if len(courses_list) == 0:
+            continue
 
-            for s1 in sections1:
-                for s2 in sections2:
-                    if s1['slot'] == s2['slot']:
-                        conflict_slots.append({
-                            'course1': f"{course1}-{s1['section']}",
-                            'course2': f"{course2}-{s2['section']}",
-                            'slot': s1['slot']
-                        })
-                    else:
-                        all_conflict = False
-                        available_combo = {
-                            'course1': f"{course1}-{s1['section']} ({s1['slot']})",
-                            'course2': f"{course2}-{s2['section']} ({s2['slot']})"
-                        }
+        # Check status of each course
+        course_status = {}
+        for course_code in courses_list:
+            sections = course_sections.get(course_code, [])
+            if not sections:
+                course_status[course_code] = {
+                    'scheduled': False,
+                    'sections': [],
+                    'status': 'not-scheduled'
+                }
+            else:
+                course_status[course_code] = {
+                    'scheduled': True,
+                    'sections': sections,
+                    'status': 'scheduled'
+                }
 
-            if conflict_slots:
-                if all_conflict:
+        # Check for conflicts between pairs of courses
+        conflicts = []
+        for i, course1 in enumerate(courses_list):
+            for course2 in courses_list[i+1:]:
+                sections1 = course_sections.get(course1, [])
+                sections2 = course_sections.get(course2, [])
+
+                if not sections1 or not sections2:
+                    continue
+
+                # Check if ALL combinations conflict
+                all_conflict = True
+                has_any_conflict = False
+
+                for s1 in sections1:
+                    for s2 in sections2:
+                        if s1['slot'] == s2['slot']:
+                            has_any_conflict = True
+                        else:
+                            all_conflict = False
+
+                if has_any_conflict and all_conflict:
                     conflicts.append({
                         'type': 'critical',
-                        'message': f'{course1} and {course2} have NO non-conflicting sections',
                         'courses': [course1, course2],
-                        'details': conflict_slots
+                        'message': f'{course1} & {course2} - ALL sections conflict'
                     })
-                    # Update status for these courses
                     if course1 in course_status:
                         course_status[course1]['status'] = 'conflict'
                     if course2 in course_status:
                         course_status[course2]['status'] = 'conflict'
-                else:
-                    conflicts.append({
-                        'type': 'warning',
-                        'message': f'{course1} and {course2} have some section conflicts, but alternatives exist',
-                        'courses': [course1, course2],
-                        'available': available_combo
-                    })
+
+        results_by_year[year] = {
+            'courses': courses_list,
+            'courseStatus': course_status,
+            'conflicts': conflicts,
+            'label': f"Year {year[1]} {term_suffix}"
+        }
 
     return jsonify({
         'success': True,
-        'conflicts': conflicts,
-        'courseStatus': course_status,
-        'term': term
+        'resultsByYear': results_by_year,
+        'term': term,
+        'termType': term_suffix
     })
 
 
