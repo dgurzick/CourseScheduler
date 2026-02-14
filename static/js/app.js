@@ -1358,6 +1358,7 @@ class CourseScheduler {
         // Store previous state for undo
         const previousSlotId = course.slotId;
         const previousRoom = course.room;
+        const previousInstructor = course.instructor;
 
         // Check for room conflict (same room, same time slot) - clear room if conflict
         // Skip online rooms - they can have unlimited courses
@@ -1376,6 +1377,14 @@ class CourseScheduler {
             }
         }
 
+        // If unscheduling (no slotId), clear instructor and room
+        let instructorCleared = false;
+        if (!slotId && course.instructor) {
+            course.instructor = '';
+            course.room = '';
+            instructorCleared = true;
+        }
+
         // Update local data
         course.slotId = slotId;
 
@@ -1387,12 +1396,15 @@ class CourseScheduler {
                 courseCode: `${course.code} ${course.number}`,
                 previousSlotId: previousSlotId,
                 newSlotId: slotId,
-                previousRoom: previousRoom
+                previousRoom: previousRoom,
+                previousInstructor: previousInstructor
             });
         }
 
-        // Send to server via WebSocket with room update if cleared
-        if (roomCleared) {
+        // Send to server via WebSocket
+        if (instructorCleared) {
+            this.socket.emit('move_course', { courseId, slotId, term: this.currentTerm, clearInstructor: true });
+        } else if (roomCleared) {
             this.socket.emit('move_course', { courseId, slotId, term: this.currentTerm, clearRoom: true });
             this.showToast(`Room cleared due to conflict - please reassign`, 'info');
         } else {
@@ -1412,6 +1424,11 @@ class CourseScheduler {
         const course = this.scheduleData.courses.find(c => c.id === data.courseId);
         if (course) {
             course.slotId = data.slotId;
+            // Clear instructor and room when unscheduling
+            if (data.clearInstructor) {
+                course.instructor = '';
+                course.room = '';
+            }
         }
 
         this.renderCourseList();

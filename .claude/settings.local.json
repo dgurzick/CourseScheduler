@@ -17,7 +17,10 @@
       "Bash(claude mcp add:*)",
       "Bash(curl -s -X POST \"https://api.render.com/v1/services/srv-d2u83nbuibrs73fej250/deploys\" -H \"Authorization: Bearer rnd_XlUFSc2oj8pgev3vZ8oQ6oHPRuK3\" -H \"Content-Type: application/json\" -d '{\"\"clearCache\"\": \"\"do_not_clear\"\"}')",
       "Bash(curl:*)",
-      "Bash(node --check:*)"
+      "Bash(node --check:*)",
+      "mcp__render__list_services",
+      "mcp__render__list_workspaces",
+      "mcp__render__list_logs"
     ]
   }
 }

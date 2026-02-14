@@ -1054,10 +1054,15 @@ def handle_move_course(data):
 
     course_id = data.get('courseId')
     new_slot_id = data.get('slotId')
+    clear_instructor = data.get('clearInstructor', False)
 
     for course in schedule['courses']:
         if course['id'] == course_id:
             course['slotId'] = new_slot_id
+            # Clear instructor and room when unscheduling
+            if clear_instructor:
+                course['instructor'] = ''
+                course['room'] = ''
             break
 
     save_schedule(schedule, term)
@@ -1065,6 +1070,7 @@ def handle_move_course(data):
     emit('schedule_update', {
         'courseId': course_id,
         'slotId': new_slot_id,
+        'clearInstructor': clear_instructor,
         'term': term,
         'timestamp': datetime.now().isoformat()
     }, broadcast=True)
