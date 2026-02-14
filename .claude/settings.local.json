@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(python app.py:*)",
+      "Bash(/usr/bin/python3:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: Course Scheduler for DSB Fall 2026\n\nFeatures:\n- Drag-and-drop course scheduling with real-time WebSocket sync\n- Room conflict detection \\(clears room on conflict\\)\n- Double-click slots to add courses with pre-filled time\n- Faculty management system with dropdown selection\n- Undo functionality with Ctrl+Z support\n- Sliding history panel showing all actions\n- Export to JSON and Excel\n- Ready for Render deployment\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(claude mcp add:*)",
+      "Bash(curl -s -X POST \"https://api.render.com/v1/services/srv-d2u83nbuibrs73fej250/deploys\" -H \"Authorization: Bearer rnd_XlUFSc2oj8pgev3vZ8oQ6oHPRuK3\" -H \"Content-Type: application/json\" -d '{\"\"clearCache\"\": \"\"do_not_clear\"\"}')",
+      "Bash(curl:*)",
+      "Bash(node --check:*)"
+    ]
+  }
+}

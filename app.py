@@ -335,7 +335,10 @@ def undo_action():
 @app.route('/api/export/json')
 def export_json():
     """Download schedule as JSON file."""
-    schedule = load_schedule()
+    term = request.args.get('term', DEFAULT_TERM)
+    if term not in VALID_TERMS:
+        term = DEFAULT_TERM
+    schedule = load_schedule(term)
     buffer = BytesIO()
     buffer.write(json.dumps(schedule, indent=2).encode('utf-8'))
     buffer.seek(0)
@@ -344,18 +347,23 @@ def export_json():
         buffer,
         mimetype='application/json',
         as_attachment=True,
-        download_name=f'schedule_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
+        download_name=f'schedule_{term}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
     )
 
 
 @app.route('/api/export/excel')
 def export_excel():
     """Download schedule as Excel file."""
-    schedule = load_schedule()
+    term = request.args.get('term', DEFAULT_TERM)
+    if term not in VALID_TERMS:
+        term = DEFAULT_TERM
+    schedule = load_schedule(term)
+
+    term_label = "Fall 2026" if term == 'fall-2026' else "Spring 2027"
 
     wb = Workbook()
     ws = wb.active
-    ws.title = "Fall 2026 Schedule"
+    ws.title = f"{term_label} Schedule"
 
     header_fill = PatternFill(start_color="1F4E78", end_color="1F4E78", fill_type="solid")
     header_font = Font(color="FFFFFF", bold=True, size=12)
@@ -370,7 +378,7 @@ def export_excel():
     )
 
     ws.merge_cells('A1:R1')
-    ws['A1'] = "DELAPLAINE SCHOOL OF BUSINESS - Fall 2026 Schedule"
+    ws['A1'] = f"DELAPLAINE SCHOOL OF BUSINESS - {term_label} Schedule"
     ws['A1'].font = Font(bold=True, size=16, color="FFFFFF")
     ws['A1'].fill = header_fill
     ws['A1'].alignment = Alignment(horizontal='center')

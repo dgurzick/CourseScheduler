@@ -261,11 +261,11 @@ class CourseScheduler {
 
         // Export buttons
         document.getElementById('exportJson').addEventListener('click', () => {
-            window.location.href = '/api/export/json';
+            window.location.href = `/api/export/json?term=${this.currentTerm}`;
         });
 
         document.getElementById('exportExcel').addEventListener('click', () => {
-            window.location.href = '/api/export/excel';
+            window.location.href = `/api/export/excel?term=${this.currentTerm}`;
         });
 
         // Modal
@@ -962,8 +962,11 @@ class CourseScheduler {
         el.className = 'scheduled-course';
         el.dataset.courseId = course.id;
 
+        // Add bimodal indicator for 500+ level courses with bimodal enabled
+        const bimodalBadge = course.bimodal ? '<span class="bimodal-badge" title="Bimodal (in-person + online)">B</span>' : '';
+
         el.innerHTML = `
-            <span class="course-code">${course.code} ${course.number}</span>
+            <span class="course-code">${course.code} ${course.number}${bimodalBadge}</span>
             <span class="course-instructor">${course.instructor || 'TBA'}</span>
             <span class="course-room">${course.room || ''}</span>
         `;
@@ -1138,6 +1141,18 @@ class CourseScheduler {
         });
         roomSelect.value = course.room || '';
 
+        // Show bimodal checkbox for 500+ level courses
+        const bimodalGroup = document.getElementById('bimodalGroup');
+        const bimodalCheckbox = document.getElementById('modalBimodal');
+        const courseNum = parseInt(course.number, 10);
+        if (courseNum >= 500) {
+            bimodalGroup.style.display = 'block';
+            bimodalCheckbox.checked = course.bimodal || false;
+        } else {
+            bimodalGroup.style.display = 'none';
+            bimodalCheckbox.checked = false;
+        }
+
         const scheduledText = course.slotId ? this.slotLabels[course.slotId] || course.slotId : 'Not scheduled';
         document.getElementById('modalScheduled').textContent = scheduledText;
 
@@ -1152,13 +1167,20 @@ class CourseScheduler {
     async saveModalChanges() {
         if (!this.currentCourseId) return;
 
+        const course = this.scheduleData.courses.find(c => c.id === this.currentCourseId);
+        const courseNum = parseInt(course.number, 10);
+
         const updates = {
             instructor: document.getElementById('modalInstructor').value,
             room: document.getElementById('modalRoom').value
         };
 
+        // Include bimodal for 500+ level courses
+        if (courseNum >= 500) {
+            updates.bimodal = document.getElementById('modalBimodal').checked;
+        }
+
         // Check for room conflict if course is scheduled and has a room
-        const course = this.scheduleData.courses.find(c => c.id === this.currentCourseId);
         if (course && course.slotId && updates.room) {
             const conflictingCourse = this.scheduleData.courses.find(c =>
                 c.id !== this.currentCourseId &&
@@ -1174,7 +1196,8 @@ class CourseScheduler {
         // Store previous values for undo
         const previousValues = {
             instructor: course.instructor,
-            room: course.room
+            room: course.room,
+            bimodal: course.bimodal
         };
 
         try {
