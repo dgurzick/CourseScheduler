@@ -261,7 +261,7 @@ def add_course():
             'course': new_course,
             'term': term,
             'timestamp': datetime.now().isoformat()
-        }, broadcast=True)
+        })
 
         return jsonify({'success': True, 'course': new_course})
     except Exception as e:
