@@ -307,6 +307,21 @@ body {
     color: #155724;
 }
 
+.course-badge.fall-only {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.course-badge.spring-only {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.course-badge.alternate-years {
+    background: #f8d7da;
+    color: #721c24;
+}
+
 .course-badge.unscheduled {
     background: #fff3cd;
     color: #856404;
@@ -320,13 +335,90 @@ body {
 .history-course-name {
     font-size: 1rem;
     color: #666;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
+    margin-bottom: 8px;
+}
+
+/* Course metadata */
+.history-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
     border-bottom: 1px solid #eee;
 }
 
+.meta-credits {
+    background: #e9ecef;
+    color: #495057;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.meta-offered {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: #d4edda;
+    color: #155724;
+}
+
+.meta-offered.fall-only {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.meta-offered.spring-only {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.meta-offered.alternate-years {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.meta-core {
+    background: #cce5ff;
+    color: #004085;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Course description */
+.history-description {
+    margin-bottom: 15px;
+}
+
+.description-text {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.description-text.collapsed {
+    color: #666;
+}
+
+.expand-desc {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: #2E75B6;
+    text-decoration: none;
+}
+
+.expand-desc:hover {
+    text-decoration: underline;
+}
+
 .history-sections h4,
-.history-offerings + h4 {
+.history-offerings-section h4 {
     font-size: 0.9rem;
     color: #1F4E78;
     margin: 15px 0 10px;

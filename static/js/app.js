@@ -331,7 +331,11 @@ class CourseScheduler {
                 code: data.code,
                 number: data.number,
                 name: data.name,
-                offerings: data.offerings
+                description: data.description || '',
+                credits: data.credits || '',
+                core: data.core || '',
+                offered: data.offered || '',
+                offerings: data.offerings || []
             });
         }
 
@@ -379,19 +383,33 @@ class CourseScheduler {
         const scheduledCount = scheduledSections.filter(s => s.slotId).length;
         const unscheduledCount = scheduledSections.filter(s => !s.slotId).length;
 
-        let statusBadge = '';
+        let badges = '';
+
+        // Offering indicator for special schedules
+        if (course.offered) {
+            const offeredClass = this.getOfferedClass(course.offered);
+            if (offeredClass) {
+                let label = '';
+                if (offeredClass === 'fall-only') label = 'F';
+                else if (offeredClass === 'spring-only') label = 'S';
+                else if (offeredClass === 'alternate-years') label = 'Alt';
+                badges += `<span class="course-badge ${offeredClass}" title="${course.offered}">${label}</span>`;
+            }
+        }
+
+        // Scheduled status
         if (isScheduled) {
             if (unscheduledCount > 0) {
-                statusBadge = `<span class="course-badge unscheduled">${unscheduledCount}</span>`;
+                badges += `<span class="course-badge unscheduled">${unscheduledCount}</span>`;
             }
             if (scheduledCount > 0) {
-                statusBadge += `<span class="course-badge scheduled">${scheduledCount}</span>`;
+                badges += `<span class="course-badge scheduled">${scheduledCount}</span>`;
             }
         }
 
         item.innerHTML = `
             <span class="course-code-compact">${course.code} ${course.number}</span>
-            <span class="course-badges">${statusBadge}</span>
+            <span class="course-badges">${badges}</span>
         `;
 
         // Click to show course history
@@ -414,9 +432,10 @@ class CourseScheduler {
                     <h3 id="historyModalTitle">Course History</h3>
                     <div class="modal-body">
                         <div class="history-course-name" id="historyCourseName"></div>
+                        <div class="history-meta" id="historyMeta"></div>
+                        <div class="history-description" id="historyDescription"></div>
                         <div class="history-sections" id="historyCurrentSections"></div>
-                        <h4>Teaching History</h4>
-                        <div class="history-offerings" id="historyOfferings"></div>
+                        <div class="history-offerings-section" id="historyOfferingsSection"></div>
                     </div>
                 </div>
             `;
@@ -432,11 +451,53 @@ class CourseScheduler {
         // Populate modal
         const title = modal.querySelector('#historyModalTitle');
         const courseName = modal.querySelector('#historyCourseName');
+        const meta = modal.querySelector('#historyMeta');
+        const descSection = modal.querySelector('#historyDescription');
         const currentSections = modal.querySelector('#historyCurrentSections');
-        const offerings = modal.querySelector('#historyOfferings');
+        const offeringsSection = modal.querySelector('#historyOfferingsSection');
 
         title.textContent = `${course.code} ${course.number}`;
         courseName.textContent = course.name;
+
+        // Course metadata (credits, offered schedule, core)
+        const metaParts = [];
+        if (course.credits) {
+            metaParts.push(`<span class="meta-credits">${course.credits} credits</span>`);
+        }
+        if (course.offered) {
+            const offeredClass = this.getOfferedClass(course.offered);
+            metaParts.push(`<span class="meta-offered ${offeredClass}">${course.offered}</span>`);
+        }
+        if (course.core) {
+            metaParts.push(`<span class="meta-core">${course.core}</span>`);
+        }
+        meta.innerHTML = metaParts.join('');
+
+        // Description (expandable)
+        if (course.description) {
+            const isLong = course.description.length > 200;
+            const shortDesc = isLong ? course.description.substring(0, 200) + '...' : course.description;
+            descSection.innerHTML = `
+                <div class="description-text ${isLong ? 'collapsed' : ''}" id="descText">
+                    ${isLong ? shortDesc : course.description}
+                </div>
+                ${isLong ? `<a href="#" class="expand-desc" id="expandDesc">Show more</a>` : ''}
+            `;
+            if (isLong) {
+                const expandLink = descSection.querySelector('#expandDesc');
+                const descText = descSection.querySelector('#descText');
+                let expanded = false;
+                expandLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    expanded = !expanded;
+                    descText.textContent = expanded ? course.description : shortDesc;
+                    descText.classList.toggle('collapsed', !expanded);
+                    expandLink.textContent = expanded ? 'Show less' : 'Show more';
+                });
+            }
+        } else {
+            descSection.innerHTML = '';
+        }
 
         // Current Fall 2026 sections
         const f26Sections = this.scheduleData.courses.filter(c =>
@@ -464,17 +525,38 @@ class CourseScheduler {
         const recentOfferings = historyData.filter(o => o.year >= 2023);
 
         if (recentOfferings.length > 0) {
-            offerings.innerHTML = recentOfferings.map(o => `
-                <div class="history-offering">
-                    <span class="offering-term">${o.term} ${o.year}</span>
-                    <span class="offering-instructor">${o.instructor || 'TBA'}</span>
+            offeringsSection.innerHTML = `
+                <h4>Teaching History</h4>
+                <div class="history-offerings">
+                    ${recentOfferings.map(o => `
+                        <div class="history-offering">
+                            <span class="offering-term">${o.term} ${o.year}</span>
+                            <span class="offering-instructor">${o.instructor || 'TBA'}</span>
+                        </div>
+                    `).join('')}
                 </div>
-            `).join('');
+            `;
         } else {
-            offerings.innerHTML = '<p class="no-history">No recent history available</p>';
+            offeringsSection.innerHTML = '<p class="no-history">No recent history available</p>';
         }
 
         modal.style.display = 'block';
+    }
+
+    // Get CSS class for offered schedule
+    getOfferedClass(offered) {
+        if (!offered) return '';
+        const lower = offered.toLowerCase();
+        if (lower.includes('fall') && !lower.includes('both') && !lower.includes('either')) {
+            return 'fall-only';
+        }
+        if (lower.includes('spring') && !lower.includes('both') && !lower.includes('either')) {
+            return 'spring-only';
+        }
+        if (lower.includes('odd') || lower.includes('even')) {
+            return 'alternate-years';
+        }
+        return '';
     }
 
     // Create a draggable course card for unscheduled courses

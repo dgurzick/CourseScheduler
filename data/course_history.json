@@ -34,7 +34,11 @@
         "section": "01",
         "instructor": "El-Zeftawy"
       }
-    ]
+    ],
+    "description": "Prerequisites: MGMT 205. Drawing from information systems, social science, and communications, students will explore social media trends and applications. Connections will be made to organizational objectives and strategies, including design, implementation, and assessment. Topics covered include the origins of social media, impact on news dissemination, communication styles, campaigns, crowdsourcing, conflict resolution, and impact on society.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester"
   },
   "ECMG-300": {
     "code": "ECMG",
@@ -47,7 +51,11 @@
         "section": "01",
         "instructor": "Kim"
       }
-    ]
+    ],
+    "description": "Sophomore standing and ECON 206 or permission of the instructor. ECON 306 is strongly recommended. Survey of major theories on asset pricing theories and portfolio allocation choice that form the foundations of finance. While institutional aspects of financial markets will not be covered, all of the basic theories of risk management, portfolio theory, consumption-based asset pricing, and general equilibrium theories of asset theories will be covered in detail.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester (Even Years)"
   },
   "ECMG-303": {
     "code": "ECMG",
@@ -114,7 +122,11 @@
         "section": "01",
         "instructor": "Li"
       }
-    ]
+    ],
+    "description": "Prerequisites: MGMT 281, ECMG 212 or MATH 112, and ECON 205 or ECON 206. Introduction to the fundamental analytical tools and use of information sources in finance and investments. Study of time value of money, valuation of securities, risk, rates of return and cash flow analysis.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Both Semesters"
   },
   "ECMG-478": {
     "code": "ECMG",
@@ -151,7 +163,11 @@
         "section": "01",
         "instructor": "Kim"
       }
-    ]
+    ],
+    "description": "Prerequisites: ECON 206, ECMG 303, ECON 306 and MGMT 314. Open to juniors and seniors, or by permission of the instructor. This course introduces students to international finance and institutions. Topics covered are exchange rate determination theories, international corporate finance, international portfolio diversification models, foreign exchange risk, hedging strategies, foreign exchange options, and derivatives market.",
+    "credits": "3.0",
+    "core": "",
+    "offered": ""
   },
   "ECMG-578": {
     "code": "ECMG",
@@ -297,7 +313,11 @@
         "section": "01",
         "instructor": "Kim"
       }
-    ]
+    ],
+    "description": "Credit by exam. The theoretical principles of the economy as a whole; includes national income determination, inflation, unemployment, fiscal policy, monetary policy, and open-economy macroeconomics.",
+    "credits": "3.0",
+    "core": "Social and Behavioral Sciences",
+    "offered": "Both Semesters"
   },
   "ECON-206": {
     "code": "ECON",
@@ -406,7 +426,11 @@
         "section": "00",
         "instructor": "TBA"
       }
-    ]
+    ],
+    "description": "Prerequisite: ECON 205. Credit by exam. This course examines the theoretical principles that underlie the behavior of individuals, households, business enterprises and governments in the day-to-day functioning of domestic and international markets. It focuses on competitive and noncompetitive market outcomes and market failures. Issues relating to international trade, environment, and global economy are also addressed.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Both Semesters"
   },
   "ECON-304": {
     "code": "ECON",
@@ -419,7 +443,11 @@
         "section": "01",
         "instructor": "Reinarts"
       }
-    ]
+    ],
+    "description": "Prerequisites: GLBS 200 or ECON 205 or PSCI 215. Examines the role of governments and international institutions in the flow of goods, services, and factors of production across international borders.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Either Semester (Odd Years)"
   },
   "ECON-305": {
     "code": "ECON",
@@ -456,7 +484,11 @@
         "section": "01",
         "instructor": "Kim"
       }
-    ]
+    ],
+    "description": "Prerequisite: ECON 205 or permission of the instructor. The theory of Keynesian and classical income determination, interest rates, employment, consumption, investment, government expenditures and economic growth.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "ECON-306": {
     "code": "ECON",
@@ -529,7 +561,11 @@
         "section": "01",
         "instructor": "Safner"
       }
-    ]
+    ],
+    "description": "Prerequisite: ECON 206. The theory of the firm under various competitive conditions; determination of wages, interest, rent and profits. An introduction to welfare economics and general equilibrium theory.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Both Semesters"
   },
   "ECON-307": {
     "code": "ECON",
@@ -542,7 +578,11 @@
         "section": "01",
         "instructor": "Dodd"
       }
-    ]
+    ],
+    "description": "Prerequisite: ECON 206 or permission of the instructor. This course is an applied microeconomics course that explores how economic analysis can be applied to the world of sports. Topics covered include how professional sports teams and leagues act like profit-maximizing firms and the market structure, public finance of sports, the role of labor markets in sports, and non-for-profit sports (amateur sports).",
+    "credits": "3.0",
+    "core": "",
+    "offered": "As Needed"
   },
   "ECON-309": {
     "code": "ECON",
@@ -561,7 +601,11 @@
         "section": "01",
         "instructor": "Kim"
       }
-    ]
+    ],
+    "description": "Prerequisites: ECON 205 and ECON 206. ECON 305 strongly recommended. This course will offer students a good understanding of financial markets with an emphasis on the banking sector and fixed income securities. This course will cover the various theories of monetary economics and how monetary policies of the Federal Reserve will influence the financial markets and the broader macroeconomy.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester (Even Years)"
   },
   "ECON-310": {
     "code": "ECON",
@@ -580,7 +624,11 @@
         "section": "01",
         "instructor": "Joshi"
       }
-    ]
+    ],
+    "description": "Prerequisite: ECON 206 or permission of the instructor. This course examines the relationship between economic growth and the environment. The tools of economic analysis are used to examine the relationship between economic efficiency and sustainability. The course also evaluates public policies in developed and developing countries designed to promote more sustainable development.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester (Even Years)"
   },
   "ECON-316": {
     "code": "ECON",
@@ -599,7 +647,11 @@
         "section": "01",
         "instructor": "Joshi"
       }
-    ]
+    ],
+    "description": "Prerequisites: ECON 206 or permission of the instructor. This course introduces game theory fundamentals with special emphasis on strategic behavior of individuals, firms, and governments. Topics include strategic games and Nash equilibrium, games in coalitional form and the core, bargaining theory, measuring power in voting systems, problems of fair division, and optimal and stable matching.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester (Odd Years)"
   },
   "ECON-317": {
     "code": "ECON",
@@ -618,7 +670,11 @@
         "section": "01",
         "instructor": "Joshi"
       }
-    ]
+    ],
+    "description": "Prerequisite: ECON 205 or ECON 206 or permission of the instructor. Theories of economic development and growth. Case studies of developed and less developed countries in Asia, Africa and Latin America.",
+    "credits": "3.0",
+    "core": "Global Perspectives",
+    "offered": "Fall Semester (Even Years)"
   },
   "ECON-324": {
     "code": "ECON",
@@ -637,7 +693,11 @@
         "section": "01",
         "instructor": "Safner"
       }
-    ]
+    ],
+    "description": "Prerequisites: ECON 205, ECON 206 and ECON 306. Open to sophomores, juniors and seniors, or permission of the instructor. This course examines the microeconomic aspects of international economics. Economic theories are used to rigorously analyze issues in international trade, distribution of gains from trade, and trade policy tools and their uses. Topics of current interest, such as free trade and welfare, trade blocks, and various development policies will also be studied.",
+    "credits": "3.0",
+    "core": "Global Perspectives",
+    "offered": "Fall Semester (Even Years)"
   },
   "ECON-326": {
     "code": "ECON",
@@ -656,7 +716,11 @@
         "section": "01",
         "instructor": "Safner"
       }
-    ]
+    ],
+    "description": "Prerequisites: ECON 206; ECON 306 is recommended. The study of market structure, monopoly power, pricing, competition, game theory and regulation.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester (Odd Years)"
   },
   "ECON-328": {
     "code": "ECON",
@@ -681,7 +745,11 @@
         "section": "01",
         "instructor": "Joshi"
       }
-    ]
+    ],
+    "description": "Prerequisites: ECON 205 and ECON 206 or permission of instructor. Theories of wage determination, unemployment and inflation, employment trends and labor in the global economy.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester (Even Years)"
   },
   "ECON-335": {
     "code": "ECON",
@@ -694,7 +762,11 @@
         "section": "01",
         "instructor": "Joshi"
       }
-    ]
+    ],
+    "description": "Prerequisite: Permission of the economics faculty. Assist in the introductory and principles of economics courses. The teaching assistant holds tutorials for student questions, assists in computer assignments and quantitative projects. Grading is on a satisfactory/unsatisfactory basis.",
+    "credits": "1.0 - 2.0",
+    "core": "",
+    "offered": "Either Semester"
   },
   "ECON-399": {
     "code": "ECON",
@@ -707,7 +779,11 @@
         "section": "01",
         "instructor": "Kim"
       }
-    ]
+    ],
+    "description": "Prerequisites: 15 credits in economics at the 200-level or above. A learning experience in a business or public environment where specific demands are made in terms of applying economic principles and analysis. Grading is on a satisfactory/unsatisfactory basis.",
+    "credits": "3.0 - 15.0",
+    "core": "High Impact Practice",
+    "offered": "Both Semesters and Summer"
   },
   "ECON-410": {
     "code": "ECON",
@@ -726,7 +802,11 @@
         "section": "01",
         "instructor": "Safner"
       }
-    ]
+    ],
+    "description": "Prerequisite: ECON 306 and junior standing or permission of the instructor. This course applies the economic theory to public policy. Careful examination of government taxation, expenditure, and regulation at the local, state, and federal levels will be carried out with a view to how such policies may impact the public welfare.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester (Even Years)"
   },
   "ECON-452": {
     "code": "ECON",
@@ -745,7 +825,11 @@
         "section": "01",
         "instructor": "Safner"
       }
-    ]
+    ],
+    "description": "Prerequisite: ECON 305 and ECON 306 or permission of the instructor. The doctrines of the great economists: Mercantilist, physiocrat, classical and Keynesian schools of thought; the relation of economic thought to contemporary institutions.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "ECON-470": {
     "code": "ECON",
@@ -776,7 +860,11 @@
         "section": "00",
         "instructor": "TBA"
       }
-    ]
+    ],
+    "description": "Prerequisites: ECON 305 and ECON 306 or permission of the instructor. Study of specific problems in economics through individual research, reports and group discussion.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester"
   },
   "ECON-480": {
     "code": "ECON",
@@ -813,7 +901,11 @@
         "section": "01",
         "instructor": "Safner"
       }
-    ]
+    ],
+    "description": "Prerequisites: ECON 205 and ECON 206, and ECMG 212 or MATH 112, and either ECON 305 or ECON 306. Open to sophomores, juniors and seniors, or permission of the instructor. An introduction to quantitative analysis of economic phenomena. The course emphasizes techniques of estimating economic relationships, testing economic theories and forecasting economic variables. Attention is given to real-world applications.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "ECON-551": {
     "code": "ECON",
@@ -1008,7 +1100,11 @@
         "section": "01",
         "instructor": "Gurzick"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 301. Study of the management decision-making framework, needs assessment, types of management information systems, selection, evaluation and implementation of systems. Social and policy issues are also considered.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Both Semesters"
   },
   "LEAD-669": {
     "code": "LEAD",
@@ -1187,7 +1283,11 @@
         "section": "02",
         "instructor": ""
       }
-    ]
+    ],
+    "description": "Credit by exam. The study of the characteristics of different types of organizations distinguished by purpose or structure. The implications of organizational differences for management and administration will be examined. Students will focus their study on the theoretical and empirical aspects of organizations.",
+    "credits": "3.0",
+    "core": "Social and Behavioral Sciences",
+    "offered": "Both Semesters"
   },
   "MGMT-281": {
     "code": "MGMT",
@@ -1278,7 +1378,11 @@
         "section": "01",
         "instructor": "Pollak"
       }
-    ]
+    ],
+    "description": "Credit by exam. Basic understanding of accounting information, accounting concepts, procedures, analysis and reports. The study of accounting as a tool of economic and financial analysis.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Both Semesters"
   },
   "MGMT-284": {
     "code": "MGMT",
@@ -1363,7 +1467,11 @@
         "section": "01",
         "instructor": "Devan"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 281. Credit by exam. The use of accounting concepts and ideas developed in MGMT 281 underlying the presentation and analysis of financial data for decision making. The uses and limitations of such data for the analysis and control of managerial operations.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Both Semesters"
   },
   "MGMT-301": {
     "code": "MGMT",
@@ -1466,7 +1574,11 @@
         "section": "00",
         "instructor": "TBA"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 205 or permission of the instructor. This course introduces students to major theoretical perspectives in organizational studies. Its multidisciplinary framework includes contributions from the social sciences to the study of individuals, groups, systems and leadership. It enables students to apply theory to application and develop analytical skills to diagnose complex phenomena and recommend strategies for managerial action.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Both Semesters"
   },
   "MGMT-306": {
     "code": "MGMT",
@@ -1545,7 +1657,11 @@
         "section": "01",
         "instructor": ""
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 205. Factors involved in the marketing function relative to product development, promotion, pricing, physical distribution and the determination of marketing objectives within the framework of the marketing system and available markets.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Both Semesters"
   },
   "MGMT-307": {
     "code": "MGMT",
@@ -1576,7 +1692,11 @@
         "section": "01",
         "instructor": "Kozak"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 301. Analysis of problems and techniques faced by human resource management professionals. Topics include human resource planning, training and development, recruitment, selection, performance evaluation, compensation unions, comparable worth, affirmative action and career planning.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester"
   },
   "MGMT-312": {
     "code": "MGMT",
@@ -1637,7 +1757,11 @@
         "section": "01",
         "instructor": "Gurzick"
       }
-    ]
+    ],
+    "description": "Prerequisites: MGMT 205, ECMG 212 or MATH 112, and either ECON 205 or ECON 206. Open to sophomores, juniors or seniors, or permission of the instructor. This course introduces students to the fundamental concepts of the analytical methodology useful in the managerial decision-making process. It begins with a basic review of math, linear algebra and calculus as they are used in business. After which, it covers decision theory, business forecasting, and linear programming.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Both Semesters"
   },
   "MGMT-313": {
     "code": "MGMT",
@@ -1668,7 +1792,11 @@
         "section": "01",
         "instructor": "Kozak"
       }
-    ]
+    ],
+    "description": "Prerequisites: MGMT 205, MGMT 307 (or concurrent enrollment) or the permission of the instructor. This course provides insights into all aspects of employment and labor law, including employment planning, compensation, labor relations, and employee exit. Students gain an understanding of the rights and obligations of employers and employees and develop responsive management strategies involving employment and labor law issues.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "MGMT-314": {
     "code": "MGMT",
@@ -1729,7 +1857,11 @@
         "section": "01",
         "instructor": "Spaans"
       }
-    ]
+    ],
+    "description": "Prerequisites: ECON 206 and MGMT 205 Introduction to the international, foreign and domestic environments affecting international businesses. Aspects of globalization as it pertains to multinational enterprises will also be covered from the perspectives of business organization, marketing, finance, and strategy.",
+    "credits": "3.0",
+    "core": "Global Perspectives",
+    "offered": "Both Semesters"
   },
   "MGMT-315": {
     "code": "MGMT",
@@ -1760,7 +1892,11 @@
         "section": "01",
         "instructor": "El-Zeftawy"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 205 or permission of the instructor. Open to sophomores, juniors and seniors. An introduction to the management of nonprofit organizations with special emphasis on social entrepreneurship, volunteer management and effective strategies for marketing, fund development and resource management.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "MGMT-318": {
     "code": "MGMT",
@@ -1785,7 +1921,11 @@
         "section": "01",
         "instructor": "Vivari"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 205 and junior standing or permission of the instructor. Through case studies, key readings, directed projects, and activities, this course explores how business techniques can drive the creation of social value. Students will develop the toolkit of the social entrepreneur, covering topics of leadership, organizational setup, acquisition and management of resources, and managing complex sociocultural systems. Concepts of innovation, social capital, and sustainable enterprise will be emphasized.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "MGMT-319": {
     "code": "MGMT",
@@ -1810,7 +1950,11 @@
         "section": "01",
         "instructor": "Vivari"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 318 and junior standing or permission of the instructor. Social entrepreneurship refers to the creation of innovative organizations that address social problems using business methods.  In many ways, this course is a continuation of Social Entrepreneurship I as it seeks to implement the principles learned to actual organizational and community situations. The course starts with an environmental scan of the local community to understand the social and environmental needs of the community. Then, the emphasis shifts to the operational aspects of implementing projects. Special attention is given to measuring progress, understanding roadblocks to effective implementation and change management, and overcoming resistance to change. Effective implementation strategies, such as finding community partners and seeking alliances with regional and national organizations, are highlighted in this course. The international aspects of social entrepreneurship are illustrated through examples and case studies.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester"
   },
   "MGMT-321": {
     "code": "MGMT",
@@ -1841,7 +1985,11 @@
         "section": "01",
         "instructor": "Stanker"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 284. The first of a two-semester course sequence to cover intermediate accounting. A study of valuation of assets and equities, measurement of income, analysis and preparation of financial statements, and use of generally accepted accounting principles.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "MGMT-322": {
     "code": "MGMT",
@@ -1878,7 +2026,11 @@
         "section": "01",
         "instructor": "Stanker"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 321. A continuation of the intermediate accounting two-semester sequence. A study of stockholders\u2019 equity, special liabilities, accounting changes, price changes and accounting issuances of the APB and FASB.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester"
   },
   "MGMT-323": {
     "code": "MGMT",
@@ -1897,7 +2049,11 @@
         "section": "01",
         "instructor": "Qiao"
       }
-    ]
+    ],
+    "description": "Sophomore standing and MGMT 284 and ECMG 303 or permission of the instructor. The course will provide a high-level overview of the Personal Financial Planning. The focus will be on both the basic financial planning competencies and the broad subject matter of finance. Students will be exposed to the four key personal financial planning areas of estate, risk management, investments, and financial independence while integrating tax planning strategies.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester (Odd Years)"
   },
   "MGMT-324": {
     "code": "MGMT",
@@ -1928,7 +2084,11 @@
         "section": "00",
         "instructor": "TBA"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 205 or permission of instructor ESG assets (investments with a focus on Environmental, Social and Governance themes) represented over 1/3 of all professionally managed assets in the US as of 2020 and has grown since then. This course will cover (i) what it means to be a socially responsible company, (ii) how investment professionals are evaluating companies with a social lens, (iii) how stakeholders are driving change in companies through proxy votes and engagement, and (iv) what this trend means for institutional and individual investors.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Odd Years"
   },
   "MGMT-331": {
     "code": "MGMT",
@@ -1953,7 +2113,11 @@
         "section": "01",
         "instructor": "Stanker"
       }
-    ]
+    ],
+    "description": "Prerequisites: MGMT 321 and MGMT 322. This course delivers a basic understanding of auditing function in accounting from both and internal and external perspective but concentrating on external auditing. Included will be an analysis of why auditing is necessary and how to complete an audit in an organization.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester"
   },
   "MGMT-370": {
     "code": "MGMT",
@@ -2014,7 +2178,11 @@
         "section": "01",
         "instructor": ""
       }
-    ]
+    ],
+    "description": "Prerequisite: Approval of the instructor. May be repeated for a maximum of 4 credits. Investment Practicum is an experiential learning course in investment. The focus of this course is to give the students both a theoretical foundation and practical experience in the management of investment portfolios. Grading is on a Satisfactory/Unsatisfactory basis.",
+    "credits": "1.0",
+    "core": "",
+    "offered": "Both Semesters"
   },
   "MGMT-375": {
     "code": "MGMT",
@@ -2045,7 +2213,11 @@
         "section": "00",
         "instructor": "TBA"
       }
-    ]
+    ],
+    "description": "Prerequisite: Permission of the chair of the department.  Reading and/or research in a selected field of management.",
+    "credits": "1.0 - 3.0",
+    "core": "",
+    "offered": "Both Semesters and Summer"
   },
   "MGMT-399": {
     "code": "MGMT",
@@ -2064,7 +2236,11 @@
         "section": "01",
         "instructor": "Li"
       }
-    ]
+    ],
+    "description": "Prerequisites: Completion of at least half of the Common Body of Knowledge courses and junior or senior standing. A learning experience with an appropriate organization to provide familiarity with the management concepts, skills and attitudes required for success in a specific career. The student is responsible for developing appropriate work projects, and each must meet department guidelines and be approved. At least 40 hours of work will be completed for each credit. Grading is on a satisfactory/unsatisfactory basis.",
+    "credits": "3.0",
+    "core": "High Impact Practice",
+    "offered": "Both Semesters and Summer"
   },
   "MGMT-402": {
     "code": "MGMT",
@@ -2095,7 +2271,11 @@
         "section": "01",
         "instructor": "Qiao"
       }
-    ]
+    ],
+    "description": "Prerequisite: ECMG 303. Financial management of business enterprises, with emphasis on financial problems and policies of corporations.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "MGMT-406": {
     "code": "MGMT",
@@ -2126,7 +2306,11 @@
         "section": "01",
         "instructor": "Jenkins"
       }
-    ]
+    ],
+    "description": "Prerequisites: MGMT 306 The course uses concepts, principles and theories from psychology, economics, anthropology and sociology to explore the consumer acquisition process. Marketing concepts of product positioning, segmentation, brand loyalty, preference and diffusion of innovations will be considered in context with environmental, ethical, multicultural and social influences.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "MGMT-410": {
     "code": "MGMT",
@@ -2151,7 +2335,11 @@
         "section": "01",
         "instructor": "Li"
       }
-    ]
+    ],
+    "description": "Prerequisite: ECMG 303. Analytical techniques for appraising equity securities and short-term, intermediate-term and long-term debt instruments with a view particularly toward portfolio balance. The course will consider both the individual investor and corporate and institutional needs for cash management.",
+    "credits": "3.0",
+    "core": "High Impact Practice",
+    "offered": "Spring Semester"
   },
   "MGMT-411": {
     "code": "MGMT",
@@ -2218,7 +2406,11 @@
         "section": "01",
         "instructor": "Jose"
       }
-    ]
+    ],
+    "description": "Prerequisite: Completion of the Common Body of Knowledge. Open to seniors only. The analysis of cases in management strategy and decision-making with emphasis on the practical application of concepts in human resource management, marketing and finance. Integrates various aspects of managerial activity in a systematic approach.",
+    "credits": "3.0",
+    "core": "High Impact Practice",
+    "offered": "Both Semesters"
   },
   "MGMT-423": {
     "code": "MGMT",
@@ -2249,7 +2441,11 @@
         "section": "01",
         "instructor": "Nguyen"
       }
-    ]
+    ],
+    "description": "Prerequisites: MGMT 306 and MATH 112 or PSY 211 or SOC 261 or ECMG 212, and permission of the instructor. The role of research in marketing is studied; skill in applying various marketing research methods is developed through field work.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "MGMT-424": {
     "code": "MGMT",
@@ -2292,7 +2488,11 @@
         "section": "01",
         "instructor": ""
       }
-    ]
+    ],
+    "description": "Prerequisites: MGMT 306 or permission of instructor This course covers how advertising, sales promotion, public relations, personal selling, interactive marketing and packaging decisions form a coordinated strategy. Students examine the role of integrated communications and the benefits of integrating all brand elements of the marketing mix. The course also addresses programs for new media and the challenges of a changing marketing environment.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester"
   },
   "MGMT-426": {
     "code": "MGMT",
@@ -2311,7 +2511,11 @@
         "section": "01",
         "instructor": "Li"
       }
-    ]
+    ],
+    "description": "Junior standing and ECMG 303 or permission of the instructor. This course covers the valuation and application of a wide variety of fixed income securities. Fixed income securities are financial claims including pure discount bonds, coupon bonds such as Treasury notes and corporate bonds, floating rate notes, callable bonds, among many others, issued by public or private entities. In this course, we focus on yield curve construction, duration and convexity, and formal term structure models. The goal is to introduce you to at least one equilibrium model and one no-arbitrage model, and to analytical tools used in interest rate modeling and risk management. This course combines theory with practical examples demonstrating the complications that arise when applying theory to realistic situations.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester (Odd Years)"
   },
   "MGMT-432": {
     "code": "MGMT",
@@ -2342,7 +2546,11 @@
         "section": "01",
         "instructor": "Stanker"
       }
-    ]
+    ],
+    "description": "Prerequisites: ECMG 303, MGMT 314, MGMT 321 and MGMT 322 This course develops an understanding of the theoretical foundation of GAAP as it relates to business combinations and consolidated financial statements. It includes advanced topics in partnership accounting, foreign currency and hedge accounting, international accounting standards, and accounting for government and non-profit organizations.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "MGMT-433": {
     "code": "MGMT",
@@ -2379,7 +2587,11 @@
         "section": "01",
         "instructor": "Pollak"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 284. An intermediate course in accounting with emphasis on cost control. The course will include definitions and roles of budgets, forecasting, categorization of costs, inventory management, product costing and transfer pricing.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Spring Semester"
   },
   "MGMT-434": {
     "code": "MGMT",
@@ -2416,7 +2628,11 @@
         "section": "01",
         "instructor": "Stanker"
       }
-    ]
+    ],
+    "description": "Prerequisites: MGMT 321 and MGMT 322. The course is a study of personal and corporate tax concepts, structure, and planning. It emphasizes the rules of taxation for individuals, partnerships, and corporations. Students learn estate and gift taxation, income taxation of trusts and estates, deferred compensation, and international tax. State and local taxation are also addressed.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Fall Semester"
   },
   "MGMT-454": {
     "code": "MGMT",
@@ -2483,7 +2699,11 @@
         "section": "00",
         "instructor": "TBA"
       }
-    ]
+    ],
+    "description": "Prerequisite: MGMT 205 or permission of the department. This course provides an overview of the contemporary legal and regulatory business environment. Specifically, it relates various laws and regulations to major business functions such as employment, production, marketing, finance and international operations. The course also provides a brief overview of U.S. political and constitutional systems that are the building blocks of our regulatory environment.",
+    "credits": "3.0",
+    "core": "",
+    "offered": "Both Semesters"
   },
   "MGMT-481": {
     "code": "MGMT",
@@ -2514,7 +2734,11 @@
         "section": "01",
         "instructor": "TBA"
       }
-    ]
+    ],
+    "description": "Prerequisites: MGMT 281 and MGMT 284, or permission of the instructor. This course examines the accounting principles and procedures underlying a firm\u2019s financial statements. The objective of the course is to assess the success of a firm\u2019s strategies as measured by profitability, liquidity, solvency and asset management relative to the level of risk incurred by the firm.",
+    "credits": "3.0",
+    "core": "",
+    "offered": ""
   },
   "MGMT-550": {
     "code": "MGMT",
