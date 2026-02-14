@@ -32,8 +32,8 @@ HISTORY_FILE = os.path.join(DATA_DIR, 'course_history.json')
 VALID_TERMS = ['fall-2026', 'spring-2027']
 DEFAULT_TERM = 'fall-2026'
 
-# Reset password
-RESET_PASSWORD = 'donkey'
+# Reset password - set via PASSWORD environment variable
+RESET_PASSWORD = os.environ.get('PASSWORD', '')
 
 # Course guides data - courses students should take together each semester
 COURSE_GUIDES = {
