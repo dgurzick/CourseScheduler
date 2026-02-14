@@ -446,7 +446,7 @@ def add_faculty():
             'name': name,
             'term': term,
             'timestamp': datetime.now().isoformat()
-        }, broadcast=True)
+        })
 
     return jsonify({'success': True, 'name': name})
 
@@ -467,7 +467,7 @@ def delete_faculty():
             'name': name,
             'term': term,
             'timestamp': datetime.now().isoformat()
-        }, broadcast=True)
+        })
 
     return jsonify({'success': True})
 
