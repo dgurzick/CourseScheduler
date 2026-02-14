@@ -213,50 +213,62 @@ def update_course():
 @app.route('/api/course/add', methods=['POST'])
 def add_course():
     """Add a new course."""
-    data = request.json
-    term = data.get('term', DEFAULT_TERM)
-    schedule = load_schedule(term)
+    try:
+        data = request.json
+        if not data:
+            return jsonify({'success': False, 'error': 'No data provided'}), 400
 
-    code = data.get('code', '').upper()
-    number = data.get('number', '')
-    name = data.get('name', '')
-    instructor = data.get('instructor', '')
-    room = data.get('room', '')
-    slot_id = data.get('slotId')
+        term = data.get('term', DEFAULT_TERM)
+        schedule = load_schedule(term)
 
-    # Find the next available section number for this course
-    existing_sections = [
-        int(c['section']) for c in schedule['courses']
-        if c['code'] == code and c['number'] == number and c['section'].isdigit()
-    ]
-    next_section = str(max(existing_sections, default=0) + 1)
+        code = data.get('code', '').upper()
+        number = str(data.get('number', ''))  # Ensure it's a string
+        name = data.get('name', '')
+        instructor = data.get('instructor', '')
+        room = data.get('room', '')
+        slot_id = data.get('slotId')
 
-    course_id = f"{code}-{number}-{next_section}"
+        if not code or not number:
+            return jsonify({'success': False, 'error': 'Code and number are required'}), 400
 
-    new_course = {
-        'id': course_id,
-        'code': code,
-        'number': number,
-        'section': next_section,
-        'name': name,
-        'days': '',
-        'startTime': '',
-        'endTime': '',
-        'instructor': instructor,
-        'room': room,
-        'slotId': slot_id
-    }
+        # Find the next available section number for this course
+        existing_sections = [
+            int(c['section']) for c in schedule['courses']
+            if c['code'] == code and c['number'] == number and c['section'].isdigit()
+        ]
+        next_section = str(max(existing_sections, default=0) + 1)
 
-    schedule['courses'].append(new_course)
-    save_schedule(schedule, term)
+        course_id = f"{code}-{number}-{next_section}"
 
-    socketio.emit('course_added', {
-        'course': new_course,
-        'term': term,
-        'timestamp': datetime.now().isoformat()
-    }, broadcast=True)
+        new_course = {
+            'id': course_id,
+            'code': code,
+            'number': number,
+            'section': next_section,
+            'name': name,
+            'days': '',
+            'startTime': '',
+            'endTime': '',
+            'instructor': instructor,
+            'room': room,
+            'slotId': slot_id
+        }
 
-    return jsonify({'success': True, 'course': new_course})
+        schedule['courses'].append(new_course)
+        save_schedule(schedule, term)
+
+        socketio.emit('course_added', {
+            'course': new_course,
+            'term': term,
+            'timestamp': datetime.now().isoformat()
+        }, broadcast=True)
+
+        return jsonify({'success': True, 'course': new_course})
+    except Exception as e:
+        import traceback
+        print(f"Error adding course: {e}")
+        traceback.print_exc()
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 
 @app.route('/api/faculty', methods=['GET'])
