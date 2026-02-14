@@ -24,7 +24,11 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-i
 async_mode = 'eventlet' if os.environ.get('RENDER') else 'threading'
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode=async_mode)
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+# Use Render disk for persistence on Render, local data dir otherwise
+if os.environ.get('RENDER'):
+    DATA_DIR = '/var/data'
+else:
+    DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 DATA_FILE = os.path.join(DATA_DIR, 'schedule.json')
 HISTORY_FILE = os.path.join(DATA_DIR, 'course_history.json')
 
@@ -32,8 +36,8 @@ HISTORY_FILE = os.path.join(DATA_DIR, 'course_history.json')
 VALID_TERMS = ['fall-2026', 'spring-2027']
 DEFAULT_TERM = 'fall-2026'
 
-# Reset password - set via PASSWORD environment variable
-RESET_PASSWORD = os.environ.get('PASSWORD', '')
+# Reset password - set via PASSWORD or password environment variable
+RESET_PASSWORD = os.environ.get('PASSWORD', '') or os.environ.get('password', '')
 
 # Course guides data - courses students should take together each semester
 COURSE_GUIDES = {
