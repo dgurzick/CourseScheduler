@@ -499,7 +499,7 @@ def undo_action():
             'slotId': slot_id,
             'term': term,
             'timestamp': datetime.now().isoformat()
-        }, broadcast=True)
+        })
 
     elif action_type == 'update':
         course_id = data.get('courseId')
@@ -518,7 +518,7 @@ def undo_action():
             'updates': updates,
             'term': term,
             'timestamp': datetime.now().isoformat()
-        }, broadcast=True)
+        })
 
     elif action_type == 'delete':
         course_id = data.get('courseId')
@@ -529,7 +529,7 @@ def undo_action():
             'courseId': course_id,
             'term': term,
             'timestamp': datetime.now().isoformat()
-        }, broadcast=True)
+        })
 
     return jsonify({'success': True})
 
@@ -730,7 +730,7 @@ def restore_data():
         socketio.emit('data_restored', {
             'files': restored_files,
             'timestamp': datetime.now().isoformat()
-        }, broadcast=True)
+        })
 
         return jsonify({'success': True, 'restored': restored_files})
 
