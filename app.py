@@ -15,6 +15,16 @@ async_mode = 'eventlet' if os.environ.get('RENDER') else 'threading'
 socketio = SocketIO(app, cors_allowed_origins="*", async_mode=async_mode)
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), 'data', 'schedule.json')
+HISTORY_FILE = os.path.join(os.path.dirname(__file__), 'data', 'course_history.json')
+
+
+def load_course_history():
+    """Load course history data from JSON file."""
+    try:
+        with open(HISTORY_FILE, 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
 
 
 def load_schedule():
@@ -149,6 +159,21 @@ def get_faculty():
     """Get all faculty members."""
     schedule = load_schedule()
     return jsonify(schedule.get('faculty', []))
+
+
+@app.route('/api/course-history')
+def get_course_history():
+    """Return all course history data."""
+    return jsonify(load_course_history())
+
+
+@app.route('/api/course-history/<course_id>')
+def get_course_history_by_id(course_id):
+    """Return history for a specific course."""
+    history = load_course_history()
+    if course_id in history:
+        return jsonify(history[course_id])
+    return jsonify({'error': 'Course not found'}), 404
 
 
 @app.route('/api/faculty/add', methods=['POST'])

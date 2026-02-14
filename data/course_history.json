@@ -1,0 +1,3482 @@
+{
+  "CAMG-330": {
+    "code": "CAMG",
+    "number": "330",
+    "name": "Social Media Marketing",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "El-Zeftawy"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "El-Zeftawy"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "El-Zeftawy"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "El-Zeftawy"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "El-Zeftawy"
+      }
+    ]
+  },
+  "ECMG-300": {
+    "code": "ECMG",
+    "number": "300",
+    "name": "Financial Economics",
+    "offerings": [
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kim"
+      }
+    ]
+  },
+  "ECMG-303": {
+    "code": "ECMG",
+    "number": "303",
+    "name": "Principles of Finance & Investment",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Li"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      }
+    ]
+  },
+  "ECMG-478": {
+    "code": "ECMG",
+    "number": "478",
+    "name": "International Financial Management",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      }
+    ]
+  },
+  "ECMG-578": {
+    "code": "ECMG",
+    "number": "578",
+    "name": "International Financial Management",
+    "offerings": [
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      }
+    ]
+  },
+  "ECON-205": {
+    "code": "ECON",
+    "number": "205",
+    "name": "Principles of Macroeconomics",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "03",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "03",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "04",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "03",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "03",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      }
+    ]
+  },
+  "ECON-206": {
+    "code": "ECON",
+    "number": "206",
+    "name": "Principles of Microeconomics",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "00",
+        "instructor": "TBA"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "00",
+        "instructor": "TBA"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "00",
+        "instructor": "TBA"
+      }
+    ]
+  },
+  "ECON-304": {
+    "code": "ECON",
+    "number": "304",
+    "name": "International Political Economy",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Reinarts"
+      }
+    ]
+  },
+  "ECON-305": {
+    "code": "ECON",
+    "number": "305",
+    "name": "Macroeconomic Analysis",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      }
+    ]
+  },
+  "ECON-306": {
+    "code": "ECON",
+    "number": "306",
+    "name": "Microeconomic Analysis",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Safner"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Safner"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Safner"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Safner"
+      }
+    ]
+  },
+  "ECON-307": {
+    "code": "ECON",
+    "number": "307",
+    "name": "Economics and Finance of Sports",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Dodd"
+      }
+    ]
+  },
+  "ECON-309": {
+    "code": "ECON",
+    "number": "309",
+    "name": "Monetary Policy & Financial Markets",
+    "offerings": [
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kim"
+      }
+    ]
+  },
+  "ECON-310": {
+    "code": "ECON",
+    "number": "310",
+    "name": "Environmental Economics",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      }
+    ]
+  },
+  "ECON-316": {
+    "code": "ECON",
+    "number": "316",
+    "name": "Game Theory",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      }
+    ]
+  },
+  "ECON-317": {
+    "code": "ECON",
+    "number": "317",
+    "name": "Economics of Development",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      }
+    ]
+  },
+  "ECON-324": {
+    "code": "ECON",
+    "number": "324",
+    "name": "International Trade",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Safner"
+      }
+    ]
+  },
+  "ECON-326": {
+    "code": "ECON",
+    "number": "326",
+    "name": "Industrial Organization",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Safner"
+      }
+    ]
+  },
+  "ECON-328": {
+    "code": "ECON",
+    "number": "328",
+    "name": "Labor Economics",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Schuler"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      }
+    ]
+  },
+  "ECON-335": {
+    "code": "ECON",
+    "number": "335",
+    "name": "Teaching Assistantship in Economics",
+    "offerings": [
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      }
+    ]
+  },
+  "ECON-399": {
+    "code": "ECON",
+    "number": "399",
+    "name": "Internship in Economics",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Kim"
+      }
+    ]
+  },
+  "ECON-410": {
+    "code": "ECON",
+    "number": "410",
+    "name": "Public Economics",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Safner"
+      }
+    ]
+  },
+  "ECON-452": {
+    "code": "ECON",
+    "number": "452",
+    "name": "History of Economic Thought",
+    "offerings": [
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Safner"
+      }
+    ]
+  },
+  "ECON-470": {
+    "code": "ECON",
+    "number": "470",
+    "name": "Seminar",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "00",
+        "instructor": "TBA"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "00",
+        "instructor": "TBA"
+      }
+    ]
+  },
+  "ECON-480": {
+    "code": "ECON",
+    "number": "480",
+    "name": "Econometrics",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Safner"
+      }
+    ]
+  },
+  "ECON-551": {
+    "code": "ECON",
+    "number": "551",
+    "name": "Foundations of Economics",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2024,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Golemac"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2022,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Joshi"
+      }
+    ]
+  },
+  "ECON-560": {
+    "code": "ECON",
+    "number": "560",
+    "name": "Managerial Economics",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Goldenbach"
+      },
+      {
+        "year": 2025,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Reinarts"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Goldenbach"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2023,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Joshi"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "00",
+        "instructor": "TBA"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Joshi"
+      }
+    ]
+  },
+  "ITMG-388": {
+    "code": "ITMG",
+    "number": "388",
+    "name": "Management Information Systems",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Radwan"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Radwan"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Radwan"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Spaans"
+      },
+      {
+        "year": 2024,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Racheff"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Gurzick"
+      }
+    ]
+  },
+  "LEAD-669": {
+    "code": "LEAD",
+    "number": "669",
+    "name": "Project Management",
+    "offerings": [
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Valenzuela"
+      }
+    ]
+  },
+  "LEAD-670": {
+    "code": "LEAD",
+    "number": "670",
+    "name": "Marketing Analysis for Managers",
+    "offerings": [
+      {
+        "year": 2022,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Jenkins"
+      }
+    ]
+  },
+  "LEAD-680": {
+    "code": "LEAD",
+    "number": "680",
+    "name": "Strategic Cost Management",
+    "offerings": [
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Devan"
+      }
+    ]
+  },
+  "LEAD-690": {
+    "code": "LEAD",
+    "number": "690",
+    "name": "Strategy & Competitive Advantage",
+    "offerings": [
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      }
+    ]
+  },
+  "MGMT-205": {
+    "code": "MGMT",
+    "number": "205",
+    "name": "Prin of Mgmt Intro to Organizations",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "TBA"
+      },
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "03",
+        "instructor": "Witmer"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Witmer"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Witmer"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "03",
+        "instructor": "Witmer"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Witmer"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "03",
+        "instructor": "Witmer"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Nguyen"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "02",
+        "instructor": ""
+      }
+    ]
+  },
+  "MGMT-281": {
+    "code": "MGMT",
+    "number": "281",
+    "name": "Principles of Financial Accounting",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Dodd"
+      },
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Dodd"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Pollak"
+      }
+    ]
+  },
+  "MGMT-284": {
+    "code": "MGMT",
+    "number": "284",
+    "name": "Principles of Managerial Accounting",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Nguyen"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      }
+    ]
+  },
+  "MGMT-301": {
+    "code": "MGMT",
+    "number": "301",
+    "name": "Organizational Theory and Behavior",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Al-Dajane"
+      },
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Witmer"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Al-Dajane"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Abijah"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Al-Dajane"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Padmanabhan"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Al-Dajane"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Padmanabhan"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Al-Dajane"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Padmanabhan"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Al-Dajane"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Al-Dajane"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Al-Dajane"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Al-Dajane"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Cubbage"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "00",
+        "instructor": "TBA"
+      }
+    ]
+  },
+  "MGMT-306": {
+    "code": "MGMT",
+    "number": "306",
+    "name": "Principles of Marketing",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "02",
+        "instructor": ""
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Cubbage"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      }
+    ]
+  },
+  "MGMT-307": {
+    "code": "MGMT",
+    "number": "307",
+    "name": "Personnel Management",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kozak"
+      }
+    ]
+  },
+  "MGMT-312": {
+    "code": "MGMT",
+    "number": "312",
+    "name": "Analytical Methods of Management",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Leggieri"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Leggieri"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Leggieri"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Leggieri"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Leggieri"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Cubbage"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Gurzick"
+      }
+    ]
+  },
+  "MGMT-313": {
+    "code": "MGMT",
+    "number": "313",
+    "name": "Employment and Labor Law",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Kozak"
+      }
+    ]
+  },
+  "MGMT-314": {
+    "code": "MGMT",
+    "number": "314",
+    "name": "International Business",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Witmer"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Spaans"
+      }
+    ]
+  },
+  "MGMT-315": {
+    "code": "MGMT",
+    "number": "315",
+    "name": "Managing Nonprofit Organizations",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "El-Zeftawy"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "El-Zeftawy"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "El-Zeftawy"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "El-Zeftawy"
+      }
+    ]
+  },
+  "MGMT-318": {
+    "code": "MGMT",
+    "number": "318",
+    "name": "Social Entrepreneurship I",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Witmer"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Witmer"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Vivari"
+      }
+    ]
+  },
+  "MGMT-319": {
+    "code": "MGMT",
+    "number": "319",
+    "name": "Social Entrepreneurship II",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "TBA"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Witmer"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Vivari"
+      }
+    ]
+  },
+  "MGMT-321": {
+    "code": "MGMT",
+    "number": "321",
+    "name": "Intermediate Accounting I",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Stanker"
+      }
+    ]
+  },
+  "MGMT-322": {
+    "code": "MGMT",
+    "number": "322",
+    "name": "Intermediate Accounting II",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Stanker"
+      }
+    ]
+  },
+  "MGMT-323": {
+    "code": "MGMT",
+    "number": "323",
+    "name": "Personal Financial Planning",
+    "offerings": [
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      }
+    ]
+  },
+  "MGMT-324": {
+    "code": "MGMT",
+    "number": "324",
+    "name": "ESG Investing and Sustainable Portfolios",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Radwan"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Vivari"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Vivari"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "00",
+        "instructor": "TBA"
+      }
+    ]
+  },
+  "MGMT-331": {
+    "code": "MGMT",
+    "number": "331",
+    "name": "Auditing",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Stanker"
+      }
+    ]
+  },
+  "MGMT-370": {
+    "code": "MGMT",
+    "number": "370",
+    "name": "Investment Practicum",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      }
+    ]
+  },
+  "MGMT-375": {
+    "code": "MGMT",
+    "number": "375",
+    "name": "Independent Study",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "00",
+        "instructor": "TBA"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "00",
+        "instructor": "TBA"
+      }
+    ]
+  },
+  "MGMT-399": {
+    "code": "MGMT",
+    "number": "399",
+    "name": "Internship in Management",
+    "offerings": [
+      {
+        "year": 2024,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Kim"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Li"
+      }
+    ]
+  },
+  "MGMT-402": {
+    "code": "MGMT",
+    "number": "402",
+    "name": "Business Finance",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Qiao"
+      }
+    ]
+  },
+  "MGMT-406": {
+    "code": "MGMT",
+    "number": "406",
+    "name": "Consumer Behavior and Analysis",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jenkins"
+      }
+    ]
+  },
+  "MGMT-410": {
+    "code": "MGMT",
+    "number": "410",
+    "name": "Investment Analysis",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      }
+    ]
+  },
+  "MGMT-411": {
+    "code": "MGMT",
+    "number": "411",
+    "name": "Seminar in Strategic Management",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "02",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      }
+    ]
+  },
+  "MGMT-423": {
+    "code": "MGMT",
+    "number": "423",
+    "name": "Marketng Research Methods",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Nguyen"
+      }
+    ]
+  },
+  "MGMT-424": {
+    "code": "MGMT",
+    "number": "424",
+    "name": "Marketing Communications Strategy",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "02",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      }
+    ]
+  },
+  "MGMT-426": {
+    "code": "MGMT",
+    "number": "426",
+    "name": "Fixed Income Securities",
+    "offerings": [
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Li"
+      }
+    ]
+  },
+  "MGMT-432": {
+    "code": "MGMT",
+    "number": "432",
+    "name": "Advanced Accounting",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Stanker"
+      }
+    ]
+  },
+  "MGMT-433": {
+    "code": "MGMT",
+    "number": "433",
+    "name": "Cost Accounting",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Pollak"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Pollak"
+      }
+    ]
+  },
+  "MGMT-434": {
+    "code": "MGMT",
+    "number": "434",
+    "name": "Federal Tax Accounting",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Stanker"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Stanker"
+      }
+    ]
+  },
+  "MGMT-454": {
+    "code": "MGMT",
+    "number": "454",
+    "name": "Legal Environment of Business",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Hartlaub"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Hartlaub"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Hartlaub"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Hartlaub"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Hartlaub"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Hartlaub"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Hartlaub"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Hartlaub"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Hartlaub"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "00",
+        "instructor": "TBA"
+      }
+    ]
+  },
+  "MGMT-481": {
+    "code": "MGMT",
+    "number": "481",
+    "name": "Financial Statement Analysis",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "TBA"
+      }
+    ]
+  },
+  "MGMT-550": {
+    "code": "MGMT",
+    "number": "550",
+    "name": "Business Analytics",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2024,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Faculty"
+      }
+    ]
+  },
+  "MGMT-551": {
+    "code": "MGMT",
+    "number": "551",
+    "name": "Management Theory",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2025,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Johnson"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2023,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      }
+    ]
+  },
+  "MGMT-552": {
+    "code": "MGMT",
+    "number": "552",
+    "name": "Quantitative Methods for Managers",
+    "offerings": [
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2022,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Gurzick"
+      }
+    ]
+  },
+  "MGMT-553": {
+    "code": "MGMT",
+    "number": "553",
+    "name": "Foundations of Accounting",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Zhang"
+      },
+      {
+        "year": 2023,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Zhang"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      }
+    ]
+  },
+  "MGMT-554": {
+    "code": "MGMT",
+    "number": "554",
+    "name": "Legal Environment of Business",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Duncan"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Duncan"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Duncan"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Duncan"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Duncan"
+      }
+    ]
+  },
+  "MGMT-560": {
+    "code": "MGMT",
+    "number": "560",
+    "name": "Leadership & Organizational Behavior",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Johnson"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Johnson"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Johnson"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Johnson"
+      },
+      {
+        "year": 2024,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Johnson"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Vivari"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Plitt"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Cubbage"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Cubbage"
+      },
+      {
+        "year": 2022,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Cubbage"
+      }
+    ]
+  },
+  "MGMT-561": {
+    "code": "MGMT",
+    "number": "561",
+    "name": "Financial Management",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      }
+    ]
+  },
+  "MGMT-562": {
+    "code": "MGMT",
+    "number": "562",
+    "name": "Financial & Managerial Accounting",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2024,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2022,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Devan"
+      }
+    ]
+  },
+  "MGMT-563": {
+    "code": "MGMT",
+    "number": "563",
+    "name": "Marketing Management",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2025,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2023,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Mann"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jenkins"
+      }
+    ]
+  },
+  "MGMT-564": {
+    "code": "MGMT",
+    "number": "564",
+    "name": "Production & Operations Management",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Valenzuela"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Valenzuela"
+      },
+      {
+        "year": 2024,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Valenzuela"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Valenzuela"
+      },
+      {
+        "year": 2022,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Valenzuela"
+      }
+    ]
+  },
+  "MGMT-565": {
+    "code": "MGMT",
+    "number": "565",
+    "name": "International Management",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2025,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Radwan"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Qiao"
+      },
+      {
+        "year": 2023,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Cubbage"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Prensky"
+      }
+    ]
+  },
+  "MGMT-566": {
+    "code": "MGMT",
+    "number": "566",
+    "name": "Information Management & Technology",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Radwan"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Bowen-Ziecheck"
+      }
+    ]
+  },
+  "MGMT-567": {
+    "code": "MGMT",
+    "number": "567",
+    "name": "Organizational Sustainability",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Racheff"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Racheff"
+      },
+      {
+        "year": 2025,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Racheff"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Racheff"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Racheff"
+      },
+      {
+        "year": 2023,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Racheff"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Racheff"
+      }
+    ]
+  },
+  "MGMT-568": {
+    "code": "MGMT",
+    "number": "568",
+    "name": "Accounting Information Systems",
+    "offerings": [
+      {
+        "year": 2024,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2022,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Devan"
+      }
+    ]
+  },
+  "MGMT-569": {
+    "code": "MGMT",
+    "number": "569",
+    "name": "Project Management",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Valenzuela"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Valenzuela"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Valenzuela"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Valenzuela"
+      }
+    ]
+  },
+  "MGMT-570": {
+    "code": "MGMT",
+    "number": "570",
+    "name": "Marketing Analysis for Managers",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2024,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2022,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Jenkins"
+      }
+    ]
+  },
+  "MGMT-571": {
+    "code": "MGMT",
+    "number": "571",
+    "name": "Advertising Management",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2025,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Dupont"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      }
+    ]
+  },
+  "MGMT-573": {
+    "code": "MGMT",
+    "number": "573",
+    "name": "Applied Generative AI",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Gurzick"
+      }
+    ]
+  },
+  "MGMT-575": {
+    "code": "MGMT",
+    "number": "575",
+    "name": "Independent Study",
+    "offerings": [
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Gurzick"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": ""
+      }
+    ]
+  },
+  "MGMT-580": {
+    "code": "MGMT",
+    "number": "580",
+    "name": "Strategic Cost Management",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Devan"
+      }
+    ]
+  },
+  "MGMT-581": {
+    "code": "MGMT",
+    "number": "581",
+    "name": "Financial Statement Analysis",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Devan"
+      }
+    ]
+  },
+  "MGMT-582": {
+    "code": "MGMT",
+    "number": "582",
+    "name": "Negotiation & Conflict Resolution",
+    "offerings": [
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Johnson"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Duncan"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Duncan"
+      },
+      {
+        "year": 2022,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Duncan"
+      }
+    ]
+  },
+  "MGMT-583": {
+    "code": "MGMT",
+    "number": "583",
+    "name": "People Analytics",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Gurzick"
+      }
+    ]
+  },
+  "MGMT-585": {
+    "code": "MGMT",
+    "number": "585",
+    "name": "Human Resource Management",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2025,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2023,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Kozak"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Kozak"
+      }
+    ]
+  },
+  "MGMT-587": {
+    "code": "MGMT",
+    "number": "587",
+    "name": "Public Administration",
+    "offerings": [
+      {
+        "year": 2023,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Stottlemyer"
+      }
+    ]
+  },
+  "MGMT-590": {
+    "code": "MGMT",
+    "number": "590",
+    "name": "Strategy & Competitive Advantage",
+    "offerings": [
+      {
+        "year": 2026,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2025,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2025,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2024,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2024,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2023,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2023,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Jose"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Jose"
+      }
+    ]
+  },
+  "MGMT-597": {
+    "code": "MGMT",
+    "number": "597",
+    "name": "Internship for Business Administration",
+    "offerings": [
+      {
+        "year": 2024,
+        "term": "Summer",
+        "section": "01",
+        "instructor": ""
+      },
+      {
+        "year": 2022,
+        "term": "Fall",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2022,
+        "term": "Spring",
+        "section": "01",
+        "instructor": "Li"
+      },
+      {
+        "year": 2022,
+        "term": "Summer",
+        "section": "01",
+        "instructor": "Li"
+      }
+    ]
+  }
+}

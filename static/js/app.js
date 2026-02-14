@@ -5,6 +5,7 @@ class CourseScheduler {
     constructor() {
         this.socket = null;
         this.scheduleData = { courses: [], instructors: [], timeSlots: {} };
+        this.courseHistory = {}; // Historical course offerings
         this.selectedFaculty = '';
         this.currentCourseId = null;
         this.pendingSlotId = null; // For double-click to add course
@@ -45,6 +46,7 @@ class CourseScheduler {
 
     async init() {
         await this.loadSchedule();
+        await this.loadCourseHistory();
         this.initSocket();
         this.setupEventListeners();
         this.renderCourseList();
@@ -60,6 +62,16 @@ class CourseScheduler {
         } catch (error) {
             console.error('Failed to load schedule:', error);
             this.showToast('Failed to load schedule', 'error');
+        }
+    }
+
+    // Load course history data
+    async loadCourseHistory() {
+        try {
+            const response = await fetch('/api/course-history');
+            this.courseHistory = await response.json();
+        } catch (error) {
+            console.error('Failed to load course history:', error);
         }
     }
 
@@ -296,20 +308,176 @@ class CourseScheduler {
         selectElement.value = selectedValue;
     }
 
-    // Render unscheduled courses in sidebar
+    // Render course list in sidebar - compact view grouped by department
     renderCourseList() {
         const courseList = document.getElementById('courseList');
+        const filterInput = document.getElementById('courseFilter');
+        const filterText = filterInput ? filterInput.value.toLowerCase() : '';
         courseList.innerHTML = '';
 
-        const unscheduledCourses = this.scheduleData.courses.filter(c => !c.slotId);
+        // Get unique courses from history, grouped by department
+        const coursesByDept = {};
+        for (const [courseId, data] of Object.entries(this.courseHistory)) {
+            const key = `${data.code} ${data.number}`;
+            if (filterText && !key.toLowerCase().includes(filterText) &&
+                !data.name.toLowerCase().includes(filterText)) {
+                continue;
+            }
+            if (!coursesByDept[data.code]) {
+                coursesByDept[data.code] = [];
+            }
+            coursesByDept[data.code].push({
+                id: courseId,
+                code: data.code,
+                number: data.number,
+                name: data.name,
+                offerings: data.offerings
+            });
+        }
 
-        unscheduledCourses.forEach(course => {
-            const card = this.createCourseCard(course);
-            courseList.appendChild(card);
+        // Sort departments and courses
+        const deptOrder = ['ECON', 'ECMG', 'MGMT', 'ITMG', 'LEAD', 'CAMG'];
+        const sortedDepts = Object.keys(coursesByDept).sort((a, b) => {
+            const aIdx = deptOrder.indexOf(a);
+            const bIdx = deptOrder.indexOf(b);
+            if (aIdx === -1 && bIdx === -1) return a.localeCompare(b);
+            if (aIdx === -1) return 1;
+            if (bIdx === -1) return -1;
+            return aIdx - bIdx;
+        });
+
+        sortedDepts.forEach(dept => {
+            // Department header
+            const header = document.createElement('div');
+            header.className = 'dept-header';
+            header.textContent = dept;
+            courseList.appendChild(header);
+
+            // Sort courses by number
+            const courses = coursesByDept[dept].sort((a, b) =>
+                parseInt(a.number) - parseInt(b.number)
+            );
+
+            courses.forEach(course => {
+                const item = this.createCourseListItem(course);
+                courseList.appendChild(item);
+            });
         });
     }
 
-    // Create a course card element
+    // Create a compact course list item
+    createCourseListItem(course) {
+        const item = document.createElement('div');
+        item.className = 'course-list-item';
+        item.dataset.courseId = course.id;
+
+        // Check if this course is scheduled for Fall 2026
+        const scheduledSections = this.scheduleData.courses.filter(c =>
+            c.code === course.code && c.number === course.number
+        );
+        const isScheduled = scheduledSections.length > 0;
+        const scheduledCount = scheduledSections.filter(s => s.slotId).length;
+        const unscheduledCount = scheduledSections.filter(s => !s.slotId).length;
+
+        let statusBadge = '';
+        if (isScheduled) {
+            if (unscheduledCount > 0) {
+                statusBadge = `<span class="course-badge unscheduled">${unscheduledCount}</span>`;
+            }
+            if (scheduledCount > 0) {
+                statusBadge += `<span class="course-badge scheduled">${scheduledCount}</span>`;
+            }
+        }
+
+        item.innerHTML = `
+            <span class="course-code-compact">${course.code} ${course.number}</span>
+            <span class="course-badges">${statusBadge}</span>
+        `;
+
+        // Click to show course history
+        item.addEventListener('click', () => this.openCourseHistoryModal(course));
+
+        return item;
+    }
+
+    // Open course history modal
+    openCourseHistoryModal(course) {
+        // Create modal if it doesn't exist
+        let modal = document.getElementById('courseHistoryModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.id = 'courseHistoryModal';
+            modal.innerHTML = `
+                <div class="modal-content course-history-modal">
+                    <span class="close-modal">&times;</span>
+                    <h3 id="historyModalTitle">Course History</h3>
+                    <div class="modal-body">
+                        <div class="history-course-name" id="historyCourseName"></div>
+                        <div class="history-sections" id="historyCurrentSections"></div>
+                        <h4>Teaching History</h4>
+                        <div class="history-offerings" id="historyOfferings"></div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            modal.querySelector('.close-modal').addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.style.display = 'none';
+            });
+        }
+
+        // Populate modal
+        const title = modal.querySelector('#historyModalTitle');
+        const courseName = modal.querySelector('#historyCourseName');
+        const currentSections = modal.querySelector('#historyCurrentSections');
+        const offerings = modal.querySelector('#historyOfferings');
+
+        title.textContent = `${course.code} ${course.number}`;
+        courseName.textContent = course.name;
+
+        // Current Fall 2026 sections
+        const f26Sections = this.scheduleData.courses.filter(c =>
+            c.code === course.code && c.number === course.number
+        );
+
+        if (f26Sections.length > 0) {
+            currentSections.innerHTML = `
+                <h4>Fall 2026 Sections</h4>
+                ${f26Sections.map(s => `
+                    <div class="current-section ${s.slotId ? 'scheduled' : 'unscheduled'}">
+                        <strong>Section ${s.section}</strong>
+                        <span>${s.instructor || 'TBA'}</span>
+                        <span>${s.slotId ? this.slotLabels[s.slotId] : 'Unscheduled'}</span>
+                        <span>${s.room || ''}</span>
+                    </div>
+                `).join('')}
+            `;
+        } else {
+            currentSections.innerHTML = '<p class="no-sections">Not scheduled for Fall 2026</p>';
+        }
+
+        // Historical offerings (from 2023 onwards)
+        const historyData = course.offerings || [];
+        const recentOfferings = historyData.filter(o => o.year >= 2023);
+
+        if (recentOfferings.length > 0) {
+            offerings.innerHTML = recentOfferings.map(o => `
+                <div class="history-offering">
+                    <span class="offering-term">${o.term} ${o.year}</span>
+                    <span class="offering-instructor">${o.instructor || 'TBA'}</span>
+                </div>
+            `).join('');
+        } else {
+            offerings.innerHTML = '<p class="no-history">No recent history available</p>';
+        }
+
+        modal.style.display = 'block';
+    }
+
+    // Create a draggable course card for unscheduled courses
     createCourseCard(course) {
         const card = document.createElement('div');
         card.className = `course-card ${this.getDayClass(course.days)}`;
@@ -519,15 +687,9 @@ class CourseScheduler {
         });
     }
 
-    // Filter courses in sidebar
+    // Filter courses in sidebar - re-renders the list with filter applied
     filterCourses(query) {
-        const cards = document.querySelectorAll('#courseList .course-card');
-        const lowerQuery = query.toLowerCase();
-
-        cards.forEach(card => {
-            const text = card.textContent.toLowerCase();
-            card.style.display = text.includes(lowerQuery) ? '' : 'none';
-        });
+        this.renderCourseList();
     }
 
     // Modal functions

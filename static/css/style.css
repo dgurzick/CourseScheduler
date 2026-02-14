@@ -256,6 +256,129 @@ body {
     background: #FFF2CC;
 }
 
+/* Compact Course List Styles */
+.dept-header {
+    font-weight: 600;
+    color: #1F4E78;
+    font-size: 0.8rem;
+    padding: 8px 4px 4px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-top: 8px;
+}
+
+.dept-header:first-child {
+    margin-top: 0;
+}
+
+.course-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: background 0.15s;
+}
+
+.course-list-item:hover {
+    background: #e8f4fc;
+}
+
+.course-code-compact {
+    color: #333;
+    font-weight: 500;
+}
+
+.course-badges {
+    display: flex;
+    gap: 4px;
+}
+
+.course-badge {
+    font-size: 0.65rem;
+    padding: 1px 5px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.course-badge.scheduled {
+    background: #d4edda;
+    color: #155724;
+}
+
+.course-badge.unscheduled {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* Course History Modal */
+.course-history-modal {
+    max-width: 500px;
+}
+
+.history-course-name {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.history-sections h4,
+.history-offerings + h4 {
+    font-size: 0.9rem;
+    color: #1F4E78;
+    margin: 15px 0 10px;
+}
+
+.current-section {
+    display: grid;
+    grid-template-columns: 80px 100px 1fr 80px;
+    gap: 8px;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+}
+
+.current-section.scheduled {
+    border-left: 3px solid #28a745;
+}
+
+.current-section.unscheduled {
+    border-left: 3px solid #ffc107;
+}
+
+.history-offering {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 8px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.85rem;
+}
+
+.history-offering:last-child {
+    border-bottom: none;
+}
+
+.offering-term {
+    color: #333;
+    font-weight: 500;
+}
+
+.offering-instructor {
+    color: #666;
+}
+
+.no-sections, .no-history {
+    color: #888;
+    font-style: italic;
+    font-size: 0.85rem;
+    padding: 10px 0;
+}
+
 /* Schedule Grid Styles */
 .schedule-container {
     flex: 1;
