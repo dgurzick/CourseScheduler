@@ -1149,3 +1149,23 @@ body {
     width: 100%;
     font-size: 0.9rem;
 }
+
+.password-hint {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #2E75B6;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 5px;
+    font-style: normal;
+    vertical-align: middle;
+}
+
+.password-hint:hover {
+    background: #1F4E78;
+}

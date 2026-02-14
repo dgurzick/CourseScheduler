@@ -355,6 +355,10 @@ class CourseScheduler {
             }
         });
 
+        document.getElementById('passwordHint').addEventListener('click', () => {
+            alert('Hint: This is the most prestigious award given by the department');
+        });
+
         // Undo and History
         document.getElementById('undoBtn').addEventListener('click', () => {
             this.undo();

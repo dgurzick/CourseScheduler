@@ -26,7 +26,7 @@ VALID_TERMS = ['fall-2026', 'spring-2027']
 DEFAULT_TERM = 'fall-2026'
 
 # Reset password
-RESET_PASSWORD = 'hood'
+RESET_PASSWORD = 'donkey'
 
 
 def get_schedule_file(term):
