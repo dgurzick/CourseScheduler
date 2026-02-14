@@ -60,6 +60,8 @@ class CourseScheduler {
         this.populateFacultyDropdown();
         this.updateFacultyPanel();
         this.updateTermDisplay();
+        // Auto-check conflicts on load
+        this.checkAllConflicts();
     }
 
     // Parse URL parameters for shareable links
@@ -114,6 +116,7 @@ class CourseScheduler {
         this.updateUndoButton();
         this.renderHistoryPanel();
         this.updateShareableUrl();
+        this.checkAllConflicts(); // Auto-check conflicts after term switch
         this.showToast(`Switched to ${newTerm === 'fall-2026' ? 'Fall 2026' : 'Spring 2027'}`, 'info');
     }
 
@@ -150,6 +153,7 @@ class CourseScheduler {
             // Only apply if for current term
             if (!data.term || data.term === this.currentTerm) {
                 this.handleScheduleUpdate(data);
+                this.checkAllConflicts(); // Auto-check conflicts
             }
         });
 
@@ -157,6 +161,7 @@ class CourseScheduler {
             console.log('Course update received:', data);
             if (!data.term || data.term === this.currentTerm) {
                 this.handleCourseUpdate(data);
+                this.checkAllConflicts(); // Auto-check conflicts
             }
         });
 
@@ -167,6 +172,7 @@ class CourseScheduler {
                 this.renderCourseList();
                 this.renderScheduleGrid();
                 this.updateFacultyPanel();
+                this.checkAllConflicts(); // Auto-check conflicts
             }
         });
 
@@ -178,6 +184,7 @@ class CourseScheduler {
                 this.renderScheduleGrid();
                 this.populateFacultyDropdown();
                 this.updateFacultyPanel();
+                this.checkAllConflicts(); // Auto-check conflicts
             }
         });
 
@@ -214,6 +221,7 @@ class CourseScheduler {
                 this.renderCourseList();
                 this.renderScheduleGrid();
                 this.updateFacultyPanel();
+                this.checkAllConflicts(); // Auto-check conflicts
             }
         });
 
@@ -1394,6 +1402,7 @@ class CourseScheduler {
         this.renderScheduleGrid();
         this.highlightFacultyCourses();
         this.updateFacultyPanel();
+        this.checkAllConflicts(); // Auto-check conflicts after move
     }
 
     // Handle schedule update from server

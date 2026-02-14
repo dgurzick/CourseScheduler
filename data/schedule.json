@@ -217,8 +217,8 @@
       "days": "MW",
       "startTime": "9:50 AM",
       "endTime": "11:15 AM",
-      "instructor": "Qiao",
-      "room": "",
+      "instructor": "Dodd",
+      "room": "RO 123",
       "slotId": "MW-B"
     },
     {
@@ -282,9 +282,9 @@
       "days": "MW",
       "startTime": "1:05 PM",
       "endTime": "2:30 PM",
-      "instructor": "Qiao",
-      "room": "",
-      "slotId": "MW-D"
+      "instructor": "Li",
+      "room": "RO 123",
+      "slotId": "MW-C"
     },
     {
       "id": "MGMT-205-1",
@@ -310,7 +310,7 @@
       "endTime": "12:55 PM",
       "instructor": "Dodd",
       "room": "",
-      "slotId": "MW-C"
+      "slotId": "MW-D"
     },
     {
       "id": "MGMT-306-1",
@@ -349,7 +349,7 @@
       "endTime": "12:50 PM",
       "instructor": "Stanker",
       "room": "",
-      "slotId": "TR-I"
+      "slotId": "TR-J"
     },
     {
       "id": "MGMT-205-2",
@@ -401,7 +401,7 @@
       "endTime": "5:00 PM",
       "instructor": "Qiao",
       "room": "",
-      "slotId": "TR-K"
+      "slotId": "TR-I"
     },
     {
       "id": "MGMT-301-2",
@@ -426,7 +426,7 @@
       "startTime": "9:50 AM",
       "endTime": "11:15 AM",
       "instructor": "Jose",
-      "room": "",
+      "room": "ONLINE SYNCHR",
       "slotId": "TR-H"
     },
     {
@@ -529,8 +529,8 @@
       "days": "W-EVE",
       "startTime": "6:15 PM",
       "endTime": "9:00 PM",
-      "instructor": "",
-      "room": "",
+      "instructor": "Gurzick",
+      "room": "ONLINE SYNCHR",
       "slotId": "W-EVE"
     },
     {
@@ -610,6 +610,32 @@
       "instructor": "Gurzick",
       "room": "",
       "slotId": "ASYNCH"
+    },
+    {
+      "id": "MGMT-590-1",
+      "code": "MGMT",
+      "number": "590",
+      "section": "1",
+      "name": "Strategy & Competitive Advantage",
+      "days": "",
+      "startTime": "",
+      "endTime": "",
+      "instructor": "Jose",
+      "room": "ONLINE SYNCHR",
+      "slotId": "M-EVE"
+    },
+    {
+      "id": "MGMT-561-1",
+      "code": "MGMT",
+      "number": "561",
+      "section": "1",
+      "name": "Financial Management",
+      "days": "",
+      "startTime": "",
+      "endTime": "",
+      "instructor": "",
+      "room": "",
+      "slotId": "M-EVE"
     }
   ],
   "instructors": [
@@ -794,5 +820,6 @@
         "time": "Online Asynchronous"
       }
     ]
-  }
+  },
+  "term": "fall-2026"
 }
