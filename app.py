@@ -200,10 +200,13 @@ def update_course():
     course_id = data.get('courseId')
     updates = data.get('updates', {})
 
+    # Allowed fields that can be added/updated
+    allowed_fields = {'instructor', 'room', 'slotId', 'days', 'startTime', 'endTime', 'name', 'section', 'bimodal'}
+
     for course in schedule['courses']:
         if course['id'] == course_id:
             for key, value in updates.items():
-                if key in course:
+                if key in allowed_fields:
                     course[key] = value
             break
 
