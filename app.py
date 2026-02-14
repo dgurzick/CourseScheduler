@@ -555,23 +555,59 @@ def export_json():
 
 @app.route('/api/export/excel')
 def export_excel():
-    """Download schedule as Excel file."""
+    """Download schedule as Excel file in registrar format."""
     term = request.args.get('term', DEFAULT_TERM)
     if term not in VALID_TERMS:
         term = DEFAULT_TERM
     schedule = load_schedule(term)
 
-    term_label = "Fall 2026" if term == 'fall-2026' else "Spring 2027"
+    # Semester dates
+    if term == 'fall-2026':
+        start_date = "8/17/2026"
+        end_date = "12/8/2026"
+    else:
+        start_date = "1/11/2027"
+        end_date = "5/4/2027"
+
+    # Slot to days/times mapping
+    slot_info = {
+        'MW-A': {'days': 'MW', 'start': '8:15 AM', 'end': '9:40 AM'},
+        'MW-B': {'days': 'MW', 'start': '9:50 AM', 'end': '11:15 AM'},
+        'MW-C': {'days': 'MW', 'start': '11:30 AM', 'end': '12:55 PM'},
+        'MW-D': {'days': 'MW', 'start': '1:05 PM', 'end': '2:30 PM'},
+        'MW-E': {'days': 'MW', 'start': '2:40 PM', 'end': '4:05 PM'},
+        'TR-G': {'days': 'TR', 'start': '8:15 AM', 'end': '9:40 AM'},
+        'TR-H': {'days': 'TR', 'start': '9:50 AM', 'end': '11:15 AM'},
+        'TR-I': {'days': 'TR', 'start': '11:25 AM', 'end': '12:50 PM'},
+        'TR-J': {'days': 'TR', 'start': '2:00 PM', 'end': '3:25 PM'},
+        'TR-K': {'days': 'TR', 'start': '3:35 PM', 'end': '5:00 PM'},
+        'M-EVE': {'days': 'M', 'start': '6:15 PM', 'end': '9:00 PM'},
+        'T-EVE': {'days': 'T', 'start': '6:15 PM', 'end': '9:00 PM'},
+        'W-EVE': {'days': 'W', 'start': '6:15 PM', 'end': '9:00 PM'},
+        'R-EVE': {'days': 'R', 'start': '6:15 PM', 'end': '9:00 PM'},
+        'TR-EVE': {'days': 'TR', 'start': '6:15 PM', 'end': '9:00 PM'},
+        'SAT': {'days': 'SAT', 'start': '9:00 AM', 'end': '12:00 PM'},
+        'ASYNCH': {'days': 'ONLINE', 'start': '12:01 AM', 'end': '12:02 AM'},
+    }
+
+    # Core designations (can be expanded)
+    core_designations = {
+        'ECON 205': 'SocBeh Sci',
+        'MGMT 205': 'SocBeh Sci',
+        'MGMT 314': 'GP',
+    }
 
     wb = Workbook()
     ws = wb.active
-    ws.title = f"{term_label} Schedule"
+    ws.title = "Schedule"
 
-    header_fill = PatternFill(start_color="1F4E78", end_color="1F4E78", fill_type="solid")
-    header_font = Font(color="FFFFFF", bold=True, size=12)
-    mw_fill = PatternFill(start_color="D9E1F2", end_color="D9E1F2", fill_type="solid")
-    tr_fill = PatternFill(start_color="FDE9D9", end_color="FDE9D9", fill_type="solid")
-    eve_fill = PatternFill(start_color="FFF2CC", end_color="FFF2CC", fill_type="solid")
+    # Headers
+    headers = ['Dept.', 'Course', 'Core', 'Section', 'Credit Type', 'Type', 'Course Type',
+               'Course Title', 'Scheduled Days', 'Credits', 'Start Time', 'End Time',
+               'Start Date', 'End Date', 'Limit', 'Instructor', 'Building', 'Room']
+
+    header_fill = PatternFill(start_color="4472C4", end_color="4472C4", fill_type="solid")
+    header_font = Font(color="FFFFFF", bold=True)
     thin_border = Border(
         left=Side(style='thin'),
         right=Side(style='thin'),
@@ -579,68 +615,119 @@ def export_excel():
         bottom=Side(style='thin')
     )
 
-    ws.merge_cells('A1:R1')
-    ws['A1'] = f"DELAPLAINE SCHOOL OF BUSINESS - {term_label} Schedule"
-    ws['A1'].font = Font(bold=True, size=16, color="FFFFFF")
-    ws['A1'].fill = header_fill
-    ws['A1'].alignment = Alignment(horizontal='center')
-
-    headers = ['', '', 'MW 8:15-9:40', 'MW 9:50-11:15', 'MW 11:30-12:55', 'MW 1:05-2:30', 'MW 2:40-4:05',
-               'TR 8:15-9:40', 'TR 9:50-11:15', 'TR 11:25-12:50', 'TR 2:00-3:25', 'TR 3:35-5:00',
-               'M Eve', 'T Eve', 'W Eve', 'TR Eve', 'SAT', 'ASYNCH']
-
     for col, header in enumerate(headers, 1):
-        cell = ws.cell(row=2, column=col, value=header)
-        cell.font = Font(bold=True, size=10)
-        cell.fill = PatternFill(start_color="D9D9D9", end_color="D9D9D9", fill_type="solid")
-        cell.alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
+        cell = ws.cell(row=1, column=col, value=header)
+        cell.font = header_font
+        cell.fill = header_fill
         cell.border = thin_border
-
-    slot_labels = ['', '', 'A', 'B', 'C', 'D', 'E', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'SAT', 'ASYNCH']
-    for col, label in enumerate(slot_labels, 1):
-        cell = ws.cell(row=3, column=col, value=label)
-        cell.font = Font(bold=True)
-        cell.fill = PatternFill(start_color="BFBFBF", end_color="BFBFBF", fill_type="solid")
         cell.alignment = Alignment(horizontal='center')
-        cell.border = thin_border
 
-    slot_map = {
-        'MW-A': 3, 'MW-B': 4, 'MW-C': 5, 'MW-D': 6, 'MW-E': 7,
-        'TR-G': 8, 'TR-H': 9, 'TR-I': 10, 'TR-J': 11, 'TR-K': 12,
-        'M-EVE': 13, 'T-EVE': 14, 'W-EVE': 15, 'TR-EVE': 16,
-        'SAT': 17, 'ASYNCH': 18
-    }
+    # Sort courses by code and number
+    sorted_courses = sorted(
+        [c for c in schedule['courses'] if c.get('slotId')],
+        key=lambda x: (x['code'], x['number'], x['section'])
+    )
 
-    grid = {}
-    for course in schedule['courses']:
-        slot_id = course.get('slotId')
-        if slot_id and slot_id in slot_map:
-            col = slot_map[slot_id]
-            if col not in grid:
-                grid[col] = []
-            grid[col].append(f"{course['code']} {course['number']}\n{course['instructor']}")
+    row = 2
+    for course in sorted_courses:
+        slot_id = course.get('slotId', '')
+        room_full = course.get('room', '')
+        course_num = int(course['number']) if course['number'].isdigit() else 0
 
-    max_rows = max([len(courses) for courses in grid.values()]) if grid else 1
+        # Parse room into building and room number
+        if 'ONLINE' in room_full.upper():
+            building = 'ONLINE'
+            room_num = 'SYNCHR' if 'SYNCHR' in room_full.upper() else 'ASYNCH'
+        elif room_full:
+            parts = room_full.split()
+            building = parts[0] if parts else ''
+            room_num = parts[1] if len(parts) > 1 else ''
+        else:
+            building = ''
+            room_num = ''
 
-    for row_offset in range(max_rows):
-        row = 4 + row_offset
-        for col in range(3, 19):
-            cell = ws.cell(row=row, column=col, value='')
+        # Determine course type
+        if slot_id == 'ASYNCH' or 'ASYNCH' in room_full.upper():
+            course_type = 'Asynchronous Online'
+            building = 'ONLINE'
+            room_num = 'ASYNCH'
+        elif 'ONLINE' in room_full.upper() and 'SYNCHR' in room_full.upper():
+            course_type = 'Synchronous Online'
+            building = 'ONLINE'
+            room_num = 'SYNCHR'
+        else:
+            course_type = 'Course'
+
+        # Get slot info for days/times
+        info = slot_info.get(slot_id, {})
+        days = info.get('days', course.get('days', ''))
+        start_time = info.get('start', course.get('startTime', ''))
+        end_time = info.get('end', course.get('endTime', ''))
+
+        # Override days for online courses
+        if course_type == 'Asynchronous Online':
+            days = 'ONLINE'
+        elif course_type == 'Synchronous Online' and slot_id:
+            # Keep the day letter for synchronous online (e.g., 'R' for Thursday evening)
+            if slot_id == 'M-EVE':
+                days = 'M'
+            elif slot_id == 'T-EVE':
+                days = 'T'
+            elif slot_id == 'W-EVE':
+                days = 'W'
+            elif slot_id == 'R-EVE':
+                days = 'R'
+
+        # Credit type and class limit based on course level
+        if course_num >= 500:
+            credit_type = 'CRG'
+            core = 'GRMBA'
+            limit = 30
+        else:
+            credit_type = 'CR'
+            course_key = f"{course['code']} {course['number']}"
+            core = core_designations.get(course_key, '')
+            limit = 25 if course_num < 300 else 30
+
+        # Section with leading zero
+        section = course['section'].zfill(2)
+
+        # Course code for display
+        course_code = f"{course['code']} {course['number']}"
+
+        # Row data
+        row_data = [
+            'MG',                           # Dept.
+            course_code,                    # Course
+            core,                           # Core
+            section,                        # Section
+            credit_type,                    # Credit Type
+            'LEC',                          # Type
+            course_type,                    # Course Type
+            course.get('name', ''),         # Course Title
+            days,                           # Scheduled Days
+            3,                              # Credits
+            start_time,                     # Start Time
+            end_time,                       # End Time
+            start_date,                     # Start Date
+            end_date,                       # End Date
+            limit,                          # Limit
+            course.get('instructor', ''),   # Instructor
+            building,                       # Building
+            room_num,                       # Room
+        ]
+
+        for col, value in enumerate(row_data, 1):
+            cell = ws.cell(row=row, column=col, value=value)
             cell.border = thin_border
-            cell.alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
+            cell.alignment = Alignment(horizontal='left' if col in [2, 7, 8, 16] else 'center')
 
-            if col <= 7:
-                cell.fill = mw_fill
-            elif col <= 12:
-                cell.fill = tr_fill
-            else:
-                cell.fill = eve_fill
+        row += 1
 
-            if col in grid and row_offset < len(grid[col]):
-                cell.value = grid[col][row_offset]
-
-    for col in range(1, 19):
-        ws.column_dimensions[ws.cell(row=1, column=col).column_letter].width = 15
+    # Auto-size columns
+    column_widths = [6, 12, 10, 8, 10, 6, 18, 40, 12, 8, 10, 10, 10, 10, 6, 18, 8, 8]
+    for col, width in enumerate(column_widths, 1):
+        ws.column_dimensions[ws.cell(row=1, column=col).column_letter].width = width
 
     buffer = BytesIO()
     wb.save(buffer)
@@ -686,9 +773,16 @@ def backup_all_data():
 @app.route('/api/restore', methods=['POST'])
 def restore_data():
     """Restore data from uploaded zip file. Requires password."""
-    password = request.form.get('password', '')
+    password = request.form.get('password', '').strip()
+    expected = RESET_PASSWORD.strip() if RESET_PASSWORD else ''
 
-    if password != RESET_PASSWORD:
+    # Debug: log password check (don't log actual passwords in production)
+    print(f"Password check - entered length: {len(password)}, expected length: {len(expected)}, match: {password == expected}")
+
+    if not expected:
+        return jsonify({'success': False, 'error': 'PASSWORD environment variable not set on server'}), 500
+
+    if password != expected:
         return jsonify({'success': False, 'error': 'Invalid password'}), 401
 
     if 'file' not in request.files:
