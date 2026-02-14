@@ -818,19 +818,21 @@ def restore_data():
             print(f"Restore: DATA_DIR = {DATA_DIR}")
 
             for name in all_files:
+                # Get just the filename (handle files inside folders)
+                basename = os.path.basename(name)
                 # Only allow specific JSON files
-                if name in ['schedule.json', 'schedule_spring_2027.json', 'course_history.json']:
+                if basename in ['schedule.json', 'schedule_spring_2027.json', 'course_history.json']:
                     content = zf.read(name)
                     # Validate it's valid JSON
                     json.loads(content)
 
-                    target_path = os.path.join(DATA_DIR, name)
-                    print(f"Restore: writing {name} to {target_path}")
+                    target_path = os.path.join(DATA_DIR, basename)
+                    print(f"Restore: writing {basename} to {target_path}")
                     os.makedirs(DATA_DIR, exist_ok=True)
                     with open(target_path, 'wb') as f:
                         f.write(content)
-                    restored_files.append(name)
-                    print(f"Restore: successfully wrote {name}")
+                    restored_files.append(basename)
+                    print(f"Restore: successfully wrote {basename}")
 
         # Clean up temp file
         os.unlink(tmp_path)
