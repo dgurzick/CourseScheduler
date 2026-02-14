@@ -47,18 +47,50 @@
         </header>
 
         <div class="main-content">
-            <aside class="sidebar" id="courseSidebar">
-                <div class="sidebar-header">
-                    <h3>All Courses</h3>
-                    <button id="addCourseBtn" class="btn btn-primary btn-sm">+ Add</button>
+            <div class="left-panels">
+                <aside class="sidebar" id="courseSidebar">
+                    <div class="sidebar-header">
+                        <h3>All Courses</h3>
+                        <button id="addCourseBtn" class="btn btn-primary btn-sm">+ Add</button>
+                    </div>
+                    <div class="filter-controls">
+                        <input type="text" id="courseFilter" placeholder="Search courses...">
+                    </div>
+                    <div class="course-list" id="courseList">
+                        <!-- Courses will be populated by JavaScript -->
+                    </div>
+                </aside>
+
+                <!-- Course Guides Panel (below sidebar) -->
+                <aside class="course-guides-panel" id="courseGuidesPanel">
+                <div class="guides-panel-header">
+                    <h3>Course Guides</h3>
+                    <button id="checkConflicts" class="btn btn-sm btn-primary">Check Conflicts</button>
                 </div>
-                <div class="filter-controls">
-                    <input type="text" id="courseFilter" placeholder="Search courses...">
-                </div>
-                <div class="course-list" id="courseList">
-                    <!-- Courses will be populated by JavaScript -->
+                <div class="guides-panel-content">
+                    <div class="guide-select">
+                        <label for="programSelect">Program:</label>
+                        <select id="programSelect">
+                            <option value="">Select a program...</option>
+                            <option value="business">Business Administration</option>
+                            <option value="accounting">Accounting</option>
+                            <option value="economics">Economics</option>
+                            <option value="finance">Finance</option>
+                        </select>
+                    </div>
+                    <div class="semester-select" id="semesterSelectGroup" style="display: none;">
+                        <label for="semesterSelect">Semester:</label>
+                        <select id="semesterSelect">
+                            <option value="">Select semester...</option>
+                        </select>
+                    </div>
+                    <div class="recommended-courses" id="recommendedCourses">
+                        <p class="no-guide-selected">Select a program and semester to see recommended courses.</p>
+                    </div>
+                    <div class="conflict-results" id="conflictResults" style="display: none;"></div>
                 </div>
             </aside>
+            </div><!-- end left-panels -->
 
             <main class="schedule-container">
                 <div class="schedule-grid" id="scheduleGrid">

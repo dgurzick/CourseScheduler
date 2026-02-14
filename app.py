@@ -29,6 +29,61 @@ DEFAULT_TERM = 'fall-2026'
 # Reset password
 RESET_PASSWORD = 'donkey'
 
+# Course guides data - courses students should take together each semester
+COURSE_GUIDES = {
+    'business': {
+        'name': 'Business Administration',
+        'semesters': {
+            'Y1-Fall': ['MGMT 205', 'ECON 205'],
+            'Y1-Spring': ['ECON 206'],
+            'Y2-Fall': ['MGMT 281', 'ECMG 303', 'MGMT 301'],
+            'Y2-Spring': ['MGMT 284', 'MGMT 306', 'ECON 306'],
+            'Y3-Fall': ['MGMT 312'],
+            'Y3-Spring': ['MGMT 314', 'MGMT 399'],
+            'Y4-Fall': ['ITMG 388', 'MGMT 454'],
+            'Y4-Spring': ['MGMT 411']
+        }
+    },
+    'accounting': {
+        'name': 'Accounting',
+        'semesters': {
+            'Y1-Fall': ['MGMT 205', 'ECON 205', 'MGMT 281'],
+            'Y1-Spring': ['MGMT 284', 'ECON 206'],
+            'Y2-Fall': ['MGMT 321', 'MGMT 306'],
+            'Y2-Spring': ['MGMT 322', 'MGMT 312'],
+            'Y3-Fall': ['MGMT 432', 'MGMT 314', 'ECMG 303'],
+            'Y3-Spring': ['MGMT 331', 'MGMT 433', 'ITMG 388'],
+            'Y4-Fall': ['MGMT 434', 'MGMT 399', 'MGMT 454'],
+            'Y4-Spring': ['MGMT 411']
+        }
+    },
+    'economics': {
+        'name': 'Economics',
+        'semesters': {
+            'Y1-Fall': ['ECON 205'],
+            'Y1-Spring': ['ECON 206'],
+            'Y2-Fall': ['ECON 305'],
+            'Y2-Spring': ['ECON 306'],
+            'Y3-Fall': ['ECON 452'],
+            'Y4-Fall': ['ECON 480'],
+            'Y4-Spring': ['ECON 470']
+        }
+    },
+    'finance': {
+        'name': 'Finance',
+        'semesters': {
+            'Y1-Fall': ['MGMT 205', 'ECON 205'],
+            'Y1-Spring': ['ECON 206'],
+            'Y2-Fall': ['MGMT 281', 'ECMG 303', 'MGMT 301'],
+            'Y2-Spring': ['MGMT 284', 'MGMT 306', 'MGMT 312'],
+            'Y3-Fall': ['MGMT 314', 'MGMT 402', 'MGMT 454'],
+            'Y3-Spring': ['MGMT 370', 'ITMG 388', 'MGMT 410'],
+            'Y4-Fall': ['MGMT 411'],
+            'Y4-Spring': ['MGMT 399', 'ECMG 478']
+        }
+    }
+}
+
 
 def get_schedule_file(term):
     """Get schedule file path for a specific term."""
@@ -210,6 +265,112 @@ def get_faculty():
 def get_course_history():
     """Return all course history data."""
     return jsonify(load_course_history())
+
+
+@app.route('/api/course-guides')
+def get_course_guides():
+    """Return course guide data for all programs."""
+    return jsonify(COURSE_GUIDES)
+
+
+@app.route('/api/check-conflicts', methods=['POST'])
+def check_conflicts():
+    """Check for scheduling conflicts between recommended courses."""
+    data = request.json
+    term = data.get('term', DEFAULT_TERM)
+    courses_to_check = data.get('courses', [])  # List of course codes like ['MGMT 205', 'ECON 205']
+
+    schedule = load_schedule(term)
+
+    # Build a map of course code to all sections and their slots
+    course_sections = {}
+    for course in schedule['courses']:
+        code_key = f"{course['code']} {course['number']}"
+        if code_key not in course_sections:
+            course_sections[code_key] = []
+        if course.get('slotId'):
+            course_sections[code_key].append({
+                'section': course['section'],
+                'slot': course['slotId'],
+                'instructor': course.get('instructor', 'TBA'),
+                'room': course.get('room', '')
+            })
+
+    conflicts = []
+    course_status = {}
+
+    # Check status of each requested course
+    for course_code in courses_to_check:
+        sections = course_sections.get(course_code, [])
+        if not sections:
+            course_status[course_code] = {
+                'scheduled': False,
+                'sections': [],
+                'status': 'not-scheduled'
+            }
+        else:
+            course_status[course_code] = {
+                'scheduled': True,
+                'sections': sections,
+                'status': 'scheduled'
+            }
+
+    # Check for conflicts between pairs of courses
+    for i, course1 in enumerate(courses_to_check):
+        for course2 in courses_to_check[i+1:]:
+            sections1 = course_sections.get(course1, [])
+            sections2 = course_sections.get(course2, [])
+
+            if not sections1 or not sections2:
+                continue
+
+            # Check if ALL combinations conflict
+            all_conflict = True
+            conflict_slots = []
+            available_combo = None
+
+            for s1 in sections1:
+                for s2 in sections2:
+                    if s1['slot'] == s2['slot']:
+                        conflict_slots.append({
+                            'course1': f"{course1}-{s1['section']}",
+                            'course2': f"{course2}-{s2['section']}",
+                            'slot': s1['slot']
+                        })
+                    else:
+                        all_conflict = False
+                        available_combo = {
+                            'course1': f"{course1}-{s1['section']} ({s1['slot']})",
+                            'course2': f"{course2}-{s2['section']} ({s2['slot']})"
+                        }
+
+            if conflict_slots:
+                if all_conflict:
+                    conflicts.append({
+                        'type': 'critical',
+                        'message': f'{course1} and {course2} have NO non-conflicting sections',
+                        'courses': [course1, course2],
+                        'details': conflict_slots
+                    })
+                    # Update status for these courses
+                    if course1 in course_status:
+                        course_status[course1]['status'] = 'conflict'
+                    if course2 in course_status:
+                        course_status[course2]['status'] = 'conflict'
+                else:
+                    conflicts.append({
+                        'type': 'warning',
+                        'message': f'{course1} and {course2} have some section conflicts, but alternatives exist',
+                        'courses': [course1, course2],
+                        'available': available_combo
+                    })
+
+    return jsonify({
+        'success': True,
+        'conflicts': conflicts,
+        'courseStatus': course_status,
+        'term': term
+    })
 
 
 @app.route('/api/course-history/<course_id>')

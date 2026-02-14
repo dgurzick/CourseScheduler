@@ -6,12 +6,15 @@ class CourseScheduler {
         this.socket = null;
         this.scheduleData = { courses: [], instructors: [], timeSlots: {} };
         this.courseHistory = {}; // Historical course offerings
+        this.courseGuides = {}; // Course guide data
         this.selectedFaculty = '';
         this.currentTerm = 'fall-2026';
         this.currentCourseId = null;
         this.pendingSlotId = null; // For double-click to add course
         this.actionHistory = []; // Track all actions for undo
         this.historyPanelOpen = false;
+        this.selectedProgram = '';
+        this.selectedSemester = '';
 
         // Slot ID to human-readable schedule mapping
         this.slotLabels = {
@@ -51,6 +54,7 @@ class CourseScheduler {
 
         await this.loadSchedule();
         await this.loadCourseHistory();
+        await this.loadCourseGuides();
         this.initSocket();
         this.setupEventListeners();
         this.renderCourseList();
@@ -58,6 +62,16 @@ class CourseScheduler {
         this.populateFacultyDropdown();
         this.updateFacultyPanel();
         this.updateTermDisplay();
+    }
+
+    // Load course guide data
+    async loadCourseGuides() {
+        try {
+            const response = await fetch('/api/course-guides');
+            this.courseGuides = await response.json();
+        } catch (error) {
+            console.error('Failed to load course guides:', error);
+        }
     }
 
     // Parse URL parameters for shareable links
@@ -398,6 +412,213 @@ class CourseScheduler {
                 this.undo();
             }
         });
+
+        // Course Guides panel
+        document.getElementById('programSelect').addEventListener('change', (e) => {
+            this.selectedProgram = e.target.value;
+            this.updateSemesterDropdown();
+            this.updateRecommendedCourses();
+        });
+
+        document.getElementById('semesterSelect').addEventListener('change', (e) => {
+            this.selectedSemester = e.target.value;
+            this.updateRecommendedCourses();
+        });
+
+        document.getElementById('checkConflicts').addEventListener('click', () => {
+            this.checkScheduleConflicts();
+        });
+    }
+
+    // Update semester dropdown based on selected program
+    updateSemesterDropdown() {
+        const semesterGroup = document.getElementById('semesterSelectGroup');
+        const semesterSelect = document.getElementById('semesterSelect');
+
+        if (!this.selectedProgram || !this.courseGuides[this.selectedProgram]) {
+            semesterGroup.style.display = 'none';
+            return;
+        }
+
+        const program = this.courseGuides[this.selectedProgram];
+        const semesters = Object.keys(program.semesters);
+
+        // Filter based on current term (Fall = Y#-Fall, Spring = Y#-Spring)
+        const isFall = this.currentTerm === 'fall-2026';
+        const termFilter = isFall ? 'Fall' : 'Spring';
+
+        const filteredSemesters = semesters.filter(s => s.includes(termFilter));
+
+        semesterSelect.innerHTML = '<option value="">Select semester...</option>';
+        filteredSemesters.forEach(sem => {
+            const option = document.createElement('option');
+            option.value = sem;
+            // Format: Y1-Fall -> Year 1 Fall
+            const label = sem.replace('Y', 'Year ').replace('-', ' ');
+            option.textContent = label;
+            semesterSelect.appendChild(option);
+        });
+
+        semesterGroup.style.display = 'block';
+        this.selectedSemester = '';
+    }
+
+    // Update recommended courses display
+    updateRecommendedCourses() {
+        const container = document.getElementById('recommendedCourses');
+        const conflictResults = document.getElementById('conflictResults');
+
+        conflictResults.style.display = 'none';
+
+        if (!this.selectedProgram || !this.selectedSemester) {
+            container.innerHTML = '<p class="no-guide-selected">Select a program and semester to see recommended courses.</p>';
+            return;
+        }
+
+        const program = this.courseGuides[this.selectedProgram];
+        const courses = program.semesters[this.selectedSemester] || [];
+
+        if (courses.length === 0) {
+            container.innerHTML = '<p class="no-guide-selected">No DSB courses recommended for this semester.</p>';
+            return;
+        }
+
+        // Check which courses are scheduled
+        const courseStatus = courses.map(courseCode => {
+            const parts = courseCode.split(' ');
+            const code = parts[0];
+            const number = parts[1];
+
+            const sections = this.scheduleData.courses.filter(c =>
+                c.code === code && c.number === number
+            );
+
+            const scheduledSections = sections.filter(s => s.slotId);
+
+            return {
+                code: courseCode,
+                scheduled: scheduledSections.length > 0,
+                sections: scheduledSections.map(s => ({
+                    section: s.section,
+                    slot: s.slotId,
+                    instructor: s.instructor || 'TBA'
+                }))
+            };
+        });
+
+        container.innerHTML = `
+            <h4>${program.name} - ${this.selectedSemester.replace('Y', 'Year ').replace('-', ' ')}</h4>
+            ${courseStatus.map(c => `
+                <div class="recommended-course-item ${c.scheduled ? 'scheduled' : 'not-scheduled'}">
+                    <span>${c.code}</span>
+                    <span class="course-status-icon">${c.scheduled ? '✓ ' + c.sections.length : '—'}</span>
+                </div>
+            `).join('')}
+        `;
+    }
+
+    // Check for scheduling conflicts between recommended courses
+    async checkScheduleConflicts() {
+        if (!this.selectedProgram || !this.selectedSemester) {
+            this.showToast('Select a program and semester first', 'info');
+            return;
+        }
+
+        const program = this.courseGuides[this.selectedProgram];
+        const courses = program.semesters[this.selectedSemester] || [];
+
+        if (courses.length < 2) {
+            this.showToast('Need at least 2 courses to check conflicts', 'info');
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/check-conflicts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    term: this.currentTerm,
+                    courses: courses
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                this.displayConflictResults(data);
+            } else {
+                this.showToast('Failed to check conflicts', 'error');
+            }
+        } catch (error) {
+            console.error('Failed to check conflicts:', error);
+            this.showToast('Failed to check conflicts', 'error');
+        }
+    }
+
+    // Display conflict check results
+    displayConflictResults(data) {
+        const container = document.getElementById('conflictResults');
+        const coursesContainer = document.getElementById('recommendedCourses');
+
+        // Update course status in recommended courses display
+        const program = this.courseGuides[this.selectedProgram];
+        const courses = program.semesters[this.selectedSemester] || [];
+
+        coursesContainer.innerHTML = `
+            <h4>${program.name} - ${this.selectedSemester.replace('Y', 'Year ').replace('-', ' ')}</h4>
+            ${courses.map(courseCode => {
+                const status = data.courseStatus[courseCode];
+                let statusClass = 'not-scheduled';
+                let icon = '—';
+
+                if (status) {
+                    if (status.status === 'conflict') {
+                        statusClass = 'conflict';
+                        icon = '⚠';
+                    } else if (status.scheduled) {
+                        statusClass = 'scheduled';
+                        icon = '✓ ' + status.sections.length;
+                    }
+                }
+
+                return `
+                    <div class="recommended-course-item ${statusClass}">
+                        <span>${courseCode}</span>
+                        <span class="course-status-icon">${icon}</span>
+                    </div>
+                `;
+            }).join('')}
+        `;
+
+        // Display conflicts
+        if (data.conflicts.length === 0) {
+            container.innerHTML = '<div class="no-conflicts">✓ No conflicts found! Students can take all courses together.</div>';
+        } else {
+            const criticalConflicts = data.conflicts.filter(c => c.type === 'critical');
+            const warnings = data.conflicts.filter(c => c.type === 'warning');
+
+            container.innerHTML = `
+                <h4>Conflict Analysis</h4>
+                ${criticalConflicts.length > 0 ? `
+                    ${criticalConflicts.map(c => `
+                        <div class="conflict-item">
+                            <div class="conflict-courses">${c.message}</div>
+                            <div class="conflict-time">All sections overlap - students cannot take both courses</div>
+                        </div>
+                    `).join('')}
+                ` : ''}
+                ${warnings.length > 0 ? `
+                    ${warnings.map(c => `
+                        <div class="conflict-item warning">
+                            <div class="conflict-courses">${c.courses.join(' & ')}</div>
+                            <div class="conflict-time">Some sections conflict, but ${c.available.course1} and ${c.available.course2} work together</div>
+                        </div>
+                    `).join('')}
+                ` : ''}
+            `;
+        }
+
+        container.style.display = 'block';
     }
 
     // Populate faculty dropdown and ensure faculty list is initialized
