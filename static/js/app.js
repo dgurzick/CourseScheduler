@@ -1360,8 +1360,10 @@ class CourseScheduler {
         const previousRoom = course.room;
 
         // Check for room conflict (same room, same time slot) - clear room if conflict
+        // Skip online rooms - they can have unlimited courses
+        const isOnlineRoom = course.room && course.room.toUpperCase().includes('ONLINE');
         let roomCleared = false;
-        if (slotId && course.room) {
+        if (slotId && course.room && !isOnlineRoom) {
             const conflictingCourse = this.scheduleData.courses.find(c =>
                 c.id !== courseId &&
                 c.slotId === slotId &&
@@ -1525,7 +1527,9 @@ class CourseScheduler {
         }
 
         // Check for room conflict if course is scheduled and has a room
-        if (course && course.slotId && updates.room) {
+        // Skip online rooms - they can have unlimited courses
+        const isOnlineRoom = updates.room && updates.room.toUpperCase().includes('ONLINE');
+        if (course && course.slotId && updates.room && !isOnlineRoom) {
             const conflictingCourse = this.scheduleData.courses.find(c =>
                 c.id !== this.currentCourseId &&
                 c.slotId === course.slotId &&
