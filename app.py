@@ -363,12 +363,26 @@ def check_conflicts():
                 if not sections1 or not sections2:
                     continue
 
-                # Check if ALL combinations conflict
+                # Check if ALL combinations conflict (ignoring online/asynch sections)
                 all_conflict = True
                 has_any_conflict = False
 
                 for s1 in sections1:
                     for s2 in sections2:
+                        # Skip online/asynch sections - they can overlap
+                        room1 = s1.get('room', '').upper()
+                        room2 = s2.get('room', '').upper()
+                        slot1 = s1.get('slot', '').upper()
+                        slot2 = s2.get('slot', '').upper()
+
+                        is_online1 = 'ONLINE' in room1 or 'ASYNCH' in slot1 or slot1 == 'ASYNCH'
+                        is_online2 = 'ONLINE' in room2 or 'ASYNCH' in slot2 or slot2 == 'ASYNCH'
+
+                        # If either is online, no physical conflict
+                        if is_online1 or is_online2:
+                            all_conflict = False
+                            continue
+
                         if s1['slot'] == s2['slot']:
                             has_any_conflict = True
                         else:
